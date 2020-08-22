@@ -48,8 +48,8 @@ export default function InputRange(props) {
 
 InputRange.propTypes = {
     text: PropTypes.string,
-    min: PropTypes.number,
-    max: PropTypes.number,
+    min: PropTypes.string,
+    max: PropTypes.string,
     item: PropTypes.oneOf(["headColor", "mouthColor", "eyesColor", "earsColor",
     "eyesShape", "decorationPattern", "decorationMidcolor", 
     "decorationSidescolor", "animation", "lastNum"]),

@@ -12,6 +12,10 @@ const colors = Object.values(allColors());
  * style of cat
  */
 export const StyledCat = styled.div`
+@media (max-width: 750px) {
+  font-size: 5px; 
+}
+  
 
 /**********************************************************
 color variables
@@ -24,17 +28,21 @@ color variables
 --eyesColor: ${props => clr.formatHex(colors[props.dna.eyesColor])};
 //ears and paws
 --earsColor: ${props => clr.formatHex(colors[props.dna.earsColor])};
+
 //glint...
 --whiteColor: #ffffff;
 //whiskers
 --darkColor: #363434;
 //claw
 --blackColor: #000000;
+
 //outline of body and pawns when same color behind
 --outlineColor: ${props => clr.contrast(colors[props.dna.headColor], 'contrast')};
 --outlinePawnColor: ${props => clr.contrast(colors[props.dna.earsColor], 'contrast')};
+
 // inside of ears, truffle, tongue
 --rawColor: rgb(250,153,108,1);
+
 //shadows
 --shadowMidColor: rgba(145,101,81,1);
 --shadowEndColor: rgba(41,27,21,1);
@@ -397,11 +405,9 @@ limb
 *********************************************************/
   .limb-front{
     position: absolute;
-    //border-top: 0.5em solid var(--headColor);
     border-bottom: 0.1em solid var(--outlineColor);
     border-left: 0.1em solid var(--outlineColor);
     border-right: 0.1em solid var(--outlineColor);
-    // border-radius: 20% 20% 0 0;
     height: 20em;
     width: 5em;
     top: 5em;
@@ -461,18 +467,17 @@ pawn, claw, front and rear pawn
     left: 2em;
   }
 
-  .pawn-rear_left{
+  .pawn-rear_left, .pawn-rear_right{
     position: absolute;
-    border-left: 0.1em solid var(--outlineColor);
     height: 2.5em;
     top: 22.5em;
+  }
+  .pawn-rear_left{
+    border-left: 0.1em solid var(--outlineColor);
     left: 2.5em;
   } 
   .pawn-rear_right{
-    position: absolute;
     border-right: 0.1em solid var(--outlineColor);
-    height: 2.5em;
-    top: 22.5em;
     left: 13.5em;
   }
   .pawn-front_left{
@@ -487,16 +492,50 @@ pawn, claw, front and rear pawn
     z-index: 4;
     left: 12.5em;
   }
-/* .cursor {
-    position: absolute;
-    height: 23em;
-    width: 23em;
-    border: none;
-    border-radius: 50%;
-    background: #b40660;
-    transform: translateX(-50%) translateY(-50%);
-    z-index: 4000;
-} */
 
+  /*********************************************************
+   Decorations
+   *********************************************************/
+.cat__head-dots, .cat__head-dots_first, .cat__head-dots_second{
+  position: absolute;
+  top: 0.1em;
+}
+.cat__head-dots_first, .cat__head-dots_second{
+  position: absolute;
+  content: '';
+  width: 1.2em;
+  height: 3.8em;
+  border-radius: 50% 0 50% 50%;
+
+}
+.cat__head-dots {
+  left: 10.2em;
+  height: 4.5em;
+  width: 1.2em;
+  background: #ffb74d;
+  -webkit-border-radius: 0 0 50% 50%;
+  border-radius: 0 0 50% 50%;
+}
+
+.cat__head-dots_first {
+  left: -2em;
+  background: #ffb74d;
+}
+.cat__head-dots_second {
+  left: 2em;
+  background: #ffb74d;
+}
+
+
+/* .cursor {
+  position: absolute;
+  height: 23em;
+  width: 23em;
+  border: none;
+  border-radius: 50%;
+  background: #b40660;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 4000;
+} */
 
 `

@@ -1,5 +1,7 @@
 
-
+.main__container{
+    height: 100vh;
+}
 
 .frontend {
     height: 90vh;

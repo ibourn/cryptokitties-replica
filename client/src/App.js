@@ -9,7 +9,7 @@ import KittiesFactory from './components/Pages/KittiesFactory';
 
 function App() {
   return (
-
+      <div className="main__container">
       <BrowserRouter>
           
             <Switch>
@@ -19,7 +19,7 @@ function App() {
             </Switch>
 
       </BrowserRouter>
-
+      </div>
   );
 }
 

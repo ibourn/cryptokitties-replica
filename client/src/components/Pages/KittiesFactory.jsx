@@ -49,7 +49,7 @@ export default function KittiesFactory(props) {
 
     return (
         <>
-            <div className="container p-5 factory__container">
+            <div className="container p-5">
 
                 <div align="center">
                     <h1 className="c-white">Kitties-Factory</h1>

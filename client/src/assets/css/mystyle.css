@@ -8,6 +8,8 @@ body {
   font-family: Poppins;
   font-weight: 500;
   letter-spacing: 1px; 
+
+  background: #607d8b;
 }
 *, *::before, *::after {
   margin: 0;
@@ -17,11 +19,9 @@ body {
 html {
   box-sizing: border-box;
   overflow-y: scroll;
+  overflow-x: hidden; 
 }
-body {
-  background: #607d8b;
 
-}
 
 .navbar-light {
   background: #ffffff;
@@ -31,9 +31,6 @@ body {
   width: fit-content;
 }
 
-html {
-  overflow-x: hidden;  
-}
 
 .abs-center {
   display        : flex;

@@ -14,7 +14,7 @@ import { StyledCat } from '../../../assets/sc/StyledCat';
 export default function Cat(props) {
 
     //specify a coef to size the cat (later: use mediaQuery)
-    const fontSize = '4px';
+    const fontSize = '6px';
 
     return (
             <StyledCat className="cat" size={fontSize} dna={props.dna}>
