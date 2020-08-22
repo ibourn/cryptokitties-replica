@@ -24,8 +24,8 @@ export default function CatFace(props) {
         <div class="truffle"></div>
         <div class="mouth"></div>
         <div class="tongue"></div>
-        <div class="mustache left_mustache"></div>
-        <div class="mustache right_mustache"></div>
+        <div class="mustache mustache-left"></div>
+        <div class="mustache mustache-right"></div>
     </div>
     )
 }

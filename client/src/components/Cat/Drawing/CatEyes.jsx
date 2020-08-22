@@ -20,13 +20,13 @@ export default function CatEyes(props) {
         <div class="eyes">
         <div class="eye">
             <div class="pupils"></div>
-            <div class="glint glint_sup"></div>
-            <div class="glint glint_inf"></div>
+            <div class="glint glint-sup"></div>
+            <div class="glint glint-inf"></div>
         </div>
         <div class="eye">
             <div class="pupils"></div>
-            <div class="glint glint_sup"></div>
-            <div class="glint glint_inf"></div>
+            <div class="glint glint-sup"></div>
+            <div class="glint glint-inf"></div>
         </div>
     </div>
     )

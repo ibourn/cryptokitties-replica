@@ -17,10 +17,10 @@ export default function CatHair(props) {
  
     return (
     
-        <div class="hair_head">
-        <div class="hair left_hair"></div>
-        <div class="hair middle_hair"></div>
-        <div class="hair right_hair"></div>
+        <div class="head-hair">
+        <div class="hair hair-left"></div>
+        <div class="hair hair-middle"></div>
+        <div class="hair hair-right"></div>
     </div>
     )
 }

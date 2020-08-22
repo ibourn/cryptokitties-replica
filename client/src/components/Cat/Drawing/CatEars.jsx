@@ -15,12 +15,12 @@ export default function CatEars(props) {
     return (
     
         <div class="ears">
-        <div class="ear left_ear">
-            <div class="ear_inside left_ear_inside">
+        <div class="ear ear-left">
+            <div class="ear-inside ear-inside_left">
             </div>
         </div>
-        <div class="ear right_ear">
-            <div class="ear_inside right_ear_inside">
+        <div class="ear ear-right">
+            <div class="ear-inside ear-inside_right">
             </div>
         </div>
     </div>

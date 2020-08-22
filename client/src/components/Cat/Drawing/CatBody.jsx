@@ -24,24 +24,28 @@ export default function CatBody(props) {
         </div>
         <div class="rear"></div>
     
-        <div class="pawn rear_left_pawn">
+        <div class="pawn pawn-rear_left">
             <div class="calw"></div>
         </div>
-        <div class="pawn rear_right_pawn">
+        <div class="pawn pawn-rear_right">
             <div class="calw"></div>
         </div>
     
-        <div class="pawn front_left_pawn">
+        <div class="pawn pawn-front_left">
             <div class="claw"></div>
         </div>
     
     
-        <div class="pawn front_right_pawn">
+        <div class="pawn pawn-front_right">
             <div class="claw"></div>
         </div>
     
-        <div class="front_limb left_limb"></div>
-        <div class="front_limb right_limb"></div>
+        <div class="limb-front limb-left">
+            <div class="limb-bottom"></div>
+        </div>
+        <div class="limb-front limb-right">
+        <div class="limb-bottom"></div>
+        </div>
     </div>
     )
 }

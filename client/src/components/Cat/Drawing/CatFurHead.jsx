@@ -17,9 +17,9 @@ export default function CatFurHead(props) {
    
     return (
     
-        <div class="fur_head">
-    <div class="fur left_fur"></div>
-    <div class="fur right_fur"></div>
+        <div class="head-fur">
+    <div class="fur fur-left"></div>
+    <div class="fur fur-right"></div>
 </div>
     )
 }

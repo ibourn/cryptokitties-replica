@@ -9,7 +9,19 @@ body {
   font-weight: 500;
   letter-spacing: 1px; 
 }
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+body {
+  background: #607d8b;
 
+}
 
 .navbar-light {
   background: #ffffff;

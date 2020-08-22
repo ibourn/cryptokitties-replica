@@ -1,64 +1,125 @@
 import styled from 'styled-components';
 
 import { allColors } from '../modules/colors';
-
+import { Color as clr } from '../modules/utils';
 
 
 const colors = Object.values(allColors());
 
 const formatColor = (str) => {
-    return `#${str}`;
+  return `#${str.padStart(6, '0')}`;
 }
 
 const invertColor = (hex) => {
-    // if (hex.indexOf('#') === 0) {
-    //     hex = hex.slice(1);
-    // }
-    // // convert 3-digit hex to 6-digits.
-    // if (hex.length === 3) {
-    //     hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
-    // }
-    // if (hex.length !== 6) {
-    //     throw new Error('Invalid HEX color.');
-    // }
+  // if (hex.indexOf('#') === 0) {
+  //     hex = hex.slice(1);
+  // }
+  // // convert 3-digit hex to 6-digits.
+  // if (hex.length === 3) {
+  //     hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+  // }
+  // if (hex.length !== 6) {
+  //     throw new Error('Invalid HEX color.');
+  // }
+  // invert color components
+  var r = (255 - parseInt(hex.slice(0, 2), 16)).toString(16),
+    g = (255 - parseInt(hex.slice(2, 4), 16)).toString(16),
+    b = (255 - parseInt(hex.slice(4, 6), 16)).toString(16);
+  // pad each with zeros and return
+  return '#' + padZero(r) + padZero(g) + padZero(b);
+}
+
+const contrastColor = (hex) => {
+  // if (hex.indexOf('#') === 0) {
+  //     hex = hex.slice(1);
+  // }
+  // // convert 3-digit hex to 6-digits.
+  // if (hex.length === 3) {
+  //     hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+  // }
+  // if (hex.length !== 6) {
+  //     throw new Error('Invalid HEX color.');
+  // }
+  // invert color components
+  var r = (255 - parseInt(hex.slice(0, 2), 16)).toString(16),
+    g = (255 - parseInt(hex.slice(2, 4), 16)).toString(16),
+    b = (255 - parseInt(hex.slice(4, 6), 16)).toString(16);
+  // pad each with zeros and return
+  return '#' + padZero(r) + padZero(g) + padZero(b);
+}
+
+
+const invertColor2 = (hex, bw) => {
+  if (hex.indexOf('#') === 0) {
+    hex = hex.slice(1);
+  }
+  // convert 3-digit hex to 6-digits.
+  if (hex.length === 3) {
+    hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+  }
+  if (hex.length !== 6) {
+    //throw new Error('Invalid HEX color.');
+    hex.padStart(6, '0');
+  }
+  var r = parseInt(hex.slice(0, 2), 16),
+    g = parseInt(hex.slice(2, 4), 16),
+    b = parseInt(hex.slice(4, 6), 16);
+  if (bw === 'blackAndWhite') {
+    // http://stackoverflow.com/a/3943023/112731
+    return (r * 0.299 + g * 0.587 + b * 0.114) > 186
+      ? '#000000'
+      : '#FFFFFF';
+  }
+  else if (bw === 'contrast') {
+    r += (r >= 127) ? -100 : 100;
+    g += (g >= 127) ? -100 : 100;
+    b += (b >= 127) ? -100 : 100;
+    return "#" + padZero(r) + padZero(g) + padZero(b);
+  }
+  else {
     // invert color components
-    var r = (255 - parseInt(hex.slice(0, 2), 16)).toString(16),
-        g = (255 - parseInt(hex.slice(2, 4), 16)).toString(16),
-        b = (255 - parseInt(hex.slice(4, 6), 16)).toString(16);
+    r = (255 - r).toString(16);
+    g = (255 - g).toString(16);
+    b = (255 - b).toString(16);
     // pad each with zeros and return
-    return '#' + padZero(r) + padZero(g) + padZero(b);
+    return "#" + padZero(r) + padZero(g) + padZero(b);
+  }
 }
 
 const padZero = (str, len) => {
-    len = len || 2;
-    var zeros = new Array(len).join('0');
-    return (zeros + str).slice(-len);
+  len = len || 2;
+  var zeros = new Array(len).join('0');
+  return (zeros + str).slice(-len);
+
 }
 
 
 export const StyledCat = styled.div`
 
 //head and body
---headColor:  ${props  => formatColor(colors[props.dna.headColor])};
+--headColor:  ${props => clr.formatHex(colors[props.dna.headColor])};
 //belly, muzzle and tail
---bellyColor: ${props  => formatColor(colors[props.dna.mouthColor])};
+--bellyColor: ${props => clr.formatHex(colors[props.dna.mouthColor])};
 //pupils
---eyesColor: ${props  => formatColor(colors[props.dna.eyesColor])};
+--eyesColor: ${props => clr.formatHex(colors[props.dna.eyesColor])};
 //ears and paws
---earsColor: ${props  => formatColor(colors[props.dna.earsColor])};
+--earsColor: ${props => clr.formatHex(colors[props.dna.earsColor])};
 //glint...
 --whiteColor: #ffffff;
 //whiskers
 --darkColor: #363434;
 //claw
 --blackColor: #000000;
-//outline of body when same color behind
---outlineColor: ${props  => invertColor(formatColor(colors[props.dna.headColor]))};
+//outline of body and pawns when same color behind
+--outlineColor: ${props => clr.contrast(colors[props.dna.headColor], 'contrast')};
+--outlinePawnColor: ${props => clr.contrast(colors[props.dna.earsColor], 'contrast')};
 // inside of ears, truffle, tongue
 --rawColor: rgb(250,153,108,1);
 //shadows
 --shadowMidColor: rgba(145,101,81,1);
 --shadowEndColor: rgba(41,27,21,1);
+--shadowBellyMidColor: ${props => clr.contrast(colors[props.dna.headColor], 'midDarken')};
+--shadowBellyEndColor: ${props => clr.contrast(colors[props.dna.headColor], 'darken')};
 
 font-size: ${props => props.size};
 
@@ -71,15 +132,17 @@ position: relative;
 /*
 colors
 */
-.face, .ear, .hair, .fur, .fur:before, .fur:after, .front, .tail, .front_limb, .pawn{
+.face, .hair, .fur, .fur:before, .fur:after, .front, .limb-front{
     background-color: var(--headColor);
 }
-.muzzle{
+.muzzle, .tail{
     background-color: var(--bellyColor);
  }
-
 .pupils{
-   background-color: #7c2525;
+   background-color: var(--eyesColor);
+ }
+ .ear, .pawn{
+  background-color: var(--earsColor);
  }
  .eye, .glint{
     background-color: #ffffff;
@@ -87,6 +150,9 @@ colors
 .claw, .claw:after, .claw:before{
     background-color: #000000;
 }
+/*
+color gradient
+*/
 
 /*
 general
@@ -198,7 +264,7 @@ truffle, mouth, mustache
         transform: rotate(15deg);
         top: 0.5em;
 }
-.left_mustache{
+.mustache-left{
         left: 4em;
         transform: scale(-1,1) rotate(-15deg);
 }
@@ -221,24 +287,24 @@ eyes, pupils and glint
     position: relative;
 }
 .pupils{
-    width: 5em;
-    height: 5em;
+    width: 5.2em;
+    height: 5.2em;
     border-radius: 50%;
     position: absolute;
-    top: 0.5em;
-    left: 0.5em;
+    top: 0.4em;
+    left: 0.4em;
 }
 .glint{
     border-radius: 50%;
     position: absolute;
 }
-.glint_sup{
+.glint-sup{
     width: 1.5em;
     height: 1.5em;
     top: 1.5em;
     left: 1.5em;
 }
-.glint_inf{
+.glint-inf{
     width: 0.8em;
     height: 0.8em;
     top: 3em;
@@ -259,14 +325,14 @@ ears and inside ears
     position: absolute;
     transform: rotate(-10deg);    
 }
-.left_ear{
+.ear-left{
     left: -3em;
     transform: scale(1,-1) rotate(-10deg);
 }
-.right_ear{
+.ear-right{
     left: 10em;
 }
-.ear_inside{
+.ear-inside{
     border-radius: 90% 0 90% 0;
     height: 13.3em;
     width: 12.9em;
@@ -276,37 +342,37 @@ ears and inside ears
     left: 1em;
     background: linear-gradient(133deg, var(--shadowEndColor) 0%, var(--shadowMidColor) 30%, var(--rawColor) 52%, var(--rawColor) 100%);
 }
-.left_ear_inside{
+.ear-inside_left{
     background: linear-gradient(129deg, var(--rawColor) 0%, var(--rawColor) 45%, var(--shadowMidColor) 75%, var(--shadowEndColor) 100%);
 }
 
 /*********************************************************
 fur top
 *********************************************************/
-.hair_head{
+.head-hair{
     position: relative;
     top: -0.5em;
 }
 .hair {
   position: absolute;
 }
-.left_hair, .middle_hair, .right_hair{
+.hair-left, .hair-middle, .hair-right{
     border-radius: 100% 00% 100% 100%;
     width: 2em;
     transform: rotate(-45deg);
 }
-.left_hair {
+.hair-left {
     display: none;
     top: 0.5em;
     left: 8em;
     height: 1.5em;
   }
-  .middle_hair {
+  .hair-middle {
     top: 0em;
     left: 10em;
     height: 2em;
   }
-  .right_hair {
+  .hair-right {
       display: none;
     top: 0.5em;
     left: 12em;
@@ -316,7 +382,7 @@ fur top
 /*********************************************************
 fur left and right
 *********************************************************/
-  .fur_head{
+  .head-fur{
     position: absolute;
     top: 13.5em;
     left: 0.7em;
@@ -348,7 +414,7 @@ fur left and right
     height: 1em;
   }
 
-  .right_fur{
+  .fur-right{
     position: absolute;
       transform: scale(-1, -1);
       top: 15.5em;
@@ -381,8 +447,8 @@ body => front = trunk, belly, rear
   }
   .belly{
     position: absolute;
-    border-radius: 30% 30% 0 0/ 80% 50% 0 0;
-    background: linear-gradient(180deg, var(--bellyColor) 0%, var(--bellyColor) 29%, var(--shadowMidColor) 75%, var(--shadowEndColor) 95%);
+    border-radius: 40% 40% 0 0/ 95% 95% 0 0;
+    background: linear-gradient(180deg, var(--bellyColor) 0%, var(--bellyColor) 20%, var(--shadowBellyMidColor) 85%, var(--shadowBellyEndColor) 95%);
     height: 21em;
     width: 13em;
     top: 4em;
@@ -404,27 +470,36 @@ body => front = trunk, belly, rear
 /*********************************************************
 limb
 *********************************************************/
-  .front_limb{
+  .limb-front{
     position: absolute;
+    border-top: 0.5em solid var(--headColor);
     border-bottom: 0.1em solid var(--outlineColor);
-    border-left: 0.1em solid #dfc15e;
+    border-left: 0.1em solid var(--outlineColor);
     border-right: 0.1em solid var(--outlineColor);
-    border-radius: 20% 20% 0 0;
+    // border-radius: 20% 20% 0 0;
     height: 20em;
     width: 5em;
     top: 5em;
     left: 0em;
     z-index: 3;
   } 
-   .left_limb{
-           left: 3em;
+  .limb-bottom{
+    position: absolute;
+    width: 4.5em;
+    height: 12em;
+    background: linear-gradient(180deg, var(--headColor) 0%,  var(--earsColor) 70%, var(--earsColor) 100%);
+    top: 7.9em;
+    z-index: 3;
+  }
+   .limb-left{
+    left: 3em;
     transform: rotate(-5deg);  
-    border-radius: 20% 20% 80% 90% / 50% 20% 10% 10%;
+    border-radius: 20% 50% 80% 90% / 50% 50% 10% 10%;
   }   
-  .right_limb{
+  .limb-right{
     left: 14em;
     transform: rotate(5deg); 
-    border-radius: 20% 20% 90% 80% / 20% 50% 10% 10%; 
+    border-radius: 50% 20% 90% 80% / 50% 50% 10% 10%; 
   }
 
 /*********************************************************
@@ -432,9 +507,9 @@ pawn, claw, front and rear pawn
 *********************************************************/
   .pawn{
     position: absolute;
-    border-top: 0.1em solid var(--earsColor);
-    border-radius: 20% 20% 20% 20%;
-    height: 2em;
+    border-top: 0.1em solid var(--outlinePawnColor);
+    border-radius: 40% 40% 20% 20%;
+    height: 2.5em;
     width: 6em;
     top: 23em;
     z-index: 2;
@@ -461,33 +536,31 @@ pawn, claw, front and rear pawn
     left: 2em;
   }
 
-  .rear_left_pawn{
+  .pawn-rear_left{
     position: absolute;
     border-left: 0.1em solid var(--outlineColor);
     height: 2.5em;
     top: 22.5em;
-    left: 3em;
+    left: 2.5em;
   } 
-  .rear_right_pawn{
+  .pawn-rear_right{
     position: absolute;
     border-right: 0.1em solid var(--outlineColor);
     height: 2.5em;
     top: 22.5em;
-    left: 13em;
+    left: 13.5em;
   }
-  .front_left_pawn{
-    border-left: 0.1em solid var(--outlineColor);
+  .pawn-front_left{
+    border-left: 0.1em solid var(--outlinePawnColor);
     border-right: 0.1em solid var(--outlineColor);
     z-index: 4;
     left: 3.5em;
-
   } 
-  .front_right_pawn{
+  .pawn-front_right{
     border-left: 0.1em solid var(--outlineColor);
-    border-right: 0.1em solid var(--outlineColor);
+    border-right: 0.1em solid var(--outlinePawnColor);
     z-index: 4;
     left: 12.5em;
-
   }
 /* .cursor {
     position: absolute;
