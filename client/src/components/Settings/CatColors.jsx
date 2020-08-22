@@ -1,14 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 
 import InputRange from './InputRange';
+
 /************************************
  * 
- * Kitties Factory Page
+ * Color settings
  * 
  * ******************************** */
-
 export default function CatColors(props) {
-
 
     return (
         <>
@@ -25,8 +26,10 @@ export default function CatColors(props) {
                 item='earsColor' dna={props.dna} handleChange={props.handleChange}>
             </InputRange>
         </>
-
     );
-
 }
 
+CatColors.propTypes = {
+    dna: PropTypes.object,
+    handleChange: PropTypes.func,
+  };

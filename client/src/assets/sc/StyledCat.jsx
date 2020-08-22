@@ -3,99 +3,19 @@ import styled from 'styled-components';
 import { allColors } from '../modules/colors';
 import { Color as clr } from '../modules/utils';
 
-
+/*
+set of available colors
+*/
 const colors = Object.values(allColors());
 
-const formatColor = (str) => {
-  return `#${str.padStart(6, '0')}`;
-}
-
-const invertColor = (hex) => {
-  // if (hex.indexOf('#') === 0) {
-  //     hex = hex.slice(1);
-  // }
-  // // convert 3-digit hex to 6-digits.
-  // if (hex.length === 3) {
-  //     hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
-  // }
-  // if (hex.length !== 6) {
-  //     throw new Error('Invalid HEX color.');
-  // }
-  // invert color components
-  var r = (255 - parseInt(hex.slice(0, 2), 16)).toString(16),
-    g = (255 - parseInt(hex.slice(2, 4), 16)).toString(16),
-    b = (255 - parseInt(hex.slice(4, 6), 16)).toString(16);
-  // pad each with zeros and return
-  return '#' + padZero(r) + padZero(g) + padZero(b);
-}
-
-const contrastColor = (hex) => {
-  // if (hex.indexOf('#') === 0) {
-  //     hex = hex.slice(1);
-  // }
-  // // convert 3-digit hex to 6-digits.
-  // if (hex.length === 3) {
-  //     hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
-  // }
-  // if (hex.length !== 6) {
-  //     throw new Error('Invalid HEX color.');
-  // }
-  // invert color components
-  var r = (255 - parseInt(hex.slice(0, 2), 16)).toString(16),
-    g = (255 - parseInt(hex.slice(2, 4), 16)).toString(16),
-    b = (255 - parseInt(hex.slice(4, 6), 16)).toString(16);
-  // pad each with zeros and return
-  return '#' + padZero(r) + padZero(g) + padZero(b);
-}
-
-
-const invertColor2 = (hex, bw) => {
-  if (hex.indexOf('#') === 0) {
-    hex = hex.slice(1);
-  }
-  // convert 3-digit hex to 6-digits.
-  if (hex.length === 3) {
-    hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
-  }
-  if (hex.length !== 6) {
-    //throw new Error('Invalid HEX color.');
-    hex.padStart(6, '0');
-  }
-  var r = parseInt(hex.slice(0, 2), 16),
-    g = parseInt(hex.slice(2, 4), 16),
-    b = parseInt(hex.slice(4, 6), 16);
-  if (bw === 'blackAndWhite') {
-    // http://stackoverflow.com/a/3943023/112731
-    return (r * 0.299 + g * 0.587 + b * 0.114) > 186
-      ? '#000000'
-      : '#FFFFFF';
-  }
-  else if (bw === 'contrast') {
-    r += (r >= 127) ? -100 : 100;
-    g += (g >= 127) ? -100 : 100;
-    b += (b >= 127) ? -100 : 100;
-    return "#" + padZero(r) + padZero(g) + padZero(b);
-  }
-  else {
-    // invert color components
-    r = (255 - r).toString(16);
-    g = (255 - g).toString(16);
-    b = (255 - b).toString(16);
-    // pad each with zeros and return
-    return "#" + padZero(r) + padZero(g) + padZero(b);
-  }
-}
-
-const padZero = (str, len) => {
-  len = len || 2;
-  var zeros = new Array(len).join('0');
-  return (zeros + str).slice(-len);
-
-}
-
-
+/**
+ * style of cat
+ */
 export const StyledCat = styled.div`
 
+/**********************************************************
+color variables
+*********************************************************/
 //head and body
 --headColor:  ${props => clr.formatHex(colors[props.dna.headColor])};
 //belly, muzzle and tail
@@ -121,6 +41,9 @@ export const StyledCat = styled.div`
 --shadowBellyMidColor: ${props => clr.contrast(colors[props.dna.headColor], 'midDarken')};
 --shadowBellyEndColor: ${props => clr.contrast(colors[props.dna.headColor], 'darken')};
 
+/**********************************************************
+adapt the size of the cat to make it responsive
+*********************************************************/
 font-size: ${props => props.size};
 
 position: relative;
@@ -128,10 +51,9 @@ position: relative;
     position: relative;
 }
 
-//var(--containerColor);//
-/*
+/**********************************************************
 colors
-*/
+*********************************************************/
 .face, .hair, .fur, .fur:before, .fur:after, .front, .limb-front{
     background-color: var(--headColor);
 }
@@ -150,13 +72,16 @@ colors
 .claw, .claw:after, .claw:before{
     background-color: #000000;
 }
-/*
+/**********************************************************
 color gradient
-*/
+*********************************************************/
 
-/*
+
+
+
+/**********************************************************
 general
-*/
+*********************************************************/
 .container{
     margin-top: 10%;
     margin-left: 30%;
@@ -472,7 +397,7 @@ limb
 *********************************************************/
   .limb-front{
     position: absolute;
-    border-top: 0.5em solid var(--headColor);
+    //border-top: 0.5em solid var(--headColor);
     border-bottom: 0.1em solid var(--outlineColor);
     border-left: 0.1em solid var(--outlineColor);
     border-right: 0.1em solid var(--outlineColor);

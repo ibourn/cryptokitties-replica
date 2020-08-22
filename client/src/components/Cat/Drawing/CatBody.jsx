@@ -3,48 +3,42 @@ import React from 'react';
 
 /************************************
  * 
- * Kitties Factory Page
+ * Composition of body's cat
  * 
  * ******************************** */
-import styled from 'styled-components';
-
-
-
-
-
 export default function CatBody(props) {
 
  
     return (
     
-        <div class="body">
-        <div class="tail"></div>
-        <div class="front">
-            <div class="belly"></div>
+        <div className="body">
+        <div className="tail"></div>
+        <div className="front">
+            <div className="belly"></div>
         </div>
-        <div class="rear"></div>
+        <div className="rear"></div>
     
-        <div class="pawn pawn-rear_left">
-            <div class="calw"></div>
+        <div className="pawn pawn-rear_left">
+            <div className="calw"></div>
         </div>
-        <div class="pawn pawn-rear_right">
-            <div class="calw"></div>
-        </div>
-    
-        <div class="pawn pawn-front_left">
-            <div class="claw"></div>
+        <div className="pawn pawn-rear_right">
+            <div className="calw"></div>
         </div>
     
-    
-        <div class="pawn pawn-front_right">
-            <div class="claw"></div>
+        <div className="pawn pawn-front_left">
+            <div className="claw"></div>
         </div>
     
-        <div class="limb-front limb-left">
-            <div class="limb-bottom"></div>
+    
+        <div className="pawn pawn-front_right">
+            <div className="claw"></div>
         </div>
-        <div class="limb-front limb-right">
-        <div class="limb-bottom"></div>
+    
+        <div className="limb-front limb-left">
+            <div className="limb-bottom"></div>
+        </div>
+        <div className="limb-front limb-right">
+        <div className="limb-bottom"></div>
         </div>
     </div>
     )

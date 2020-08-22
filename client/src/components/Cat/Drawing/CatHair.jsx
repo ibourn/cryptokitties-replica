@@ -3,24 +3,18 @@ import React from 'react';
 
 /************************************
  * 
- * Kitties Factory Page
+ * Composition of fur (top of the head)
  * 
  * ******************************** */
-import styled from 'styled-components';
-
-
-
-
-
 export default function CatHair(props) {
 
  
     return (
     
-        <div class="head-hair">
-        <div class="hair hair-left"></div>
-        <div class="hair hair-middle"></div>
-        <div class="hair hair-right"></div>
+        <div className="head-hair">
+        <div className="hair hair-left"></div>
+        <div className="hair hair-middle"></div>
+        <div className="hair hair-right"></div>
     </div>
     )
 }

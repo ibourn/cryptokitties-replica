@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import Form from 'react-bootstrap/Form';
 import FormGroup from 'react-bootstrap/FormGroup';
@@ -7,10 +8,11 @@ import FormControl from 'react-bootstrap/FormControl';
 
 /************************************
  * 
- * Kitties Factory Page
+ * Input range 
+ * 
+ * it uses callback from KittiesFactory to update adn code
  * 
  * ******************************** */
-
 export default function InputRange(props) {
     const [value, setValue] = useState(props.dna[props.item]);
 
@@ -27,7 +29,7 @@ export default function InputRange(props) {
             <FormGroup controlId="formBasicRange">
                 <FormLabel>
                     <b>{props.text}</b>
-                    <span class="badge badge-dark ml-2" id="headcode">
+                    <span className="badge badge-dark ml-2" id="headcode">
                         {value}
                     </span>
                 </FormLabel>
@@ -36,11 +38,21 @@ export default function InputRange(props) {
                     min={props.min}
                     max={props.max}
                     onChange={handleChange}
-                    class="form-control-range"
+                    className="form-control-range"
                     value={value} />
             </FormGroup>
         </Form>
     );
 
 }
+
+InputRange.propTypes = {
+    text: PropTypes.string,
+    min: PropTypes.number,
+    max: PropTypes.number,
+    item: PropTypes.oneOf(["headColor", "mouthColor", "eyesColor", "earsColor",
+    "eyesShape", "decorationPattern", "decorationMidcolor", 
+    "decorationSidescolor", "animation", "lastNum"]),
+    handleChange: PropTypes.func,
+  };
 

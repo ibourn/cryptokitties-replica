@@ -4,13 +4,9 @@ import Cat from '../Cat/Drawing/Cat';
 import Dna from '../Cat/Dna/Dna';
 import CatColors from '../Settings/CatColors';
 
-import { allColors } from '../../assets/modules/colors';
-
 import '../../assets/css/factory.css';
 
-
-const colors = Object.values(allColors());
-
+//default dna values
 var defaultDNA = {
     "headColor": 10,
     "mouthColor": 13,
@@ -24,14 +20,16 @@ var defaultDNA = {
     "animation": 1,
     "lastNum": 1
 }
+
+
 /************************************
  * 
  * Kitties Factory Page
  * 
  * ******************************** */
-
 export default function KittiesFactory(props) {
     const [dna, setDna] = useState(defaultDNA);
+
 
     useEffect(() => {
         console.log(dna);
@@ -41,41 +39,38 @@ export default function KittiesFactory(props) {
     }, [dna])
 
 
+    /*
+    update dna change from settings
+    */
     const handleChange = (value) => {
         setDna(value);
     }
 
-    const contianerStyle = {
-        marginTop: '12vh',
-        marginBottom: '10vh'
-    }
-    const fontSizeStyle = {
-        fontSize: '5px'
-    }
+
     return (
         <>
-            <div class="container p-5" style={contianerStyle}>
+            <div className="container p-5 factory__container">
 
                 <div align="center">
-                    <h1 class="c-white">Kitties-Factory</h1>
-                    <p class="c-white">Create your custom Kitty</p>
+                    <h1 className="c-white">Kitties-Factory</h1>
+                    <p className="c-white">Create your custom Kitty</p>
                 </div>
 
-                <div class="row">
+                <div className="row">
 
-                    <div class="col-lg-4 catBox m-2 light-b-shadow">
+                    <div className="col-lg-4 catBox m-2 light-b-shadow">
 
                         <div>
                             <Cat dna={dna}></Cat>
                         </div>
                         <br />
 
-                        <div class="dnaDiv" id="catDNA">
+                        <div className="dnaDiv" id="catDNA">
                             <Dna dna={dna}></Dna>
                         </div>
                     </div>
 
-                    <div class="col-lg-7 cattributes m-2 light-b-shadow">
+                    <div className="col-lg-7 cattributes m-2 light-b-shadow">
                         {/* <!-- Cat colors --> */}
                         <div id="catColors">
                             <CatColors dna={dna}  handleChange={handleChange}> </CatColors>

@@ -3,18 +3,12 @@ import React from 'react';
 
 /************************************
  * 
- * Kitties Factory Page
+ * Composition of adn code
  * 
  * ******************************** */
-
 export default function Dna(props) {
 
-    const contianerStyle = {
-        marginTop: '12vh',
-        marginBottom: '10vh'
-    }
     return (
-        <>
                <b>
                         DNA:
                         {/* <!-- Colors --> */}
@@ -31,7 +25,6 @@ export default function Dna(props) {
                          <span id="dnadanimation"></span>
                          <span id="dnaspecial"></span>
                     </b>
-        </>
 
     );
 

@@ -3,30 +3,24 @@ import React from 'react';
 
 /************************************
  * 
- * Kitties Factory Page
+ * Composition of eyes
  * 
  * ******************************** */
-import styled from 'styled-components';
-
-
-
-
-
 export default function CatEyes(props) {
 
   
     return (
     
-        <div class="eyes">
-        <div class="eye">
-            <div class="pupils"></div>
-            <div class="glint glint-sup"></div>
-            <div class="glint glint-inf"></div>
+        <div className="eyes">
+        <div className="eye">
+            <div className="pupils"></div>
+            <div className="glint glint-sup"></div>
+            <div className="glint glint-inf"></div>
         </div>
-        <div class="eye">
-            <div class="pupils"></div>
-            <div class="glint glint-sup"></div>
-            <div class="glint glint-inf"></div>
+        <div className="eye">
+            <div className="pupils"></div>
+            <div className="glint glint-sup"></div>
+            <div className="glint glint-inf"></div>
         </div>
     </div>
     )

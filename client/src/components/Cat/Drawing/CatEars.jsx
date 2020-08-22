@@ -3,24 +3,21 @@ import React from 'react';
 
 /************************************
  * 
- * Kitties Factory Page
+ * Composition of ears' cat
  * 
  * ******************************** */
-import styled from 'styled-components';
-
-
 export default function CatEars(props) {
 
     
     return (
     
-        <div class="ears">
-        <div class="ear ear-left">
-            <div class="ear-inside ear-inside_left">
+        <div className="ears">
+        <div className="ear ear-left">
+            <div className="ear-inside ear-inside_left">
             </div>
         </div>
-        <div class="ear ear-right">
-            <div class="ear-inside ear-inside_right">
+        <div className="ear ear-right">
+            <div className="ear-inside ear-inside_right">
             </div>
         </div>
     </div>

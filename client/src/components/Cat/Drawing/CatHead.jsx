@@ -7,15 +7,9 @@ import CatFurHead from './CatFurHead';
 import CatFace from './CatFace';
 /************************************
  * 
- * Kitties Factory Page
+ * Composition of head's cat
  * 
  * ******************************** */
-import styled from 'styled-components';
-
-
-
-
-
 export default function CatHead(props) {
 
    
