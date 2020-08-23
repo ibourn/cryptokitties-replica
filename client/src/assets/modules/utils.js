@@ -1,7 +1,6 @@
 
 
 export var Color = {
-
     /**
      * format to #rrggbb
      */
@@ -69,4 +68,16 @@ export var Color = {
 
         }
     }
+}
+
+export var Random = {
+    /**
+     * generate random number betwwen min and max
+     * 
+     * params: min, max : number
+     */
+    inRange: (min, max) => {
+        return (Math.floor(Math.random() * (max - min - 1)) + min);
+    }
+
 }
