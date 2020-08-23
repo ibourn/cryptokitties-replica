@@ -6,6 +6,18 @@ import FormGroup from 'react-bootstrap/FormGroup';
 import FormLabel from 'react-bootstrap/FormLabel';
 import FormControl from 'react-bootstrap/FormControl';
 
+import { allEyeVariations } from '../../assets/modules/eyevariations';
+import { allPatternVariations } from '../../assets/modules/patternvariations';
+
+
+/*
+set of available eyes variations
+*/
+const eyeVariations = Object.values(allEyeVariations());
+/*
+set of available pattern variations
+*/
+const patternVariations = Object.values(allPatternVariations());
 /************************************
  * 
  * Input range 
@@ -24,13 +36,30 @@ export default function InputRange(props) {
         props.handleChange(newDna);
     }
 
+    const convertValue = () => {
+        let valueToDisplay = "";
+        switch(props.item){
+            case 'eyesShape':
+                valueToDisplay = eyeVariations[value];
+                break;
+            case 'decorationPattern':
+                valueToDisplay = patternVariations[value];
+                 break;
+            default:
+            valueToDisplay = value;
+        }
+        return valueToDisplay;
+    }
+
+    const tagValue = convertValue();
+
     return (
         <Form>
             <FormGroup controlId="formBasicRange">
                 <FormLabel>
                     <b>{props.text}</b>
                     <span className="badge badge-dark ml-2" id="headcode">
-                        {value}
+                        {tagValue}
                     </span>
                 </FormLabel>
                 <FormControl

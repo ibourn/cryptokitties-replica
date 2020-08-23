@@ -24,6 +24,9 @@
     left:20px;
     bottom: 5px;
 }
+.dnaDiv span{
+    margin-left: 0.3em;
+}
 
 
 @media (max-width: 750px) {

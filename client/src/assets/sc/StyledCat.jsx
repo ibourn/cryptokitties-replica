@@ -29,6 +29,10 @@ color variables
 //ears and paws
 --earsColor: ${props => clr.formatHex(colors[props.dna.earsColor])};
 
+//decorations
+--mainPatternColor: ${props => clr.formatHex(colors[props.dna.decorationMidcolor])};
+--secondPatternColor: ${props => clr.formatHex(colors[props.dna.decorationSidescolor])};
+
 //glint...
 --whiteColor: #ffffff;
 //whiskers
@@ -38,7 +42,7 @@ color variables
 
 //outline of body and pawns when same color behind
 --outlineColor: ${props => clr.contrast(colors[props.dna.headColor], 'contrast')};
---outlinePawnColor: ${props => clr.contrast(colors[props.dna.earsColor], 'contrast')};
+--outlinePawnColor: ${props => clr.contrast(colors[props.dna.earsColor], 'b&w')};
 
 // inside of ears, truffle, tongue
 --rawColor: rgb(250,153,108,1);
@@ -80,6 +84,12 @@ colors
 .claw, .claw:after, .claw:before{
     background-color: #000000;
 }
+.cat__head-dots{
+  background: var(--mainPatternColor);
+}
+.cat__head-dots_first, .cat__head-dots_second{
+  background: var(--secondPatternColor);
+}
 /**********************************************************
 color gradient
 *********************************************************/
@@ -110,6 +120,8 @@ face and muzzle
     position: relative;
     z-index: 1;
     border-left: none;
+
+    overflow: hidden;
 }
 .muzzle{
     position: absolute;
@@ -416,9 +428,10 @@ limb
   } 
   .limb-bottom{
     position: absolute;
-    width: 4.5em;
+    width: 4.9em;
     height: 12em;
     background: linear-gradient(180deg, var(--headColor) 0%,  var(--earsColor) 70%, var(--earsColor) 100%);
+    border-radius: 20% 20% 20% 20%;
     top: 7.9em;
     z-index: 3;
   }
@@ -499,6 +512,9 @@ pawn, claw, front and rear pawn
 .cat__head-dots, .cat__head-dots_first, .cat__head-dots_second{
   position: absolute;
   top: 0.1em;
+  &.patternVariation-none{
+    display: none;
+  }
 }
 .cat__head-dots_first, .cat__head-dots_second{
   position: absolute;
@@ -506,25 +522,189 @@ pawn, claw, front and rear pawn
   width: 1.2em;
   height: 3.8em;
   border-radius: 50% 0 50% 50%;
-
+  &.patternVariation-main{
+    display: none;
+  }
+  &.patternVariation-secondary{
+    height: 4.2em;
+    width: 1.5em;
+  }
+  &.patternVariation-round{
+    display: none;
+  }
 }
-.cat__head-dots {
+.cat__head-dots{
   left: 10.2em;
-  height: 4.5em;
+  height: 4.8em;
   width: 1.2em;
-  background: #ffb74d;
   -webkit-border-radius: 0 0 50% 50%;
   border-radius: 0 0 50% 50%;
+  &.patternVariation-main{
+    left: 9.5em;
+    height: 4.8em;
+    width: 3em;
+  }
+  &.patternVariation-secondary{
+    height: 0em;
+    width: 0em;
+  }
+  &.patternVariation-round{
+    left: 10em;
+    height: 12em;
+    width: 12em;
+    border-radius: 30% 50%;
+
+  }
+  &.patternVariation-dots{
+    left: 8em;
+    top: -1em;
+    height: 6em;
+    width: 6em;
+    border-radius: 30% 50%;
+
+  }
 }
 
 .cat__head-dots_first {
   left: -2em;
-  background: #ffb74d;
+  &.patternVariation-oblik{
+    left: -2.5em;
+    transform: rotate(-10deg);
+  }
+  &.patternVariation-dots{
+    left: -7em;
+    top: 2em;
+    height: 9em;
+    width: 5em;
+    border-radius: 30% 50%;
+
+  }
 }
 .cat__head-dots_second {
   left: 2em;
-  background: #ffb74d;
+  &.patternVariation-oblik{
+    left: 2.5em;
+    transform: rotate(10deg);
+  }
+  &.patternVariation-dots{
+    left: 10em;
+    top: 10em;
+    height: 4em;
+    width: 4em;
+    border-radius: 30% 50%;
+
+  }
 }
+
+
+/*********************************************************
+eyes variations
+*********************************************************/
+.eyes{
+  &.eyeVariation-smart{
+    top: 2.8em;
+    z-index: 0;
+    }
+}
+ .eye{
+    &.eyeVariation-innocent{
+      border-radius: 50%;
+      width: 7em;
+      height: 7em;
+      margin: 2em;
+      }
+    &.eyeVariation-hunter{
+      overflow: hidden;
+      width: 5em;
+      height: 5em;
+      margin: 3em;
+    }
+ }
+.pupils{
+  &.eyeVariation-chilly{
+    width: 5.6em;
+    height: 5.6em;
+    border-radius: 50%;
+    top: 0.2em;
+    left: 0.2em;
+    border-top: 1em solid var(--bellyColor);
+  }
+  &.eyeVariation-sleepy{
+    width: 6em;
+    height: 6em;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    border-top: 3em solid var(--bellyColor);
+    border-bottom: 1em solid var(--bellyColor);
+  }
+  &.eyeVariation-hunter{
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    top: 1.2em;
+    left: 1.2em;
+  }
+  &.eyeVariation-smart{
+    width: 6em;
+    height: 6em;
+    border-radius: 50%;
+    top: 0em;
+    left: 0em;
+    border-top: 1.5em solid var(--headColor);
+    border-bottom: 1.5em solid var(--headColor);
+    box-shadow: inset 0.1em 0.1em white, inset -0.1em -0.1em white;
+
+  }
+  &.eyeVariation-player{
+    width: 6em;
+    height: 6em;
+    border-radius: 50%;
+    top: 0em;
+    left: 0em;
+    border-bottom: 1em solid var(--headColor);
+    box-shadow: inset 0.2em 0.2em white, inset -0.2em -0.2em white;
+
+  }
+}
+.glint-sup{
+  &.eyeVariation-sleepy{
+    display: none;
+  }
+  &.eyeVariation-smart{
+    width: 1em;
+    height: 1em;
+    top: 1.8em;
+    left: 0.9em;
+  }
+  &.eyeVariation-hunter{
+    top: 2em;
+    left: 1.9em;
+  }
+}
+.glint-inf{
+  &.eyeVariation-smart{
+    width: 0.5em;
+    height: 0.5em;
+    top: 2.5em;
+    left: 0.7em;
+  }
+  &.eyeVariation-hunter{
+    top: 3.5em;
+   left: 1.8em;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* .cursor {

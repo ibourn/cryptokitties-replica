@@ -18,12 +18,12 @@ export default function Dna(props) {
                          <span id="dnaears">{props.dna.earsColor}</span>
                         
                          {/* <!-- Cattributes --> */}
-                         <span id="dnashape"></span>
-                         <span id="dnadecoration"></span>
-                         <span id="dnadecorationMid"></span>
-                         <span id="dnadecorationSides"></span>
-                         <span id="dnadanimation"></span>
-                         <span id="dnaspecial"></span>
+                         <span id="dnashape">{props.dna.eyesShape}</span>
+                         <span id="dnadecoration">{props.dna.decorationPattern}</span>
+                         <span id="dnadecorationMid">{props.dna.decorationMidcolor}</span>
+                         <span id="dnadecorationSides">{props.dna.decorationSidescolor}</span>
+                         <span id="dnadanimation">{props.dna.animation}</span>
+                         <span id="dnaspecial">{props.dna.lastNum}</span>
                     </b>
 
     );

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Cat from '../Cat/Drawing/Cat';
 import Dna from '../Cat/Dna/Dna';
 import CatColors from '../Settings/CatColors';
+import CatAttributes from '../Settings/CatAttributes';
 
 import '../../assets/css/factory.css';
 
@@ -73,10 +74,12 @@ export default function KittiesFactory(props) {
                     <div className="col-lg-7 cattributes m-2 light-b-shadow">
                         {/* <!-- Cat colors --> */}
                         <div id="catColors">
-                            <CatColors dna={dna}  handleChange={handleChange}> </CatColors>
+                            <CatColors dna={dna} handleChange={handleChange}> </CatColors>
                         </div>
-
+                        {/* <!-- Cat attributes --> */}
                         <div>
+                            <CatAttributes dna={dna} handleChange={handleChange}> </CatAttributes>
+
                         </div>
                     </div>
                 </div>

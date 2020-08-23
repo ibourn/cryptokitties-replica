@@ -18,7 +18,7 @@ export default function Cat(props) {
 
     return (
             <StyledCat className="cat" size={fontSize} dna={props.dna}>
-                <CatHead></CatHead>
+                <CatHead dna={props.dna}></CatHead>
 
                 <CatBody></CatBody>
             </StyledCat>

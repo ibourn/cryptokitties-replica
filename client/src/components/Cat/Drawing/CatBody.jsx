@@ -33,7 +33,7 @@ export default function CatBody(props) {
         <div className="pawn pawn-front_right">
             <div className="claw"></div>
         </div>
-    
+
         <div className="limb-front limb-left">
             <div className="limb-bottom"></div>
         </div>

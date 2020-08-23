@@ -1,5 +1,13 @@
 import React from 'react';
 
+import { allEyeVariations } from '../../../assets/modules/eyevariations';
+
+
+/*
+set of available eyes variations
+*/
+const eyeVariations = Object.values(allEyeVariations());
+
 
 /************************************
  * 
@@ -7,21 +15,21 @@ import React from 'react';
  * 
  * ******************************** */
 export default function CatEyes(props) {
+    const variation = "eyeVariation-" + eyeVariations[props.dna.eyesShape];
 
-  
     return (
-    
-        <div className="eyes">
-        <div className="eye">
-            <div className="pupils"></div>
-            <div className="glint glint-sup"></div>
-            <div className="glint glint-inf"></div>
+
+        <div className={`eyes ${variation}`}>
+            <div className={`eye ${variation}`}>
+                <div className={`pupils ${variation}`}></div>
+                <div className={`glint glint-sup ${variation}`}></div>
+                <div className={`glint glint-inf ${variation}`}></div>
+            </div>
+            <div className={`eye ${variation}`}>
+                <div className={`pupils ${variation}`}></div>
+                <div className={`glint glint-sup ${variation}`}></div>
+                <div className={`glint glint-inf ${variation}`}></div>
+            </div>
         </div>
-        <div className="eye">
-            <div className="pupils"></div>
-            <div className="glint glint-sup"></div>
-            <div className="glint glint-inf"></div>
-        </div>
-    </div>
     )
 }

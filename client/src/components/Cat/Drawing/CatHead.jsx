@@ -20,7 +20,7 @@ export default function CatHead(props) {
         <CatHair></CatHair>
         <CatFurHead></CatFurHead>
         
-        <CatFace></CatFace>
+        <CatFace dna={props.dna}></CatFace>
        </> 
     )
 }
