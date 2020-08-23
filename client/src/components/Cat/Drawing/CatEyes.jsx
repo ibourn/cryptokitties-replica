@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { allEyeVariations } from '../../../assets/modules/eyevariations';
 
@@ -33,3 +34,7 @@ export default function CatEyes(props) {
         </div>
     )
 }
+
+CatEyes.propTypes = {
+    dna: PropTypes.object,
+};

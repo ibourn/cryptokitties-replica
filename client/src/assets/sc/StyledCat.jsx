@@ -3,10 +3,12 @@ import styled from 'styled-components';
 import { allColors } from '../modules/colors';
 import { Color as clr } from '../modules/utils';
 
+import { moveHead, moveTail, moveEars, moveTruffle} from './StyledAnimations';
 /*
 set of available colors
 */
 const colors = Object.values(allColors());
+
 
 /**
  * style of cat
@@ -89,6 +91,9 @@ colors
 }
 .cat__head-dots_first, .cat__head-dots_second{
   background: var(--secondPatternColor);
+  &.patternVariation-monospotted, &.patternVariation-uniform{
+    background: var(--mainPatternColor); 
+  }
 }
 /**********************************************************
 color gradient
@@ -180,11 +185,12 @@ truffle, mouth, mustache
 
 .mustache{
     position: absolute;
-        width: 8em;
-        height: 4em;
+        width: 9em;
+        height: 3.5em;
         border-radius: 50%;
         box-shadow: 0em 0.1em 0 0 var(--darkColor);
         left: 18em;
+        top: 12em;
         transform-origin: left;
         transform: rotate(-15deg);
         z-index: 1;
@@ -192,10 +198,10 @@ truffle, mouth, mustache
 .mustache:before, .mustache:after{
     position: absolute;
     content: "";
-        width: 8em;
-        height: 4em;
+        width: 9em;
+        height: 3.5em;
         border-radius: 50%;
-        box-shadow: 0em 0.1em 0 0 var(--blackColor);
+        box-shadow: 0em 0.1em 0 0 var(--darkColor);
         transform-origin: left;
 }
 .mustache:before{
@@ -402,7 +408,7 @@ body => front = trunk, belly, rear
   }
 .tail{
     position: absolute;
-    border-radius: 30% 30% 30% 30% /0 0 80% 50%;
+    border-radius: 30% 30% 70% 30% /0 0 80% 50%;
     border-left: 0.5em solid var(--bellyColor);
     height: 21em;
     width: 3em;
@@ -529,7 +535,7 @@ pawn, claw, front and rear pawn
     height: 4.2em;
     width: 1.5em;
   }
-  &.patternVariation-round{
+  &.patternVariation-spot{
     display: none;
   }
 }
@@ -548,14 +554,14 @@ pawn, claw, front and rear pawn
     height: 0em;
     width: 0em;
   }
-  &.patternVariation-round{
+  &.patternVariation-spot{
     left: 10em;
     height: 12em;
     width: 12em;
     border-radius: 30% 50%;
 
   }
-  &.patternVariation-dots{
+  &.patternVariation-spotted, &.patternVariation-monospotted{
     left: 8em;
     top: -1em;
     height: 6em;
@@ -571,7 +577,7 @@ pawn, claw, front and rear pawn
     left: -2.5em;
     transform: rotate(-10deg);
   }
-  &.patternVariation-dots{
+  &.patternVariation-spotted, &.patternVariation-monospotted{
     left: -7em;
     top: 2em;
     height: 9em;
@@ -586,7 +592,7 @@ pawn, claw, front and rear pawn
     left: 2.5em;
     transform: rotate(10deg);
   }
-  &.patternVariation-dots{
+  &.patternVariation-spotted, &.patternVariation-monospotted{
     left: 10em;
     top: 10em;
     height: 4em;
@@ -695,14 +701,27 @@ eyes variations
   }
 }
 
+/*********************************************************
+animations
+*********************************************************/
 
 
-
-
-
-
-
-
+.animation-movingHead{
+  animation: ${moveHead} ease-in-out 4s infinite;
+}
+.animation-movingTail{
+  animation: ${moveTail} ease-in-out 4s infinite;
+}
+.animation-movingEars{
+  animation: ${moveEars} ease-in-out 7s infinite;
+}
+// .animation-movingTongue{
+//   border-radius: 0 0 50% 50%;
+//   animation: ${moveTail} ease-in 4s infinite;
+// }
+.animation-movingTruffle{
+  animation: ${moveTruffle} 4s infinite;
+}
 
 
 

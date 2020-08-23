@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
@@ -39,14 +39,13 @@ export default function KittiesFactory(props) {
     const [currentIsColor, setCurrentIsColor] = useState(true);
     const [dna, setDna] = useState(defaultDNA);
 
+    // useEffect(() => {
+    //     console.log(dna);
+    //     if (dna === 0) {
+    //         setDna(defaultDNA);
+    //     }
 
-    useEffect(() => {
-        console.log(dna);
-        if (dna === 0) {
-            setDna(defaultDNA);
-        }
-    }, [dna])
-
+    // }, [dna])
 
     /*
     update dna change from settings
@@ -55,7 +54,7 @@ export default function KittiesFactory(props) {
         setDna(value);
     }
     /*
-    manage clicks between color cattribute panel
+    clicks between color and cattribute panel
     */
     const handleClickColor = () => {
         setCurrentIsColor(true);
@@ -66,21 +65,22 @@ export default function KittiesFactory(props) {
     /*
     creation of kitty buttons
     */
-    const handleClickRandomKitty =() => {
+    const handleClickRandomKitty = () => {
         setDna({
-            "headColor": Random.inRange(10,100),
-            "mouthColor": Random.inRange(10,100),
-            "eyesColor": Random.inRange(10,100),
-            "earsColor": Random.inRange(10,100),
-            "eyesShape": Random.inRange(1,7),
-            "decorationPattern": Random.inRange(1,7),
-            "decorationMidcolor": Random.inRange(10,100),
-            "decorationSidescolor": Random.inRange(10,100),
-            "animation": Random.inRange(1,7),
-            "lastNum": Random.inRange(1,10)
+            "headColor": Random.inRange(10, 100),
+            "mouthColor": Random.inRange(10, 100),
+            "eyesColor": Random.inRange(10, 100),
+            "earsColor": Random.inRange(10, 100),
+            "eyesShape": Random.inRange(1, 7),
+            "decorationPattern": Random.inRange(1, 9),
+            "decorationMidcolor": Random.inRange(10, 100),
+            "decorationSidescolor": Random.inRange(10, 100),
+            "animation": Random.inRange(1, 7),
+            "lastNum": Random.inRange(1, 10)
         });
     }
-    const handleClickDefaultKitty =() => {
+ 
+    const handleClickDefaultKitty = () => {
         setDna(defaultDNA);
     }
 
@@ -108,37 +108,40 @@ export default function KittiesFactory(props) {
                         </Row>
 
                         <Row>
-                        <ButtonGroup bsPrefix='container' className="d-flex justify-content-around"
-                         aria-label="Cat creation buttons">
-                            <Button variant="primary" size="sm" className="rounded-pill"
-                                 onClick={handleClickRandomKitty}>
-                                Get random kitty
-                            </Button>
-                            <Button variant="primary" size="sm" className="rounded-pill"
-                                onClick={handleClickDefaultKitty}>
-                                Default kitty
-                            </Button>
+                            <ButtonGroup bsPrefix='container' className="d-flex justify-content-around"
+                                aria-label="Cat creation buttons">
+                                <Button variant="primary" size="sm" className="rounded-pill"
+                                    onClick={handleClickRandomKitty}>
+                                    Get random kitty
+                                 </Button>
+                                <Button variant="primary" size="sm" className="rounded-pill"
+                                    onClick={handleClickDefaultKitty}>
+                                    Default kitty
+                                 </Button>
                             </ButtonGroup>
                         </Row>
                     </div>
 
                     <div className="col-lg-7 cattributes m-2 light-b-shadow">
-                        <Row style={{ marginBottom: '1em' }} fluid>
-                        <ButtonToolbar bsPrefix='container' className="d-flex justify-content-between" aria-label="Custom cat creation buttons">
-                        <ButtonGroup aria-label="Toggle setting panels buttons">
-                            <Button variant="primary" size="sm"
-                                disabled={currentIsColor} onClick={handleClickColor}>
-                                Colors
-                            </Button>
-                            <Button variant="primary" size="sm" style={{ marginLeft: '0.2em' }}
-                                disabled={!currentIsColor} onClick={handleClickCattributes}>
-                                Cattributes
-                            </Button>
-                            </ButtonGroup>
-                            <ButtonGroup >
-                            <Button variant="primary" size="sm" className="rounded-pill">
-                                Create Kitty
-                            </Button></ButtonGroup>
+                        <Row style={{ marginBottom: '1em' }} >
+                            <ButtonToolbar bsPrefix='container' className="d-flex justify-content-between" aria-label="Custom cat creation buttons">
+                                <ButtonGroup aria-label="Toggle setting panels buttons">
+                                    <Button variant="primary" size="sm"
+                                        disabled={currentIsColor} onClick={handleClickColor}>
+                                        Colors
+                                    </Button>
+
+                                    <Button variant="primary" size="sm" style={{ marginLeft: '0.2em' }}
+                                        disabled={!currentIsColor} onClick={handleClickCattributes}>
+                                        Cattributes
+                                    </Button>
+                                </ButtonGroup>
+
+                                <ButtonGroup >
+                                    <Button variant="primary" size="sm" className="rounded-pill">
+                                        Create Kitty
+                                     </Button>
+                                </ButtonGroup>
                             </ButtonToolbar>
                         </Row>
                         <div>

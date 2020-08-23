@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Form from 'react-bootstrap/Form';
@@ -8,6 +8,7 @@ import FormControl from 'react-bootstrap/FormControl';
 
 import { allEyeVariations } from '../../assets/modules/eyevariations';
 import { allPatternVariations } from '../../assets/modules/patternvariations';
+import { allAnimations } from '../../assets/modules/animations';
 
 
 /*
@@ -18,6 +19,10 @@ const eyeVariations = Object.values(allEyeVariations());
 set of available pattern variations
 */
 const patternVariations = Object.values(allPatternVariations());
+/*
+set of available animations
+*/
+const animations = Object.values(allAnimations());
 /************************************
  * 
  * Input range 
@@ -28,6 +33,13 @@ const patternVariations = Object.values(allPatternVariations());
 export default function InputRange(props) {
     const [value, setValue] = useState(props.dna[props.item]);
 
+    useLayoutEffect(() => {
+        if(value !== props.dna[props.item]){
+            setValue(props.dna[props.item]);
+        }
+    }, [value, props.dna, props.item])
+
+    /*get new value from user action*/
     const handleChange = (e) => {
         setValue(e.target.value);
 
@@ -36,6 +48,7 @@ export default function InputRange(props) {
         props.handleChange(newDna);
     }
 
+    /*format value to value to display*/
     const convertValue = () => {
         let valueToDisplay = "";
         switch(props.item){
@@ -45,6 +58,9 @@ export default function InputRange(props) {
             case 'decorationPattern':
                 valueToDisplay = patternVariations[value];
                  break;
+            case 'animation':
+                valueToDisplay = animations[value];
+                break;
             default:
             valueToDisplay = value;
         }

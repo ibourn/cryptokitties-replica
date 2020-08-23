@@ -1,10 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import CatHead from './CatHead';
 import CatBody from './CatBody';
 import { StyledCat } from '../../../assets/sc/StyledCat';
-
-
 
 /************************************
  * 
@@ -20,10 +19,14 @@ export default function Cat(props) {
             <StyledCat className="cat" size={fontSize} dna={props.dna}>
                 <CatHead dna={props.dna}></CatHead>
 
-                <CatBody></CatBody>
+                <CatBody dna={props.dna}></CatBody>
             </StyledCat>
     );
 
 }
+
+Cat.propTypes = {
+    dna: PropTypes.object,
+};
 
 

@@ -2,11 +2,13 @@ var patternvariations = {
 0: "nop",
 1: "none",
 2: "regular",
-3: "main",
-4: "secondary",
-5: "oblik",
-6: "round",
-7: "dots"
+3: "uniform",
+4: "main",
+5: "secondary",
+6: "oblik",
+7: "spot",
+8: "spotted",
+9: "monospotted"
 }
 
 export const allPatternVariations = () => {

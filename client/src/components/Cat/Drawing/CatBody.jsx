@@ -1,5 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
+import { allAnimations } from '../../../assets/modules/animations';
+
+
+/*
+set of available animations
+*/
+const animations = Object.values(allAnimations());
 
 /************************************
  * 
@@ -8,11 +16,14 @@ import React from 'react';
  * ******************************** */
 export default function CatBody(props) {
 
+    //head animation
+ const animId = animations[props.dna.animation];
+ const tailVariation = animId.search('Tail') >=0 ? "animation-movingTail" : "";
  
     return (
     
         <div className="body">
-        <div className="tail"></div>
+        <div className={`tail ${tailVariation}`}></div>
         <div className="front">
             <div className="belly"></div>
         </div>
@@ -43,3 +54,7 @@ export default function CatBody(props) {
     </div>
     )
 }
+
+CatBody.propTypes = {
+    dna: PropTypes.object,
+};
