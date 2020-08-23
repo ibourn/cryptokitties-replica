@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
+import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
+
 import Cat from '../Cat/Drawing/Cat';
 import Dna from '../Cat/Dna/Dna';
 import CatColors from '../Settings/CatColors';
@@ -29,6 +32,7 @@ var defaultDNA = {
  * 
  * ******************************** */
 export default function KittiesFactory(props) {
+    const [currentIsColor, setCurrentIsColor] = useState(true);
     const [dna, setDna] = useState(defaultDNA);
 
 
@@ -46,6 +50,16 @@ export default function KittiesFactory(props) {
     const handleChange = (value) => {
         setDna(value);
     }
+    /*
+    manage clicks between color cattribute panel
+    */
+   const handleClickColor = () => {
+    setCurrentIsColor(true);
+}
+const handleClickCattributes = () => {
+    setCurrentIsColor(false);
+}
+
 
 
     return (
@@ -72,14 +86,22 @@ export default function KittiesFactory(props) {
                     </div>
 
                     <div className="col-lg-7 cattributes m-2 light-b-shadow">
-                        {/* <!-- Cat colors --> */}
-                        <div id="catColors">
-                            <CatColors dna={dna} handleChange={handleChange}> </CatColors>
-                        </div>
-                        {/* <!-- Cat attributes --> */}
+                        <Row style={{ marginBottom: '1em' }}>
+                            <Button variant="primary" size="sm" style={{ marginLeft: '1em' }}
+                            disabled={ currentIsColor } onClick={handleClickColor}>
+                                Colors
+                            </Button>
+                            <Button variant="primary" size="sm" style={{ marginLeft: '1em' }}
+                            disabled={ !currentIsColor } onClick={handleClickCattributes}>
+                                Cattributes
+                            </Button>
+                        </Row>
                         <div>
+                        { (currentIsColor===true) ?
+                            <CatColors dna={dna} handleChange={handleChange}> </CatColors>
+                        :
                             <CatAttributes dna={dna} handleChange={handleChange}> </CatAttributes>
-
+                        }
                         </div>
                     </div>
                 </div>
