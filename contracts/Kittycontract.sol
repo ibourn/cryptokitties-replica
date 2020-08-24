@@ -47,7 +47,7 @@ contract Kittycontract is IERC721 {
     /**
      * @dev Emitted when `tokenId` token is transfered from `from` to `to`.
      */
-    event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);
+    event transferEvent(address indexed from, address indexed to, uint256 indexed tokenId);
 
     // /**
     //  * @dev Emitted when `owner` enables `approved` to manage the `tokenId` token.
@@ -115,20 +115,37 @@ contract Kittycontract is IERC721 {
     function transfer(address to, uint256 tokenId) external {
         require(to != address(0), "query transfer to 0 address");
         require(to != address(this), "query transfer to contract address");
-        require(_kitties[tokenId].owner == msg.sender, "sender is not the token owner");
+        require(_owns(msg.sender, tokenId), "sender is not the token owner");
 
-        removeKittyFromOwner(tokenId);
+        _transfer(msg.sender, to, tokenId);
+
+    }
+
+    function _transfer(address from, address to, uint256 tokenId) private {
+        require(from != address(0), "query transfer from 0 address");
+
         _kitties[tokenId].owner = to;
         _ownerTokens[to].push(tokenId);
 
-        emit Transfer(msg.sender, to, tokenId);
-    }
+        if(from != address(0)){
+            removeKittyFromOwner(from, tokenId);
+        }
 
-   /** 
-   * @dev helper : delete a tokenId from owner's token array
-   **/
-   function removeKittyFromOwner(uint256 tokenId) private {
-       uint256[] memory listOfKitties = _ownerTokens[msg.sender];
+        emit transferEvent(msg.sender, to, tokenId);
+    }   
+
+    /**
+     * @dev helper : check if owner owns this token
+     */
+     function _owns(address pretender, uint256 tokenId) private view returns(bool isOwner) {
+         return (_kitties[tokenId].owner == pretender);
+     }
+
+    /** 
+    * @dev helper : delete a tokenId from owner's token array
+    **/
+    function removeKittyFromOwner(address owner, uint256 tokenId) private {
+       uint256[] memory listOfKitties = _ownerTokens[owner];
 
         bool found = false;
         for (uint i = 0; i < listOfKitties.length-1; i++){
@@ -141,7 +158,7 @@ contract Kittycontract is IERC721 {
         }
         delete listOfKitties[listOfKitties.length-1];
 
-        _ownerTokens[msg.sender] = listOfKitties;
-        _ownerTokens[msg.sender].length--;
+        _ownerTokens[owner] = listOfKitties;
+        _ownerTokens[owner].length--;
     }
 }

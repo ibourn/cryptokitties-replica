@@ -14,11 +14,43 @@ const colors = Object.values(allColors());
  * style of cat
  */
 export const StyledCat = styled.div`
-@media (max-width: 750px) {
+
+/**********************************************************
+adapt the size of the cat to make it responsive
+*********************************************************/
+font-size: ${props => props.size};
+
+
+@media (min-width: 990px) and (max-height: 730px) {
+  font-size: 5px; 
+} 
+@media (min-width: 990px) and (max-height: 600px) {
+  font-size: 4px; 
+} 
+
+@media (max-width: 990px) and (max-height: 740px) {
+  font-size: 5px; 
+} 
+@media (max-width: 990px) and (max-height: 640px) {
+  font-size: 4px; 
+} 
+@media (max-width: 990px) and (max-height: 560px) {
+  font-size: 3px; 
+} 
+
+@media (max-width: 767px) {
   font-size: 5px; 
 }
-  
+@media (max-width: 767px) and (max-height: 740px) {
+  font-size: 4px; 
+} 
+@media (max-width: 767px) and (max-height: 640px) {
+  font-size: 3px; 
+} 
 
+@media (max-height: 500px) {
+  font-size: 3px; 
+} 
 /**********************************************************
 color variables
 *********************************************************/
@@ -55,15 +87,16 @@ color variables
 --shadowBellyMidColor: ${props => clr.contrast(colors[props.dna.headColor], 'midDarken')};
 --shadowBellyEndColor: ${props => clr.contrast(colors[props.dna.headColor], 'darken')};
 
-/**********************************************************
-adapt the size of the cat to make it responsive
-*********************************************************/
-font-size: ${props => props.size};
 
+
+//////////////////////////////////////////A RETIRER
 position: relative;
 .essai{
     position: relative;
 }
+
+
+
 
 /**********************************************************
 colors
