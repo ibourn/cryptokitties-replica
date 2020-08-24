@@ -14,6 +14,12 @@ contract Kittycontract is IERC721 {
     struct Kitty{
         uint256 genes;
         address owner;
+
+        //Filip code
+        // uint64 birthTime;
+        // uint32 mumId;
+        // uint32 dadId;
+        // uint16 generation;
     }
 
     /***************************************************
@@ -21,14 +27,18 @@ contract Kittycontract is IERC721 {
      **************************************************/
     uint256 private _totalSupply;
 
-    string private _tokenName = "BootcampKitties";
-    string private _tokenSymbol= "BKT";
+    string private constant _tokenName = "BootcampKitties";
+    string private constant _tokenSymbol= "BKT";
 
     /***************************************************
      * Mappings and Arrays
      **************************************************/
-    Kitty[] _kitties;
-    mapping(address => uint256[]) _ownerTokens;
+    Kitty[] private _kitties;
+    mapping(address => uint256[]) private _ownerTokens;
+
+    //Filip code
+    // mapping (uint256 => address) public kittyIndexToOwner;
+    // mapping (address => uint256) ownershipTokenCount;
 
 
     /***************************************************
@@ -53,13 +63,16 @@ contract Kittycontract is IERC721 {
      */
     function balanceOf(address owner) external view returns(uint256 balance){
         return _ownerTokens[owner].length;
+
+        //Filip code
+        //return ownershipTokenCount[owner];
     }
 
     /**
      * @dev Returns the total number of tokens in circulation.
      */
     function totalSupply() external view returns (uint256 total){
-        return _totalSupply;
+        return _kitties.length;
     }
 
     /**
