@@ -2,31 +2,34 @@
 pragma solidity ^0.5.12;
 
 import "./IERC721.sol";
+import "./Ownable.sol";
 
 /*
 Week7 day5 we don't implement approval at the moment
 */
-contract Kittycontract is IERC721 {
+contract Kittycontract is IERC721, Ownable {
 
     /**
      * Struct of a kitty at the moment
      */
     struct Kitty{
-        uint256 genes;
         address owner;
 
         //Filip code
-        // uint64 birthTime;
-        // uint32 mumId;
-        // uint32 dadId;
-        // uint16 generation;
+        uint256 genes;
+        uint64 birthTime;
+        uint32 mumId;
+        uint32 dadId;
+        uint16 generation;
     }
 
     /***************************************************
      * Variables
      **************************************************/
-    uint256 private _totalSupply;
+    //uint256 private _totalSupply;
 
+    uint256 private constant _CREATION_LIMIT_GEN0 = 10;
+    uint256 public _gen0Counter;
     string private constant _tokenName = "BootcampKitties";
     string private constant _tokenSymbol= "BKT";
 
@@ -47,8 +50,21 @@ contract Kittycontract is IERC721 {
     /**
      * @dev Emitted when `tokenId` token is transfered from `from` to `to`.
      */
-    event transferEvent(address indexed from, address indexed to, uint256 indexed tokenId);
-
+    event transferEvent(
+        address indexed from,
+        address indexed to,
+        uint256 indexed tokenId
+   );
+    /**
+     * @dev Emitted when `kittenId` is created
+     */
+    event birthEvent(
+        address owner,
+        uint256 kittenId,
+        uint256 mumId,
+        uint256 dadId,
+        uint256 genes
+    );
     // /**
     //  * @dev Emitted when `owner` enables `approved` to manage the `tokenId` token.
     //  */
@@ -58,6 +74,74 @@ contract Kittycontract is IERC721 {
     /***************************************************
      * Functions
      **************************************************/
+    /**
+     * @dev creates a kitty : generation 0 
+     *
+     * - uses private function : _createKitty
+     */
+    function createKittyGen0(uint256 genes) public onlyOwner returns(uint256) {
+        require(_gen0Counter < _CREATION_LIMIT_GEN0);
+
+        _gen0Counter++;
+
+        //Gen0 have no owners they are own by the contract address(0) (here: the owner)
+        return _createKitty(0, 0, 0, genes, msg.sender);
+    }
+
+    /**
+     * @dev general function for the creation of new kitten
+     */
+    function _createKitty(
+        uint256 kittyMumId,
+        uint256 kittyDadId,
+        uint256 kittyGeneration,
+        uint256 kittyGenes,
+        address kittyOwner
+    ) private returns (uint256) {
+
+        Kitty memory kitty = Kitty({
+            owner: kittyOwner,          //A RETIRER SI CONSERVATION DU FORMAT DU COURS
+            genes: kittyGenes,
+            birthTime: uint64(now),
+            mumId: uint32(kittyMumId),
+            dadId: uint32(kittyDadId),
+            generation: uint16(kittyGeneration)
+        });
+
+        uint256 newKittenId = _kitties.push(kitty) - 1;
+
+        emit birthEvent(kittyOwner, newKittenId, kittyMumId, kittyDadId, kittyGenes);
+
+        _transfer(address(0), kittyOwner, newKittenId);
+
+        return newKittenId;
+    }
+
+    /**
+     * @dev Returns informations about `kittyId`.
+     *
+     * Requirements:
+     *
+     * - `kittyId` must exist.
+     */
+    function getKitty(uint256 kittyId) public view returns(
+        uint256 genes,
+        uint64 birthTime,
+        uint32 mumId,
+        uint32 dadId,
+        uint16 generation
+     ) {
+        require(_kitties.length > kittyId, "the tokenId doesn't exist yet");
+
+        return (
+            _kitties[kittyId].genes,
+            _kitties[kittyId].birthTime,
+            _kitties[kittyId].mumId,
+            _kitties[kittyId].dadId,
+            _kitties[kittyId].generation
+        );
+    }
+
     /**
      * @dev Returns the number of tokens in ``owner``'s account.
      */
@@ -122,7 +206,6 @@ contract Kittycontract is IERC721 {
     }
 
     function _transfer(address from, address to, uint256 tokenId) private {
-        require(from != address(0), "query transfer from 0 address");
 
         _kitties[tokenId].owner = to;
         _ownerTokens[to].push(tokenId);
@@ -161,4 +244,19 @@ contract Kittycontract is IERC721 {
         _ownerTokens[owner] = listOfKitties;
         _ownerTokens[owner].length--;
     }
+
+
+    // Improved delete function, waiting for Gabba approval 
+    //  function removeKittyFromOwner(address owner, uint256 tokenId) private {
+    //    uint256[] memory listOfKitties = _ownerTokens[owner];
+
+    //     for (uint i = 0; i < listOfKitties.length-1; i++){
+    //         if(tokenId == listOfKitties[i]){
+    //             listOfKitties[i] = listOfKitties[listOfKitties.length-1];
+    //                break;
+    //         }
+    //     }
+    //     _ownerTokens[owner] = listOfKitties;
+    //     _ownerTokens[owner].length--;
+    // }
 }
