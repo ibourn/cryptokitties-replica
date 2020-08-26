@@ -91,7 +91,7 @@ contract Kittycontract is IERC721, Ownable {
         uint256 kittyGeneration,
         uint256 kittyGenes,
         address kittyOwner
-    ) private returns (uint256 newKittenId) {
+    ) private returns (uint256) {
 
         Kitty memory kitty = Kitty({
             genes: kittyGenes,
@@ -120,21 +120,21 @@ contract Kittycontract is IERC721, Ownable {
     function getKitty(uint256 kittyId) public view returns(
         address owner,
         uint256 genes,
-        uint64 birthTime,
-        uint32 mumId,
-        uint32 dadId,
-        uint16 generation
+        uint256 birthTime,
+        uint256 mumId,
+        uint256 dadId,
+        uint256 generation
      ) {
         require(_kitties.length > kittyId, "the tokenId doesn't exist yet");
 
-        return (
-            _ kittyIndexToOwner[kittyId],
-            _kitties[kittyId].genes,
-            _kitties[kittyId].birthTime,
-            _kitties[kittyId].mumId,
-            _kitties[kittyId].dadId,
-            _kitties[kittyId].generation
-        );
+        Kitty storage kitty = _kitties[kittyId];
+
+        owner = _kittyIndexToOwner[kittyId];
+        genes = _kitties[kittyId].genes;
+        birthTime = uint256(_kitties[kittyId].birthTime);
+        mumId = uint256(_kitties[kittyId].mumId);
+        dadId = uint256(_kitties[kittyId].dadId);
+        generation = uint256(_kitties[kittyId].generation);
     }
 
     /**
