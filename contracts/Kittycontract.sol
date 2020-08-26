@@ -10,12 +10,9 @@ Week7 day5 we don't implement approval at the moment
 contract Kittycontract is IERC721, Ownable {
 
     /**
-     * Struct of a kitty at the moment
+     * Struct of a kitty
      */
     struct Kitty{
-        address owner;
-
-        //Filip code
         uint256 genes;
         uint64 birthTime;
         uint32 mumId;
@@ -26,22 +23,19 @@ contract Kittycontract is IERC721, Ownable {
     /***************************************************
      * Variables
      **************************************************/
-    //uint256 private _totalSupply;
-
     uint256 private constant _CREATION_LIMIT_GEN0 = 10;
     uint256 public _gen0Counter;
     string private constant _tokenName = "BootcampKitties";
     string private constant _tokenSymbol= "BKT";
 
+
     /***************************************************
      * Mappings and Arrays
      **************************************************/
     Kitty[] private _kitties;
-    mapping(address => uint256[]) private _ownerTokens;
 
-    //Filip code
-    // mapping (uint256 => address) public kittyIndexToOwner;
-    // mapping (address => uint256) ownershipTokenCount;
+    mapping (uint256 => address) public _kittyIndexToOwner;
+    mapping (address => uint256) _ownershipTokenCount;
 
 
     /***************************************************
@@ -79,12 +73,12 @@ contract Kittycontract is IERC721, Ownable {
      *
      * - uses private function : _createKitty
      */
-    function createKittyGen0(uint256 genes) public onlyOwner returns(uint256) {
+    function createKittyGen0(uint256 genes) public onlyOwner returns(uint256 newKittenId) {
         require(_gen0Counter < _CREATION_LIMIT_GEN0);
 
         _gen0Counter++;
 
-        //Gen0 have no owners they are own by the contract address(0) (here: the owner)
+        //Gen0 have no owners they are own by the contract address(this)
         return _createKitty(0, 0, 0, genes, msg.sender);
     }
 
@@ -97,10 +91,9 @@ contract Kittycontract is IERC721, Ownable {
         uint256 kittyGeneration,
         uint256 kittyGenes,
         address kittyOwner
-    ) private returns (uint256) {
+    ) private returns (uint256 newKittenId) {
 
         Kitty memory kitty = Kitty({
-            owner: kittyOwner,          //A RETIRER SI CONSERVATION DU FORMAT DU COURS
             genes: kittyGenes,
             birthTime: uint64(now),
             mumId: uint32(kittyMumId),
@@ -125,6 +118,7 @@ contract Kittycontract is IERC721, Ownable {
      * - `kittyId` must exist.
      */
     function getKitty(uint256 kittyId) public view returns(
+        address owner,
         uint256 genes,
         uint64 birthTime,
         uint32 mumId,
@@ -134,6 +128,7 @@ contract Kittycontract is IERC721, Ownable {
         require(_kitties.length > kittyId, "the tokenId doesn't exist yet");
 
         return (
+            _ kittyIndexToOwner[kittyId],
             _kitties[kittyId].genes,
             _kitties[kittyId].birthTime,
             _kitties[kittyId].mumId,
@@ -146,10 +141,7 @@ contract Kittycontract is IERC721, Ownable {
      * @dev Returns the number of tokens in ``owner``'s account.
      */
     function balanceOf(address owner) external view returns(uint256 balance){
-        return _ownerTokens[owner].length;
-
-        //Filip code
-        //return ownershipTokenCount[owner];
+        return _ownershipTokenCount[owner];
     }
 
     /**
@@ -182,11 +174,12 @@ contract Kittycontract is IERC721, Ownable {
      */
     function ownerOf(uint256 tokenId) external view returns (address owner){
         require(_kitties.length > tokenId, "No owner, the tokenId doesn't exist yet");
-   
-        return _kitties[tokenId].owner;
+
+        return _kittyIndexToOwner[tokenId];
     }
 
      /** @dev Transfers `tokenId` token from `msg.sender` to `to`.
+     * - call _transfer(from, to , tokenId)
      *
      * Requirements:
      *
@@ -194,7 +187,6 @@ contract Kittycontract is IERC721, Ownable {
      * - `to` can not be the contract address.
      * - `tokenId` token must be owned by `msg.sender`.
      *
-     * Emits a {Transfer} event.
      */
     function transfer(address to, uint256 tokenId) external {
         require(to != address(0), "query transfer to 0 address");
@@ -202,16 +194,19 @@ contract Kittycontract is IERC721, Ownable {
         require(_owns(msg.sender, tokenId), "sender is not the token owner");
 
         _transfer(msg.sender, to, tokenId);
-
     }
 
+     /** @dev Transfer : main function
+     *
+     * Emits a {Transfer} event.
+     */
     function _transfer(address from, address to, uint256 tokenId) private {
+        _ownershipTokenCount[to]++;
 
-        _kitties[tokenId].owner = to;
-        _ownerTokens[to].push(tokenId);
+        _kittyIndexToOwner[tokenId] = to;
 
         if(from != address(0)){
-            removeKittyFromOwner(from, tokenId);
+            _ownershipTokenCount[from]--;
         }
 
         emit transferEvent(msg.sender, to, tokenId);
@@ -221,42 +216,7 @@ contract Kittycontract is IERC721, Ownable {
      * @dev helper : check if owner owns this token
      */
      function _owns(address pretender, uint256 tokenId) private view returns(bool isOwner) {
-         return (_kitties[tokenId].owner == pretender);
+         return (_kittyIndexToOwner[tokenId] == pretender);
      }
 
-    /** 
-    * @dev helper : delete a tokenId from owner's token array
-    **/
-    function removeKittyFromOwner(address owner, uint256 tokenId) private {
-       uint256[] memory listOfKitties = _ownerTokens[owner];
-
-        bool found = false;
-        for (uint i = 0; i < listOfKitties.length-1; i++){
-            if(tokenId == listOfKitties[i]){
-                found = true;
-            }
-            if(found){
-                listOfKitties[i] = listOfKitties[i+1];
-            }
-        }
-        delete listOfKitties[listOfKitties.length-1];
-
-        _ownerTokens[owner] = listOfKitties;
-        _ownerTokens[owner].length--;
-    }
-
-
-    // Improved delete function, waiting for Gabba approval 
-    //  function removeKittyFromOwner(address owner, uint256 tokenId) private {
-    //    uint256[] memory listOfKitties = _ownerTokens[owner];
-
-    //     for (uint i = 0; i < listOfKitties.length-1; i++){
-    //         if(tokenId == listOfKitties[i]){
-    //             listOfKitties[i] = listOfKitties[listOfKitties.length-1];
-    //                break;
-    //         }
-    //     }
-    //     _ownerTokens[owner] = listOfKitties;
-    //     _ownerTokens[owner].length--;
-    // }
 }
