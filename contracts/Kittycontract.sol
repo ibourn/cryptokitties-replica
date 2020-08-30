@@ -2,41 +2,12 @@
 pragma solidity ^0.5.12;
 
 import "./IERC721.sol";
-import "./Ownable.sol";
+import "./KittyStorage.sol";
 
 /*
 Week7 day5 we don't implement approval at the moment
 */
-contract Kittycontract is IERC721, Ownable {
-
-    /**
-     * Struct of a kitty
-     */
-    struct Kitty{
-        uint256 genes;
-        uint64 birthTime;
-        uint32 mumId;
-        uint32 dadId;
-        uint16 generation;
-    }
-
-    /***************************************************
-     * Variables
-     **************************************************/
-    uint256 private constant _CREATION_LIMIT_GEN0 = 10;
-    uint256 public _gen0Counter;
-    string private constant _tokenName = "BootcampKitties";
-    string private constant _tokenSymbol= "BKT";
-
-
-    /***************************************************
-     * Mappings and Arrays
-     **************************************************/
-    Kitty[] private _kitties;
-
-    mapping (uint256 => address) public _kittyIndexToOwner;
-    mapping (address => uint256) _ownershipTokenCount;
-
+contract KittyContract is IERC721, KittyStorage {
 
     /***************************************************
      * Events

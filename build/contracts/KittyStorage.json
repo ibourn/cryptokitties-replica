@@ -1,0 +1,1137 @@
+{
+  "contractName": "KittyStorage",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "_gen0Counter",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "_kittyIndexToOwner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "_owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"_gen0Counter\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"_kittyIndexToOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"_owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{},\"notice\":\"-Allows persistent storage => shouldn't be modified  * -Inherits from Ownable and Pausable cause the scope of the fallback function in KittyProxy will be the proxy context which means the real persistent storage is inside the parent of KittyProxy  \"}},\"settings\":{\"compilationTarget\":{\"/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/KittyStorage.sol\":\"KittyStorage\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/KittyStorage.sol\":{\"keccak256\":\"0x24596a5947c12b3a43d66135402488d26d2329db53f6ae9d1ae0062f98ba2ec8\",\"urls\":[\"bzz-raw://6bba4324b1a03ea5a45802928f1b77251ea23489a0ffc6615bc22c36609fc012\",\"dweb:/ipfs/QmT1zT1aTZtGN28LGBuWwN1RW8iX7wcBMub1BwR2kCQe2x\"]},\"/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/Ownable.sol\":{\"keccak256\":\"0x90b92a4ec58d84752b01fa5720f9a435aca7f8b2a099363bd33678064cd76765\",\"urls\":[\"bzz-raw://e55dd20eaded4fa3f301bfb02e20c5e278afe30fe59d1a6a6d35896a6f9294b4\",\"dweb:/ipfs/QmcbYtGzGkh4E3yDMrbVZH5Q6AuzYUhnqDsRf55uzraxHT\"]},\"/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/Pausable.sol\":{\"keccak256\":\"0x6993c6a7e030ec19811e6d85a115f34abd58c0fa09cdd40dd6fa507c66a3f3fe\",\"urls\":[\"bzz-raw://1205ba4794faae60c9141d52e8c4d232d90b2d21eaef29231df3e0f87209110f\",\"dweb:/ipfs/Qmf1CWBGKBuFNPg1JsoP7t7qqG2nVpwpaCB3BtMEmS9jd7\"]}},\"version\":1}",
+  "bytecode": "0x6080604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506101af806100536000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c80638b8bc5e514610046578063b2bdfa7b146100b4578063f227d80d146100fe575b600080fd5b6100726004803603602081101561005c57600080fd5b810190808035906020019092919050505061011c565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100bc61014f565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b610106610174565b6040518082815260200191505060405180910390f35b60036020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6001548156fea265627a7a72315820c1f20c8c2374a468c405866ad61d8e5a190f2c8ed5634c959019f63d970eb57b64736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c80638b8bc5e514610046578063b2bdfa7b146100b4578063f227d80d146100fe575b600080fd5b6100726004803603602081101561005c57600080fd5b810190808035906020019092919050505061011c565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100bc61014f565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b610106610174565b6040518082815260200191505060405180910390f35b60036020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6001548156fea265627a7a72315820c1f20c8c2374a468c405866ad61d8e5a190f2c8ed5634c959019f63d970eb57b64736f6c63430005100032",
+  "sourceMap": "352:885:3:-;;;517:10:5;508:6;;:19;;;;;;;;;;;;;;;;;;352:885:3;;;;;;",
+  "deployedSourceMap": "352:885:3:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;352:885:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1121:54;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1121:54:3;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;186:21:5;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;792:27:3;;;:::i;:::-;;;;;;;;;;;;;;;;;;;1121:54;;;;;;;;;;;;;;;;;;;;;;:::o;186:21:5:-;;;;;;;;;;;;;:::o;792:27:3:-;;;;:::o",
+  "source": "pragma solidity ^0.5.12;\r\n\r\nimport \"./Pausable.sol\";\r\nimport \"./Ownable.sol\";\r\n\r\n\r\n/**\r\n* -Allows persistent storage => shouldn't be modified\r\n*\r\n* -Inherits from Ownable and Pausable cause the scope of the fallback function in KittyProxy\r\n* will be the proxy context which means the real persistent storage is inside the parent of KittyProxy\r\n*\r\n */\r\ncontract KittyStorage is Ownable, Pausable{\r\n\r\n    /**\r\n     * Struct of a kitty\r\n     */\r\n    struct Kitty{\r\n        uint256 genes;\r\n        uint64 birthTime;\r\n        uint32 mumId;\r\n        uint32 dadId;\r\n        uint16 generation;\r\n    }\r\n\r\n    /***************************************************\r\n     * Variables\r\n     **************************************************/\r\n    uint256 internal constant _CREATION_LIMIT_GEN0 = 10;\r\n    uint256 public _gen0Counter;\r\n    string internal constant _tokenName = \"BootcampKitties\";\r\n    string internal constant _tokenSymbol= \"BKT\";\r\n\r\n\r\n    /***************************************************\r\n     * Mappings and Arrays\r\n     **************************************************/\r\n    Kitty[] internal _kitties;\r\n\r\n    mapping (uint256 => address) public _kittyIndexToOwner;\r\n    mapping (address => uint256) _ownershipTokenCount;\r\n\r\n}",
+  "sourcePath": "C:\\Xdev\\bootcamp_Iot\\W69_cloneCryptoKitties\\cryptokitties-replica\\contracts\\KittyStorage.sol",
+  "ast": {
+    "absolutePath": "/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/KittyStorage.sol",
+    "exportedSymbols": {
+      "KittyStorage": [
+        503
+      ]
+    },
+    "id": 504,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 463,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".12"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:3"
+      },
+      {
+        "absolutePath": "/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/Pausable.sol",
+        "file": "./Pausable.sol",
+        "id": 464,
+        "nodeType": "ImportDirective",
+        "scope": 504,
+        "sourceUnit": 588,
+        "src": "28:24:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/Ownable.sol",
+        "file": "./Ownable.sol",
+        "id": 465,
+        "nodeType": "ImportDirective",
+        "scope": 504,
+        "sourceUnit": 566,
+        "src": "54:23:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 466,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 565,
+              "src": "377:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$565",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 467,
+            "nodeType": "InheritanceSpecifier",
+            "src": "377:7:3"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 468,
+              "name": "Pausable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 587,
+              "src": "386:8:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Pausable_$587",
+                "typeString": "contract Pausable"
+              }
+            },
+            "id": 469,
+            "nodeType": "InheritanceSpecifier",
+            "src": "386:8:3"
+          }
+        ],
+        "contractDependencies": [
+          565,
+          587
+        ],
+        "contractKind": "contract",
+        "documentation": "-Allows persistent storage => shouldn't be modified\n\n* -Inherits from Ownable and Pausable cause the scope of the fallback function in KittyProxy\nwill be the proxy context which means the real persistent storage is inside the parent of KittyProxy\n\n ",
+        "fullyImplemented": true,
+        "id": 503,
+        "linearizedBaseContracts": [
+          503,
+          587,
+          565
+        ],
+        "name": "KittyStorage",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "KittyStorage.Kitty",
+            "id": 480,
+            "members": [
+              {
+                "constant": false,
+                "id": 471,
+                "name": "genes",
+                "nodeType": "VariableDeclaration",
+                "scope": 480,
+                "src": "470:13:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 470,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "470:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 473,
+                "name": "birthTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 480,
+                "src": "494:16:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint64",
+                  "typeString": "uint64"
+                },
+                "typeName": {
+                  "id": 472,
+                  "name": "uint64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "494:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 475,
+                "name": "mumId",
+                "nodeType": "VariableDeclaration",
+                "scope": 480,
+                "src": "521:12:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 474,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "521:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 477,
+                "name": "dadId",
+                "nodeType": "VariableDeclaration",
+                "scope": 480,
+                "src": "544:12:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 476,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "544:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 479,
+                "name": "generation",
+                "nodeType": "VariableDeclaration",
+                "scope": 480,
+                "src": "567:17:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint16",
+                  "typeString": "uint16"
+                },
+                "typeName": {
+                  "id": 478,
+                  "name": "uint16",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "567:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint16",
+                    "typeString": "uint16"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Kitty",
+            "nodeType": "StructDefinition",
+            "scope": 503,
+            "src": "447:145:3",
+            "visibility": "public"
+          },
+          {
+            "constant": true,
+            "id": 483,
+            "name": "_CREATION_LIMIT_GEN0",
+            "nodeType": "VariableDeclaration",
+            "scope": 503,
+            "src": "734:51:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 481,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "734:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "3130",
+              "id": 482,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "783:2:3",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_10_by_1",
+                "typeString": "int_const 10"
+              },
+              "value": "10"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 485,
+            "name": "_gen0Counter",
+            "nodeType": "VariableDeclaration",
+            "scope": 503,
+            "src": "792:27:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 484,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "792:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": true,
+            "id": 488,
+            "name": "_tokenName",
+            "nodeType": "VariableDeclaration",
+            "scope": 503,
+            "src": "826:55:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_memory",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 486,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "826:6:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "426f6f7463616d704b697474696573",
+              "id": 487,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "string",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "864:17:3",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_stringliteral_18b2487fbe8ed187f83ef18186e10451bbb4c39d1ed6b03d83e60ac8cb143595",
+                "typeString": "literal_string \"BootcampKitties\""
+              },
+              "value": "BootcampKitties"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "id": 491,
+            "name": "_tokenSymbol",
+            "nodeType": "VariableDeclaration",
+            "scope": 503,
+            "src": "888:44:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_memory",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 489,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "888:6:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "424b54",
+              "id": 490,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "string",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "927:5:3",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_stringliteral_901e240408d348b799a3979912f7e33b3a778aab5959e9aef83eff9ce46c77b0",
+                "typeString": "literal_string \"BKT\""
+              },
+              "value": "BKT"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 494,
+            "name": "_kitties",
+            "nodeType": "VariableDeclaration",
+            "scope": 503,
+            "src": "1087:25:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_Kitty_$480_storage_$dyn_storage",
+              "typeString": "struct KittyStorage.Kitty[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 492,
+                "name": "Kitty",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 480,
+                "src": "1087:5:3",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Kitty_$480_storage_ptr",
+                  "typeString": "struct KittyStorage.Kitty"
+                }
+              },
+              "id": 493,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "1087:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_Kitty_$480_storage_$dyn_storage_ptr",
+                "typeString": "struct KittyStorage.Kitty[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 498,
+            "name": "_kittyIndexToOwner",
+            "nodeType": "VariableDeclaration",
+            "scope": 503,
+            "src": "1121:54:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
+              "typeString": "mapping(uint256 => address)"
+            },
+            "typeName": {
+              "id": 497,
+              "keyType": {
+                "id": 495,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "1130:7:3",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1121:28:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
+                "typeString": "mapping(uint256 => address)"
+              },
+              "valueType": {
+                "id": 496,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "1141:7:3",
+                "stateMutability": "nonpayable",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 502,
+            "name": "_ownershipTokenCount",
+            "nodeType": "VariableDeclaration",
+            "scope": 503,
+            "src": "1182:49:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 501,
+              "keyType": {
+                "id": 499,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "1191:7:3",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1182:28:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 500,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "1202:7:3",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 504,
+        "src": "352:885:3"
+      }
+    ],
+    "src": "0:1237:3"
+  },
+  "legacyAST": {
+    "absolutePath": "/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/KittyStorage.sol",
+    "exportedSymbols": {
+      "KittyStorage": [
+        503
+      ]
+    },
+    "id": 504,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 463,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".12"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:3"
+      },
+      {
+        "absolutePath": "/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/Pausable.sol",
+        "file": "./Pausable.sol",
+        "id": 464,
+        "nodeType": "ImportDirective",
+        "scope": 504,
+        "sourceUnit": 588,
+        "src": "28:24:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/Ownable.sol",
+        "file": "./Ownable.sol",
+        "id": 465,
+        "nodeType": "ImportDirective",
+        "scope": 504,
+        "sourceUnit": 566,
+        "src": "54:23:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 466,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 565,
+              "src": "377:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$565",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 467,
+            "nodeType": "InheritanceSpecifier",
+            "src": "377:7:3"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 468,
+              "name": "Pausable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 587,
+              "src": "386:8:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Pausable_$587",
+                "typeString": "contract Pausable"
+              }
+            },
+            "id": 469,
+            "nodeType": "InheritanceSpecifier",
+            "src": "386:8:3"
+          }
+        ],
+        "contractDependencies": [
+          565,
+          587
+        ],
+        "contractKind": "contract",
+        "documentation": "-Allows persistent storage => shouldn't be modified\n\n* -Inherits from Ownable and Pausable cause the scope of the fallback function in KittyProxy\nwill be the proxy context which means the real persistent storage is inside the parent of KittyProxy\n\n ",
+        "fullyImplemented": true,
+        "id": 503,
+        "linearizedBaseContracts": [
+          503,
+          587,
+          565
+        ],
+        "name": "KittyStorage",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "KittyStorage.Kitty",
+            "id": 480,
+            "members": [
+              {
+                "constant": false,
+                "id": 471,
+                "name": "genes",
+                "nodeType": "VariableDeclaration",
+                "scope": 480,
+                "src": "470:13:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 470,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "470:7:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 473,
+                "name": "birthTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 480,
+                "src": "494:16:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint64",
+                  "typeString": "uint64"
+                },
+                "typeName": {
+                  "id": 472,
+                  "name": "uint64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "494:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 475,
+                "name": "mumId",
+                "nodeType": "VariableDeclaration",
+                "scope": 480,
+                "src": "521:12:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 474,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "521:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 477,
+                "name": "dadId",
+                "nodeType": "VariableDeclaration",
+                "scope": 480,
+                "src": "544:12:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint32",
+                  "typeString": "uint32"
+                },
+                "typeName": {
+                  "id": 476,
+                  "name": "uint32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "544:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 479,
+                "name": "generation",
+                "nodeType": "VariableDeclaration",
+                "scope": 480,
+                "src": "567:17:3",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint16",
+                  "typeString": "uint16"
+                },
+                "typeName": {
+                  "id": 478,
+                  "name": "uint16",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "567:6:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint16",
+                    "typeString": "uint16"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Kitty",
+            "nodeType": "StructDefinition",
+            "scope": 503,
+            "src": "447:145:3",
+            "visibility": "public"
+          },
+          {
+            "constant": true,
+            "id": 483,
+            "name": "_CREATION_LIMIT_GEN0",
+            "nodeType": "VariableDeclaration",
+            "scope": 503,
+            "src": "734:51:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 481,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "734:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "3130",
+              "id": 482,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "783:2:3",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_10_by_1",
+                "typeString": "int_const 10"
+              },
+              "value": "10"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 485,
+            "name": "_gen0Counter",
+            "nodeType": "VariableDeclaration",
+            "scope": 503,
+            "src": "792:27:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 484,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "792:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": true,
+            "id": 488,
+            "name": "_tokenName",
+            "nodeType": "VariableDeclaration",
+            "scope": 503,
+            "src": "826:55:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_memory",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 486,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "826:6:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "426f6f7463616d704b697474696573",
+              "id": 487,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "string",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "864:17:3",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_stringliteral_18b2487fbe8ed187f83ef18186e10451bbb4c39d1ed6b03d83e60ac8cb143595",
+                "typeString": "literal_string \"BootcampKitties\""
+              },
+              "value": "BootcampKitties"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "id": 491,
+            "name": "_tokenSymbol",
+            "nodeType": "VariableDeclaration",
+            "scope": 503,
+            "src": "888:44:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_memory",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 489,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "888:6:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "424b54",
+              "id": 490,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "string",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "927:5:3",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_stringliteral_901e240408d348b799a3979912f7e33b3a778aab5959e9aef83eff9ce46c77b0",
+                "typeString": "literal_string \"BKT\""
+              },
+              "value": "BKT"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 494,
+            "name": "_kitties",
+            "nodeType": "VariableDeclaration",
+            "scope": 503,
+            "src": "1087:25:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_Kitty_$480_storage_$dyn_storage",
+              "typeString": "struct KittyStorage.Kitty[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 492,
+                "name": "Kitty",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 480,
+                "src": "1087:5:3",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Kitty_$480_storage_ptr",
+                  "typeString": "struct KittyStorage.Kitty"
+                }
+              },
+              "id": 493,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "1087:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_Kitty_$480_storage_$dyn_storage_ptr",
+                "typeString": "struct KittyStorage.Kitty[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 498,
+            "name": "_kittyIndexToOwner",
+            "nodeType": "VariableDeclaration",
+            "scope": 503,
+            "src": "1121:54:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
+              "typeString": "mapping(uint256 => address)"
+            },
+            "typeName": {
+              "id": 497,
+              "keyType": {
+                "id": 495,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "1130:7:3",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1121:28:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
+                "typeString": "mapping(uint256 => address)"
+              },
+              "valueType": {
+                "id": 496,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "1141:7:3",
+                "stateMutability": "nonpayable",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 502,
+            "name": "_ownershipTokenCount",
+            "nodeType": "VariableDeclaration",
+            "scope": 503,
+            "src": "1182:49:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 501,
+              "keyType": {
+                "id": 499,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "1191:7:3",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1182:28:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 500,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "1202:7:3",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 504,
+        "src": "352:885:3"
+      }
+    ],
+    "src": "0:1237:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.0",
+  "updatedAt": "2020-08-30T18:21:39.677Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {},
+    "notice": "-Allows persistent storage => shouldn't be modified  * -Inherits from Ownable and Pausable cause the scope of the fallback function in KittyProxy will be the proxy context which means the real persistent storage is inside the parent of KittyProxy  "
+  }
+}
