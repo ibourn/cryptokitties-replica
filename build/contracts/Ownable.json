@@ -34,14 +34,14 @@
     "absolutePath": "/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/Ownable.sol",
     "exportedSymbols": {
       "Ownable": [
-        565
+        551
       ]
     },
-    "id": 566,
+    "id": 552,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 542,
+        "id": 528,
         "literals": [
           "solidity",
           "^",
@@ -57,19 +57,19 @@
         "contractKind": "contract",
         "documentation": " @dev -Allows to give access to some functions only at the owner",
         "fullyImplemented": true,
-        "id": 565,
+        "id": 551,
         "linearizedBaseContracts": [
-          565
+          551
         ],
         "name": "Ownable",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 544,
+            "id": 530,
             "name": "_owner",
             "nodeType": "VariableDeclaration",
-            "scope": 565,
+            "scope": 551,
             "src": "186:21:5",
             "stateVariable": true,
             "storageLocation": "default",
@@ -78,7 +78,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 543,
+              "id": 529,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "186:7:5",
@@ -93,7 +93,7 @@
           },
           {
             "body": {
-              "id": 554,
+              "id": 540,
               "nodeType": "Block",
               "src": "314:61:5",
               "statements": [
@@ -107,7 +107,7 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 550,
+                        "id": 536,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -116,18 +116,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 547,
+                            "id": 533,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 602,
+                            "referencedDeclaration": 588,
                             "src": "333:3:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 548,
+                          "id": 534,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -145,11 +145,11 @@
                         "operator": "==",
                         "rightExpression": {
                           "argumentTypes": null,
-                          "id": 549,
+                          "id": 535,
                           "name": "_owner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 544,
+                          "referencedDeclaration": 530,
                           "src": "347:6:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -170,21 +170,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 546,
+                      "id": 532,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        605,
-                        606
+                        591,
+                        592
                       ],
-                      "referencedDeclaration": 605,
+                      "referencedDeclaration": 591,
                       "src": "325:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 551,
+                    "id": 537,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -198,23 +198,23 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 552,
+                  "id": 538,
                   "nodeType": "ExpressionStatement",
                   "src": "325:29:5"
                 },
                 {
-                  "id": 553,
+                  "id": 539,
                   "nodeType": "PlaceholderStatement",
                   "src": "365:1:5"
                 }
               ]
             },
             "documentation": " @dev modifier : checks that sender is the owner",
-            "id": 555,
+            "id": 541,
             "name": "onlyOwner",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 545,
+              "id": 531,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "312:2:5"
@@ -224,25 +224,25 @@
           },
           {
             "body": {
-              "id": 563,
+              "id": 549,
               "nodeType": "Block",
               "src": "497:38:5",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 561,
+                    "id": 547,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 558,
+                      "id": 544,
                       "name": "_owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 544,
+                      "referencedDeclaration": 530,
                       "src": "508:6:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -255,18 +255,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 559,
+                        "id": 545,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 602,
+                        "referencedDeclaration": 588,
                         "src": "517:3:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 560,
+                      "id": 546,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -286,39 +286,39 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 562,
+                  "id": 548,
                   "nodeType": "ExpressionStatement",
                   "src": "508:19:5"
                 }
               ]
             },
             "documentation": " @dev records the owner's address at the creation of the contract",
-            "id": 564,
+            "id": 550,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 556,
+              "id": 542,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "488:2:5"
             },
             "returnParameters": {
-              "id": 557,
+              "id": 543,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "497:0:5"
             },
-            "scope": 565,
+            "scope": 551,
             "src": "477:58:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 566,
+        "scope": 552,
         "src": "105:439:5"
       }
     ],
@@ -328,14 +328,14 @@
     "absolutePath": "/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/Ownable.sol",
     "exportedSymbols": {
       "Ownable": [
-        565
+        551
       ]
     },
-    "id": 566,
+    "id": 552,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 542,
+        "id": 528,
         "literals": [
           "solidity",
           "^",
@@ -351,19 +351,19 @@
         "contractKind": "contract",
         "documentation": " @dev -Allows to give access to some functions only at the owner",
         "fullyImplemented": true,
-        "id": 565,
+        "id": 551,
         "linearizedBaseContracts": [
-          565
+          551
         ],
         "name": "Ownable",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 544,
+            "id": 530,
             "name": "_owner",
             "nodeType": "VariableDeclaration",
-            "scope": 565,
+            "scope": 551,
             "src": "186:21:5",
             "stateVariable": true,
             "storageLocation": "default",
@@ -372,7 +372,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 543,
+              "id": 529,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "186:7:5",
@@ -387,7 +387,7 @@
           },
           {
             "body": {
-              "id": 554,
+              "id": 540,
               "nodeType": "Block",
               "src": "314:61:5",
               "statements": [
@@ -401,7 +401,7 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 550,
+                        "id": 536,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -410,18 +410,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 547,
+                            "id": 533,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 602,
+                            "referencedDeclaration": 588,
                             "src": "333:3:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 548,
+                          "id": 534,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -439,11 +439,11 @@
                         "operator": "==",
                         "rightExpression": {
                           "argumentTypes": null,
-                          "id": 549,
+                          "id": 535,
                           "name": "_owner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 544,
+                          "referencedDeclaration": 530,
                           "src": "347:6:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -464,21 +464,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 546,
+                      "id": 532,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        605,
-                        606
+                        591,
+                        592
                       ],
-                      "referencedDeclaration": 605,
+                      "referencedDeclaration": 591,
                       "src": "325:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 551,
+                    "id": 537,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -492,23 +492,23 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 552,
+                  "id": 538,
                   "nodeType": "ExpressionStatement",
                   "src": "325:29:5"
                 },
                 {
-                  "id": 553,
+                  "id": 539,
                   "nodeType": "PlaceholderStatement",
                   "src": "365:1:5"
                 }
               ]
             },
             "documentation": " @dev modifier : checks that sender is the owner",
-            "id": 555,
+            "id": 541,
             "name": "onlyOwner",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 545,
+              "id": 531,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "312:2:5"
@@ -518,25 +518,25 @@
           },
           {
             "body": {
-              "id": 563,
+              "id": 549,
               "nodeType": "Block",
               "src": "497:38:5",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 561,
+                    "id": 547,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 558,
+                      "id": 544,
                       "name": "_owner",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 544,
+                      "referencedDeclaration": 530,
                       "src": "508:6:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -549,18 +549,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 559,
+                        "id": 545,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 602,
+                        "referencedDeclaration": 588,
                         "src": "517:3:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 560,
+                      "id": 546,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -580,39 +580,39 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 562,
+                  "id": 548,
                   "nodeType": "ExpressionStatement",
                   "src": "508:19:5"
                 }
               ]
             },
             "documentation": " @dev records the owner's address at the creation of the contract",
-            "id": 564,
+            "id": 550,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 556,
+              "id": 542,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "488:2:5"
             },
             "returnParameters": {
-              "id": 557,
+              "id": 543,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "497:0:5"
             },
-            "scope": 565,
+            "scope": 551,
             "src": "477:58:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 566,
+        "scope": 552,
         "src": "105:439:5"
       }
     ],
@@ -624,7 +624,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.0",
-  "updatedAt": "2020-08-30T18:21:39.680Z",
+  "updatedAt": "2020-08-30T22:53:35.709Z",
   "devdoc": {
     "details": "-Allows to give access to some functions only at the owner",
     "methods": {

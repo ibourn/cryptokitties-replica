@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
@@ -9,6 +9,7 @@ import Cat from '../Cat/Drawing/Cat';
 import Dna from '../Cat/Dna/Dna';
 import CatColors from '../Settings/CatColors';
 import CatAttributes from '../Settings/CatAttributes';
+import ConnectionBanner from '../Connection/ConnectionBanner';
 
 import { Random } from '../../assets/modules/utils';
 
@@ -47,6 +48,7 @@ export default function KittiesFactory(props) {
 
     // }, [dna])
 
+
     /*
     update dna change from settings
     */
@@ -84,9 +86,9 @@ export default function KittiesFactory(props) {
         setDna(defaultDNA);
     }
 
-
     return (
         <>
+        <ConnectionBanner></ConnectionBanner>
             <div className="container p-5">
 
                 <div align="center">

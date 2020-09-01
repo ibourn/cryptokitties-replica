@@ -91,21 +91,19 @@ contract KittyContract is IERC721, KittyStorage {
     function getKitty(uint256 kittyId) public view returns(
         address owner,
         uint256 genes,
-        uint256 birthTime,
-        uint256 mumId,
-        uint256 dadId,
-        uint256 generation
+        uint64 birthTime,
+        uint32 mumId,
+        uint32 dadId,
+        uint16 generation
      ) {
         require(_kitties.length > kittyId, "the tokenId doesn't exist yet");
 
-        Kitty storage kitty = _kitties[kittyId];
-
         owner = _kittyIndexToOwner[kittyId];
         genes = _kitties[kittyId].genes;
-        birthTime = uint256(_kitties[kittyId].birthTime);
-        mumId = uint256(_kitties[kittyId].mumId);
-        dadId = uint256(_kitties[kittyId].dadId);
-        generation = uint256(_kitties[kittyId].generation);
+        birthTime = _kitties[kittyId].birthTime;
+        mumId = _kitties[kittyId].mumId;
+        dadId = _kitties[kittyId].dadId;
+        generation = _kitties[kittyId].generation;
     }
 
     /**
