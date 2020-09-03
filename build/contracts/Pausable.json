@@ -1,9 +1,9 @@
 {
   "contractName": "Pausable",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"details\":\"-Allows to pause functions of the contract\",\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/Pausable.sol\":\"Pausable\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/Pausable.sol\":{\"keccak256\":\"0x6993c6a7e030ec19811e6d85a115f34abd58c0fa09cdd40dd6fa507c66a3f3fe\",\"urls\":[\"bzz-raw://1205ba4794faae60c9141d52e8c4d232d90b2d21eaef29231df3e0f87209110f\",\"dweb:/ipfs/Qmf1CWBGKBuFNPg1JsoP7t7qqG2nVpwpaCB3BtMEmS9jd7\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a723158207cd5e8e4f7a576a7aae252f0d782c3308cb5225c14b7c377a34d4d667848759d64736f6c63430005100032",
-  "deployedBytecode": "0x6080604052600080fdfea265627a7a723158207cd5e8e4f7a576a7aae252f0d782c3308cb5225c14b7c377a34d4d667848759d64736f6c63430005100032",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"details\":\"-Allows to pause functions of the contract\",\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/Pausable.sol\":\"Pausable\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/Pausable.sol\":{\"keccak256\":\"0x6993c6a7e030ec19811e6d85a115f34abd58c0fa09cdd40dd6fa507c66a3f3fe\",\"urls\":[\"bzz-raw://1205ba4794faae60c9141d52e8c4d232d90b2d21eaef29231df3e0f87209110f\",\"dweb:/ipfs/Qmf1CWBGKBuFNPg1JsoP7t7qqG2nVpwpaCB3BtMEmS9jd7\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a72315820a7cb50094a93d7946ace6222e0474c1bdafff1af7544717091f1f99df18fc30364736f6c634300050c0032",
+  "deployedBytecode": "0x6080604052600080fdfea265627a7a72315820a7cb50094a93d7946ace6222e0474c1bdafff1af7544717091f1f99df18fc30364736f6c634300050c0032",
   "sourceMap": "92:346:6:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;92:346:6;;;;;;;",
   "deployedSourceMap": "92:346:6:-;;;;;",
   "source": "pragma solidity ^0.5.12;\r\n\r\n\r\n/**\r\n*  @dev -Allows to pause functions of the contract\r\n */\r\ncontract Pausable {\r\n\r\n    /**\r\n    *  @dev storage of the 'paused' state\r\n     */\r\n     bool internal _paused;\r\n\r\n    /**\r\n    *  @dev modifiers check the 'paused' state\r\n     */\r\n     modifier whenNotPaused() {\r\n         require(!_paused);\r\n         _;\r\n     }\r\n\r\n     modifier whenPaused() {\r\n         require(_paused);\r\n         _;\r\n     }\r\n}",
@@ -508,11 +508,11 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+    "version": "0.5.12+commit.7709ece9.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.2.0",
-  "updatedAt": "2020-08-30T22:53:35.710Z",
+  "updatedAt": "2020-09-02T22:17:01.251Z",
   "devdoc": {
     "details": "-Allows to pause functions of the contract",
     "methods": {}

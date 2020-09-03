@@ -11,6 +11,10 @@ import CatColors from '../Settings/CatColors';
 import CatAttributes from '../Settings/CatAttributes';
 import ConnectionBanner from '../Connection/ConnectionBanner';
 
+import Web3Context from '../Connection/Web3Context';
+import TxContext from '../Transactions/TxContext';
+
+
 import { Random } from '../../assets/modules/utils';
 
 import '../../assets/css/factory.css';
@@ -30,23 +34,26 @@ var defaultDNA = {
     "lastNum": 1
 }
 
+const dnaToString = (dnaObject) => {
+    let dnaString = "";
+    for (let key in dnaObject) {
+        dnaString += dnaObject[key];
+    }
+    return dnaString;
+}
+
 
 /************************************
  * 
  * Kitties Factory Page
  * 
  * ******************************** */
-export default function KittiesFactory(props) {
+export default function KittiesFactory() {
     const [currentIsColor, setCurrentIsColor] = useState(true);
     const [dna, setDna] = useState(defaultDNA);
 
-    // useEffect(() => {
-    //     console.log(dna);
-    //     if (dna === 0) {
-    //         setDna(defaultDNA);
-    //     }
-
-    // }, [dna])
+    const { connection, requestConnection } = useContext(Web3Context);
+    const { initTx, subscribeEvent } = useContext(TxContext);
 
 
     /*
@@ -81,14 +88,27 @@ export default function KittiesFactory(props) {
             "lastNum": Random.inRange(1, 10)
         });
     }
- 
+
     const handleClickDefaultKitty = () => {
         setDna(defaultDNA);
     }
 
+    /**
+     * send a transaction to create a Kitty to the contract
+     */
+    const handleClickCreate = async () => {
+        requestConnection();
+        if (connection.instance && connection.isUnlocked) {
+
+            initTx(connection.instance, 'createKittyGen0', dnaToString(dna));
+
+            subscribeEvent(connection.instance, 'birthEvent');
+        }
+    }
+
     return (
         <>
-        <ConnectionBanner></ConnectionBanner>
+            <ConnectionBanner></ConnectionBanner>
             <div className="container p-5">
 
                 <div align="center">
@@ -140,7 +160,7 @@ export default function KittiesFactory(props) {
                                 </ButtonGroup>
 
                                 <ButtonGroup >
-                                    <Button variant="primary" size="sm" className="rounded-pill">
+                                    <Button variant="primary" size="sm" className="rounded-pill" onClick={handleClickCreate}>
                                         Create Kitty
                                      </Button>
                                 </ButtonGroup>
@@ -157,10 +177,6 @@ export default function KittiesFactory(props) {
                 </div>
                 <br />
             </div>
-
-            <footer align="left">
-                <p>Ivan on Tech Academy Bootcamp July 2020</p>
-            </footer>
         </>
 
     );

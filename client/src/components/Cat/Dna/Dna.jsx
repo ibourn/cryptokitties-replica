@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 /************************************
@@ -29,4 +30,8 @@ export default function Dna(props) {
     );
 
 }
+
+Dna.propTypes = {
+    dna: PropTypes.object,
+};
 

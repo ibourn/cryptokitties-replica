@@ -11,9 +11,8 @@ import Web3Context from './Web3Context';
  * - if no connection : display a 'connect' button
  * - else display : provider, network, user's account
  * 
- * @param {any} props 
  */
-export default function ConnectionBanner(props) {
+export default function ConnectionBanner() {
 
     const { connection, requestConnection } = useContext(Web3Context);
 
@@ -32,10 +31,10 @@ export default function ConnectionBanner(props) {
                 </> :
                 <>
                     <span className="badge badge-primary ml-2">
-                        {connection.network}
+                        {`network : ${connection.network}`}
                     </span>
                     <span className="badge badge-primary ml-2">
-                        {connection.user}
+                        {`connected account : ${connection.user}`}
                     </span>
                 </>
             }

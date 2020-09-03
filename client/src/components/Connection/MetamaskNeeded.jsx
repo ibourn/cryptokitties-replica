@@ -28,9 +28,8 @@ const A = styled.a`
  * - triggered cause a button calls 'requestConnection' from Web3Context
  * - if no provider : Web3Context set 'requestMetamask' to true and trigger 'setShow' 
  * 
- * @param {any} props 
  */
-export default function MetamaskNeeded(props) {
+export default function MetamaskNeeded() {
     const [show, setShow] = useState(false);
     const { requestMetamask, setRequestMetamask } = useContext(Web3Context);
 

@@ -1,21 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Web3 from 'web3';
+
+import { contractAddress, abi } from '../../assets/modules/contract';
 
 const Web3Context = React.createContext();
 
 //conversion from hex codes (from window.ethereum) to network names
 const idToNetwork = {
-    '0x01': "Ethereum Main Network",
-    '0x1': "Ethereum Main Network",
-    '0x02': "Morden Test network",
-    '0x2': "Morden Test network",
-    '0x03': "Ropsten Test Network",
-    '0x3': "Ropsten Test Network",
-    '0x04': "Rinkeby Test Network",
-    '0x4': "Rinkeby Test Network",
-    '0x05': "Goerli Test Network",
-    '0x5': "Goerli Test Network",
-    '0x2a': "Kovan Test Network",
+    '0x01': "Ethereum MainNet",
+    '0x1': "Ethereum MainNet",
+    '0x02': "Morden Testnet",
+    '0x2': "Morden Testnet",
+    '0x03': "Ropsten Testnet",
+    '0x3': "Ropsten Testnet",
+    '0x04': "Rinkeby Testnet",
+    '0x4': "Rinkeby Testnet",
+    '0x05': "Goerli Testnet",
+    '0x5': "Goerli Testnet",
+    '0x2a': "Kovan Testnet",
     '0xNaN': "Local Network",
     '0x539': "Ganache Local Network"
 }
@@ -38,11 +40,14 @@ const idToNetwork = {
 export function Web3Provider(props) {
     /* to trigger modal box if metamask is not installed*/
     const [requestMetamask, setRequestMetamask] = useState(false);
+    /* to trigger modal box if metamask is locked*/
+    const [requestUnlock, setRequestUnlock] = useState(false);
     /* to load data first time*/
     const [init, setInit] = useState(true);
     /* connection elements*/
     const [connection, setConnection] = useState({
         web3: null,
+        instance: null,
         isEnabled: false,
         isUnlocked: false,
         user: "",
@@ -50,48 +55,88 @@ export function Web3Provider(props) {
     });
 
 
-    useEffect(() => {
-        if (init) {
-            setInit(false);
-            loadConnectionData();
+    /**
+     * checks and sets the network if it changed
+     * 
+     * @param {hex} chainId 
+     */
+    const handleChainChanged = useCallback(function (chainId) {
+        let network = connection.network;
+
+        if (connection.network !== idToNetwork[chainId]) {
+            network = idToNetwork[chainId]
         }
 
-    })
+        setConnection(oldConnection => {
+            let newConnection = { ...oldConnection };
+            newConnection.network = network;
+            return newConnection;
+        })
+    }, [connection.network]);
+
+
+    /**
+     * checks and sets the user's account if it changed
+     * 
+     * trigerred if :
+     * - account changed
+     * - user locks/unlocks metamask
+     * 
+     * @param {string} chainId 
+     */
+    const handleAccountsChanged = useCallback(function (accounts) {
+        let newConnection = { ...connection };
+
+        if (accounts.length === 0) {
+            newConnection.isUnlocked = false;
+            newConnection.account = "";
+
+        } else if (newConnection.user !== accounts[0]) {
+            newConnection.isUnlocked = true;
+            newConnection.user = accounts[0];
+            if (!newConnection.web3) {
+                newConnection.web3 = new Web3(Web3.givenProvider);
+            }
+            newConnection.instance = new newConnection.web3.eth.Contract(
+                abi, contractAddress, { from: newConnection.user });
+
+        }
+        setConnection(newConnection);
+    }, [connection]);
 
 
     /**
      * - checks connection when dapp is launched
      * - add events listeners
      */
-    const loadConnectionData = async () => {
-        let web3 = connection.web3;
-        let isUnlocked = connection.isUnlocked;
-        let account = connection.user;
-        let network = connection.network;
+    const loadConnectionData = useCallback(async function () {
+        let newConnection = { ...connection };
 
-        let isEnabled = checkProvider();
+        newConnection.isEnabled = checkProvider();
 
-        if (isEnabled) {
-
-            web3 = new Web3(Web3.givenProvider)
+        if (newConnection.isEnabled) {
+            newConnection.web3 = new Web3(Web3.givenProvider);
 
             /*gets user's account if he unlocked it already, without pop up*/
-            account = await web3.eth.getAccounts();
-            isUnlocked = account.length > 0;
+            const account = await newConnection.web3.eth.getAccounts();
+            newConnection.isUnlocked = account.length > 0;
+            newConnection.user = account[0];
 
-            network = await loadNetwork();
+            /*get instance of the KittyContract*/
+            if (newConnection.web3 && newConnection.user) {
+                newConnection.instance = new newConnection.web3.eth.Contract(
+                    abi, contractAddress, { from: newConnection.user });
+            }
+
+            newConnection.network = await loadNetwork();
 
             window.ethereum.on('accountsChanged', handleAccountsChanged);
             window.ethereum.on('chainChanged', handleChainChanged);
         }
-        setConnection({
-            web3: web3,
-            isEnabled: isEnabled,
-            isUnlocked: isUnlocked,
-            user: account,
-            network: network
-        })
-    }
+        setConnection(newConnection);
+
+    }, [connection, handleAccountsChanged, handleChainChanged]);
+
 
     /**
      * checks if an ethereum provider is detected 
@@ -101,6 +146,7 @@ export function Web3Provider(props) {
     const checkProvider = () => {
         return window.ethereum && window.ethereum.isMetaMask;
     }
+
 
     /**
      * returns the network connected to metamask
@@ -115,6 +161,7 @@ export function Web3Provider(props) {
         }
         return network;
     }
+
 
     /**
      * pops up metamask to unlock it
@@ -139,59 +186,14 @@ export function Web3Provider(props) {
         return account;
     }
 
-    /**
-     * checks and sets the network if it changed
-     * 
-     * @param {hex} chainId 
-     */
-    const handleChainChanged = (chainId) => {
-        let network = connection.network;
-
-        if (connection.network !== idToNetwork[chainId]) {
-            network = idToNetwork[chainId]
-        }
-
-        setConnection(oldConnection => {
-            let newConnection = { ...oldConnection };
-            newConnection.network = network;
-            return newConnection;
-        })
-    }
-
-    /**
-     * checks and sets the user's account if it changed
-     * 
-     * trigerred if :
-     * - account changed
-     * - user locks/unlocks metamask
-     * 
-     * @param {string} chainId 
-     */
-    const handleAccountsChanged = (accounts) => {
-        let isUnlocked = connection.isUnlocked;
-        let account = connection.user;
-
-        if (accounts.length === 0) {
-            isUnlocked = false;
-            account = "";
-
-        } else if (connection.user !== accounts[0]) {
-            isUnlocked = true;
-            account = accounts[0];
-        }
-        setConnection(oldConnection => {
-            let newConnection = { ...oldConnection };
-            newConnection.isUnlocked = isUnlocked;
-            newConnection.user = account;
-            return newConnection;
-        })
-    }
 
     /**
      * checks unlocked account and if needed requests user to connect an account
      * 
      * - triggered by a button whose functionality requires an ethereum connection 
      * 
+     * - get an instance of the contract with user's address to interact with
+     *
      * - checks:
      *  - if the provider is still detected, if not : triggers MetamaskNeeded component
      *  - if an account is unlocked, if not : pops up metamask to unlock
@@ -201,52 +203,46 @@ export function Web3Provider(props) {
      *  - the account is still not unlocked since dapp is launched
      */
     const requestConnection = async () => {
-        let account = "";
-        let network = "";
-        let isUnlocked = connection.isUnlocked;
-        let isEnabled = checkProvider();
+        let newConnection = { ...connection };
+        newConnection.isEnabled = checkProvider();
 
-        if (!isEnabled) {
+        if (!newConnection.isEnabled) {
             /*triggers MetamaskNeeded component*/
             setRequestMetamask(true);
         }
-        else if (!isUnlocked) {
+        else if (!newConnection.isUnlocked) {
             /*pops up metamask to allow the user to unlock it*/
-            account = await loadAccount();
-            isUnlocked = account !== "";
-            network = await loadNetwork();
-        }
-        else {
-            account = connection.user;
-            network = connection.network;
+            setRequestUnlock(true);
+            newConnection.user = await loadAccount();
+            newConnection.isUnlocked = newConnection.user !== "";
+            newConnection.network = await loadNetwork();
+
+            if (!newConnection.web3) {
+                newConnection.web3 = new Web3(Web3.givenProvider);
+            }
+            newConnection.instance = new newConnection.web3.eth.Contract(
+                abi, contractAddress, { from: newConnection.user });
         }
 
-        setConnection(oldConnection => {
-            let newConnection = { ...oldConnection };
-            newConnection.user = account;
-            newConnection.isEnabled = isEnabled;
-            newConnection.isUnlocked = isUnlocked;
-            newConnection.network = network;
-            return newConnection;
-        })
+        setConnection(newConnection);
     }
 
 
 
+    useEffect(() => {
+        if (init) {
+            setInit(false);
+            loadConnectionData();
+        }
+    }, [init, loadConnectionData])
+
+
     return (
-        <Web3Context.Provider value={{ connection, requestMetamask, setRequestMetamask, requestConnection, setConnection }}>
+        <Web3Context.Provider value={{ connection, requestMetamask, setRequestMetamask,
+         requestUnlock, setRequestUnlock, requestConnection, setConnection }}>
             {props.children}
         </Web3Context.Provider>
-
-
-
     );
 }
 
-
-
-
-
-
-// export { Web3Provider };
 export default Web3Context;

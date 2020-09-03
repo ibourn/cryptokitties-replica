@@ -7,8 +7,9 @@ import './assets/css/frontend.css';
 import './assets/css/mystyle.css';
 
 import MetamaskNeeded from './components/Connection/MetamaskNeeded';
+import UnlockNeeded from './components/Connection/UnlockNeeded';
 import KittiesFactory from './components/Pages/KittiesFactory';
-
+import {TxProvider} from './components/Transactions/TxContext';
 
 /**
  * Main Component
@@ -24,7 +25,8 @@ function App() {
       <div className="main__container">
 
       <MetamaskNeeded ></MetamaskNeeded>
-
+      <UnlockNeeded ></UnlockNeeded>
+<TxProvider>
       <BrowserRouter>
           
             <Switch>
@@ -34,6 +36,10 @@ function App() {
             </Switch>
 
       </BrowserRouter>
+      </TxProvider>
+      <footer align="left">
+                <p>Ivan on Tech Academy Bootcamp July 2020</p>
+            </footer>
       </div>
   );
 }

@@ -6,7 +6,7 @@ import React from 'react';
  * Composition of fur (each side of the head)
  * 
  * ******************************** */
-export default function CatFurHead(props) {
+export default function CatFurHead() {
 
 
     return (
