@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import {Web3Provider} from './components/Connection/Web3Context';
+import { Web3Provider } from './components/Connection/Web3Context';
 
 ReactDOM.render(
   <React.StrictMode>
-<Web3Provider>
-    <App />
+    <Web3Provider>
+      <App />
     </Web3Provider>
   </React.StrictMode>,
   document.getElementById('root')

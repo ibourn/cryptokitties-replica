@@ -9,11 +9,9 @@ import Cat from '../Cat/Drawing/Cat';
 import Dna from '../Cat/Dna/Dna';
 import CatColors from '../Settings/CatColors';
 import CatAttributes from '../Settings/CatAttributes';
-import ConnectionBanner from '../Connection/ConnectionBanner';
 
 import Web3Context from '../Connection/Web3Context';
 import TxContext from '../Transactions/TxContext';
-
 
 import { Random } from '../../assets/modules/utils';
 
@@ -108,7 +106,7 @@ export default function KittiesFactory() {
 
     return (
         <>
-            <ConnectionBanner></ConnectionBanner>
+            
             <div className="container p-5">
 
                 <div align="center">

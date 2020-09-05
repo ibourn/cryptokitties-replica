@@ -11,9 +11,9 @@
     background-position:bottom;
 }
 
-
 .navbar-brand {
     font-weight: 700;
+    font-size: 2rem;
 }
 
 .nav-link {
@@ -98,6 +98,7 @@ footer {
 .red-btn {
     background-image: -webkit-linear-gradient(0deg, #f14437 0%, #ed5b0d 99%);
     color: #ffffff;
+    border: none;
     border-radius: 30px;
     padding: 17px 55px;
     font-weight: 600;

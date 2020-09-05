@@ -8,8 +8,14 @@ import './assets/css/mystyle.css';
 
 import MetamaskNeeded from './components/Connection/MetamaskNeeded';
 import UnlockNeeded from './components/Connection/UnlockNeeded';
+import HomePage from './components/Pages/HomePage';
 import KittiesFactory from './components/Pages/KittiesFactory';
-import {TxProvider} from './components/Transactions/TxContext';
+import Catalogue from './components/Pages/Catalogue';
+import MyHistory from './components/Pages/KittiesHistory/MyHistory';
+import RegisterOfBirths from './components/Pages/KittiesHistory/RegisterOfBirths';
+import MainNavBar from './components/NavBars/MainNavBar';
+import ConnectionBanner from './components/Connection/ConnectionBanner';
+import { TxProvider } from './components/Transactions/TxContext';
 
 /**
  * Main Component
@@ -22,25 +28,33 @@ import {TxProvider} from './components/Transactions/TxContext';
 function App() {
 
   return (
-      <div className="main__container">
+    <div className="main__container">
 
       <MetamaskNeeded ></MetamaskNeeded>
       <UnlockNeeded ></UnlockNeeded>
-<TxProvider>
-      <BrowserRouter>
-          
-            <Switch>
-              
-              <Route exact strict path="/" component={KittiesFactory} />
-              
-            </Switch>
+      <TxProvider>
+        <BrowserRouter>
 
-      </BrowserRouter>
+          <div className="sticky-top">
+            <MainNavBar></MainNavBar>
+            <ConnectionBanner></ConnectionBanner>
+          </div>
+
+          <Switch>
+
+            <Route exact strict path="/" component={HomePage} />
+            <Route exact strict path="/Factory" component={KittiesFactory} />
+            <Route exact strict path="/Catalogue" component={Catalogue} />
+            <Route exact strict path="/RegisterOfBirths" component={RegisterOfBirths} />
+            <Route exact strict path="/MyHistory" component={MyHistory} />
+          </Switch>
+
+        </BrowserRouter>
       </TxProvider>
       <footer align="left">
-                <p>Ivan on Tech Academy Bootcamp July 2020</p>
-            </footer>
-      </div>
+        <p>Ivan on Tech Academy Bootcamp July 2020</p>
+      </footer>
+    </div>
   );
 }
 
