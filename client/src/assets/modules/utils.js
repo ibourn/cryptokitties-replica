@@ -1,4 +1,67 @@
 
+import { allEyeVariations } from '../../assets/modules/eyevariations';
+import { allPatternVariations } from '../../assets/modules/patternvariations';
+import { allAnimations } from '../../assets/modules/animations';
+
+/*
+set of available eyes variations
+*/
+const eyeVariations = Object.values(allEyeVariations());
+/*
+set of available pattern variations
+*/
+const patternVariations = Object.values(allPatternVariations());
+/*
+set of available animations
+*/
+const animations = Object.values(allAnimations());
+
+
+/**
+   * 
+   * utility to manipulate dna :
+   * 
+   */
+export var Genes = {
+    /*format the code value to the corresponding name to display (number to string)*/
+    convertValue: (item, value) => {
+        let valueToDisplay = "";
+        switch (item) {
+            case 'eyesShape':
+                valueToDisplay = eyeVariations[value];
+                break;
+            case 'decorationPattern':
+                valueToDisplay = patternVariations[value];
+                break;
+            case 'animation':
+                valueToDisplay = animations[value];
+                break;
+            default:
+                valueToDisplay = value;
+        }
+        return valueToDisplay;
+    },
+
+    /*format dna from string of numbers to object*/
+    dnaStrToObj: (dna) => {
+        return ({
+            headColor: dna.slice(0, 2),
+            mouthColor: dna.slice(2, 4),
+            eyesColor: dna.slice(4, 6),
+            earsColor: dna.slice(6, 8),
+            eyesShape: dna.slice(8, 9),
+            decorationPattern: dna.slice(9, 10),
+            decorationMidcolor: dna.slice(10, 12),
+            decorationSidescolor: dna.slice(12, 14),
+            animation: dna.slice(14, 15),
+            lastNum: dna.slice(15)
+
+        });
+    }
+}
+
+
+
 /**
  * Color helpers
  */
@@ -128,4 +191,28 @@ export var Copy = {
         return deepCopy(element);
     }
 
+}
+
+
+/**
+   * 
+   * utility to manipulate time :
+   * 
+   */
+export var Time = {
+    /* timestamp to yyyy/mm/dd hh:mm:ss*/
+    fromTimestamp: (t) => {
+        const dt = new Date(t * 1000);
+        const y = dt.getFullYear();
+        const m = (dt.getMonth() + 1).toString();
+        const d = dt.getDate().toString();
+        const hr = dt.getHours().toString();
+        const min = dt.getMinutes().toString();
+        const s = dt.getSeconds().toString();
+        if (y && m && d && hr && min && s) {
+            return y + '/' + m.padStart(2, "0") + '/' + d.padStart(2, "0") + ' ' + hr.padStart(2, "0") + ':' + min.padStart(2, "0") + ':' + s.padStart(2, "0");
+        } else {
+            return "no data.."
+        }
+    }
 }

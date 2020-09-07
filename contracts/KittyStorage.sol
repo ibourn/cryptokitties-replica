@@ -28,7 +28,7 @@ contract KittyStorage is Ownable, Pausable{
      * Variables
      **************************************************/
     uint256 internal constant _CREATION_LIMIT_GEN0 = 10;
-    uint256 public _gen0Counter;
+    uint256 internal _gen0Counter;
     string internal constant _tokenName = "BootcampKitties";
     string internal constant _tokenSymbol= "BKT";
 
@@ -38,7 +38,7 @@ contract KittyStorage is Ownable, Pausable{
      **************************************************/
     Kitty[] internal _kitties;
 
-    mapping (uint256 => address) public _kittyIndexToOwner;
-    mapping (address => uint256) _ownershipTokenCount;
+    mapping (uint256 => address) internal _kittyIndexToOwner;
+    mapping (address => uint256) internal _ownershipTokenCount;
 
 }

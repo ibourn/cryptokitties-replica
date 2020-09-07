@@ -1,6 +1,10 @@
+
+.factory__background{
+    background: #607d8b;
+}
 .factory__container{
-    margin-top: 12vh;
-    margin-bottom: 10vh;
+    padding-top: 3vh;
+    padding-bottom: 3vh; 
 }
 
 .catBox {
@@ -29,6 +33,8 @@
 }
 .dnaDiv span{
     margin-left: 0.3em;
+
+    font-size: 1em;
 }
 
 
@@ -42,3 +48,4 @@
         margin-left: 0.2em;
     }
 }
+

@@ -10,7 +10,7 @@ import { allEyeVariations } from '../../assets/modules/eyevariations';
 import { allPatternVariations } from '../../assets/modules/patternvariations';
 import { allAnimations } from '../../assets/modules/animations';
 
-
+import { Genes } from '../../assets/modules/utils';
 /*
 set of available eyes variations
 */
@@ -48,26 +48,7 @@ export default function InputRange(props) {
         props.handleChange(newDna);
     }
 
-    /*format value to value to display*/
-    const convertValue = () => {
-        let valueToDisplay = "";
-        switch(props.item){
-            case 'eyesShape':
-                valueToDisplay = eyeVariations[value];
-                break;
-            case 'decorationPattern':
-                valueToDisplay = patternVariations[value];
-                 break;
-            case 'animation':
-                valueToDisplay = animations[value];
-                break;
-            default:
-            valueToDisplay = value;
-        }
-        return valueToDisplay;
-    }
-
-    const tagValue = convertValue();
+    const tagValue = Genes.convertValue(props.item, value);
 
     return (
         <Form>

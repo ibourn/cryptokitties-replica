@@ -77,45 +77,41 @@ export function TxProvider(props) {
      */
     const subscribeEvent = (instance, name) => {
         setEvent({
-                processing: true,
-                instance: instance,
-                name: name,
-            })
+            processing: true,
+            instance: instance,
+            name: name,
+        })
     }
 
-  /**
-     * set the status of show event to false (processing = false)
-     * 
-     * @param {number} id 
-     */
-    const closeEvent = (id) => {
-        // setEventArray((oldArray) => {
-        //     const newArray = [...oldArray];
-        //     newArray[id].processing = false;
-        //     return newArray;
-        // })
-    }
 
     return (
         <>
             <TxContext.Provider value={{ initTx, subscribeEvent }}>
                 {props.children}
-                {
-                    event.processing ?
-                        <EventManager  data={event} close={closeEvent}></EventManager>
-                    :
-                         null
-                }
-                { 
-                txArray ? txArray.map((tx) => {
-                        if (tx.processing) {
-                            return <TxManager key={tx.id} data={tx} close={closeTx}></TxManager>
+                <div className="row">
+                    <div className="col-6">
+                        {
+                            txArray ? txArray.map((tx) => {
+                                if (tx.processing) {
+                                    return <TxManager key={tx.id} data={tx} 
+                                    close={closeTx} style={{ fontSize: '0.2em' }}></TxManager>
+                                }
+                                else {
+                                    return null;
+                                }
+                            }) : null
                         }
-                        else {
-                            return null;
+                    </div>
+                    <div className="col-6">
+                        {
+                            event.processing ?
+                                <EventManager data={event} 
+                                style={{ fontSize: '0.2em' }}></EventManager>
+                                :
+                                null
                         }
-                    }) : null
-                }
+                    </div>
+                </div>
             </TxContext.Provider>
         </>
     );

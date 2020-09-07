@@ -65,6 +65,8 @@ export function Web3Provider(props) {
 
         if (connection.network !== idToNetwork[chainId]) {
             network = idToNetwork[chainId]
+
+            window.location.reload();
         }
 
         setConnection(oldConnection => {
@@ -84,7 +86,7 @@ export function Web3Provider(props) {
      * 
      * @param {string} chainId 
      */
-    const handleAccountsChanged = useCallback(function (accounts) {
+    const handleAccountsChanged = useCallback(async function (accounts) {
         let newConnection = { ...connection };
 
         if (accounts.length === 0) {
@@ -99,7 +101,8 @@ export function Web3Provider(props) {
             }
             newConnection.instance = new newConnection.web3.eth.Contract(
                 abi, contractAddress, { from: newConnection.user });
-
+            
+            newConnection.network = await loadNetwork();
         }
         setConnection(newConnection);
     }, [connection]);
@@ -201,6 +204,9 @@ export function Web3Provider(props) {
      * - handles cases when :
      *  - the user removed metamask or disallowed it or locked metamask
      *  - the account is still not unlocked since dapp is launched
+     * 
+     * @todo manages unconnected account in metamask (accounts and netowrks don't match in app)
+     * error : -32603 (ex : import an add without connectiong it)
      */
     const requestConnection = async () => {
         let newConnection = { ...connection };
@@ -222,7 +228,22 @@ export function Web3Provider(props) {
             }
             newConnection.instance = new newConnection.web3.eth.Contract(
                 abi, contractAddress, { from: newConnection.user });
-        }
+   
+ 
+   
+         } else {
+           /**
+            * manages other errors:
+            * 
+            * pops up message to indicates :
+            * -network is not ganache (ropsten later)
+            * 
+            * -account in metamask is not connected, i.e. :
+            * account selected in metamask don't match the one connected to the app
+            * when importing without connectiong an account
+            * (? listen window error ? msg from metamask : inpage.js code -32603)
+            */
+         }
 
         setConnection(newConnection);
     }

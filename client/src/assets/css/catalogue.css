@@ -1,0 +1,97 @@
+
+.cat__container{
+	width: 100vw;
+	height: 75vh;
+	position: relative; 
+	background: radial-gradient(circle, #161616 0%, #161616 40%, #161616 50%, #f14437 100%);
+
+}
+
+
+/* catalogue container */
+.catalogue__background{
+    background-image: -webkit-linear-gradient(0deg, #f14437 0%, #ed5b0d 99%);
+}
+
+.catalogue__container{
+    min-height: 75vh;
+    padding-top: 5vh;
+
+    --varScale: 2;
+    --varTop: 35%;
+    --varLeft: 35%;
+}
+@media (max-width: 750px) {
+    .catalogue__container{
+    --varScale: 1.5;
+    --varTop: 50%;
+    --varLeft: 20%;
+    }
+}@media (max-width: 500px) {
+    .catalogue__container{
+    --varScale: 1.2;
+    --varTop: 50%;
+    --varLeft: 8%;
+    }
+}
+
+/* cat card */
+.miniCatBox {
+    background-color: #e2efff;
+    border-radius: 10px;
+    padding-top: 50px; 
+    padding-left: 65px;
+    padding-bottom: 100px;
+
+    margin: 5px;
+
+    height: 30vh;
+    min-width: 40vh;
+    position: relative;
+
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* attributes column */
+hr{
+    margin: 3px;
+    padding:0;
+}
+span {
+    margin: 0 0 3px 5px;
+   line-height: 1.5em;
+}
+
+.AttributesDetail{
+    margin-top: 0;
+}
+.AttributesSummary{
+    margin-top: 20px;
+}
+.noDetails{
+    display: none;
+}
+
+.detailsSize{
+    font-size: 8px;
+}
+.summarySize{
+    font-size: 10px;
+}
+
+
+/* zoom in on a card */
+.scale{
+    transform : scale(var(--varScale), var(--varScale));
+     position: fixed;
+     top: var(--varTop);
+     left: var(--varLeft);
+     z-index: 10;
+     background-color: #F8F8F8;
+     box-shadow: 2px 2px 10px rgb(132, 132, 133);
+     transition: 0.5s ease-in-out;
+}
+
+
+

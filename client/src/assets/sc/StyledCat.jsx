@@ -17,40 +17,46 @@ export const StyledCat = styled.div`
 
 /**********************************************************
 adapt the size of the cat to make it responsive
+    if fixedSized is defined, it will set the font-size
+    if fixedSized is undefined : catSize sets the font-size following the mediaqueries
 *********************************************************/
-font-size: ${props => props.size};
-
+--catSize: 6px;
+--fixedSize:  ${props => props.size};
 
 @media (min-width: 990px) and (max-height: 730px) {
-  font-size: 5px; 
+  --catSize: 5px; 
 } 
 @media (min-width: 990px) and (max-height: 600px) {
-  font-size: 4px; 
+  --catSize: 4px; 
 } 
 
 @media (max-width: 990px) and (max-height: 740px) {
-  font-size: 5px; 
+  --catSize: 5px; 
 } 
 @media (max-width: 990px) and (max-height: 640px) {
-  font-size: 4px; 
+  --catSize: 4px; 
 } 
 @media (max-width: 990px) and (max-height: 560px) {
-  font-size: 3px; 
+  --catSize: 3px; 
 } 
 
 @media (max-width: 767px) {
-  font-size: 5px; 
+  --catSize: 5px; 
 }
 @media (max-width: 767px) and (max-height: 740px) {
-  font-size: 4px; 
+  --catSize: 4px; 
 } 
 @media (max-width: 767px) and (max-height: 640px) {
-  font-size: 3px; 
+  --catSize: 3px; 
 } 
 
 @media (max-height: 500px) {
-  font-size: 3px; 
+  --catSize: 3px; 
 } 
+
+font-size: var(--fixedSize, var(--catSize));
+
+
 /**********************************************************
 color variables
 *********************************************************/

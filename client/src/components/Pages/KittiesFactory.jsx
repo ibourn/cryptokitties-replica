@@ -106,8 +106,8 @@ export default function KittiesFactory() {
 
     return (
         <>
-            
-            <div className="container p-5">
+            <div className="factory__background container-fluid">
+            <div className="factory__container container p-2">
 
                 <div align="center">
                     <h1 className="c-white">Kitties-Factory</h1>
@@ -174,6 +174,7 @@ export default function KittiesFactory() {
                     </div>
                 </div>
                 <br />
+            </div>
             </div>
         </>
 

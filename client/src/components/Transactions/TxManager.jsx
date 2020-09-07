@@ -24,7 +24,7 @@ export default function TxManager(props) {
     /**
      * initializes a tx following the desired function call
      */
-    const initTansaction = useCallback(function() {
+    const initTansaction = useCallback(function () {
         setData(props.data);
         const status = true;
         const type = "secondary";
@@ -33,7 +33,8 @@ export default function TxManager(props) {
         switch (props.data.type) {
             case 'createKittyGen0':
                 msg = "Transaction initialized : create a Kitty Generation 0";
-                props.data.instance.methods.createKittyGen0(props.data.params).send({}, handleTx);
+                props.data.instance.methods.createKittyGen0(props.data.params).send({}, handleTx)
+                    .on('error', function (e) { console.log(e); });
                 break;
             default:
                 break;
@@ -43,10 +44,14 @@ export default function TxManager(props) {
             type: type,
             msg: msg
         })
-    },[props.data]);
+    }, [props.data]);
 
     /**
      * handles result of the tx 
+     * 
+     * @todo changes the error checking / -32000 is for contract rejection
+     * -32603 from metamask (account in metamsk is not the one connected and/or fund are 0 ...)
+     * / so 32603 will be triggered before error on tx (action of the user to confirm/reject)
      */
     const handleTx = (error, txHash) => {
         const status = true;
@@ -56,6 +61,7 @@ export default function TxManager(props) {
             //available info : error.code, error.msg
             let cause = "";
             switch (error.code) {
+                case -32000:
                 case -32603:
                     cause = "the contract rejected the transaction";
                     break;
@@ -68,7 +74,7 @@ export default function TxManager(props) {
                 case 4901:
                     cause = "provider not connected or not supporting the method";
                     break;
-                    default:
+                default:
                     break;
             }
             type = "danger";
@@ -97,7 +103,7 @@ export default function TxManager(props) {
     }
 
 
-    
+
     useLayoutEffect(() => {
         if (data !== props.data) {
             initTansaction();
@@ -109,7 +115,8 @@ export default function TxManager(props) {
         <>
             {
                 show.status ?
-                    <Alert variant={show.type} onClose={handleOnClose} dismissible>
+                    <Alert variant={show.type} onClose={handleOnClose}
+                        dismissible style={{ fontSize: '0.8em' }}>
                         {show.msg}
                     </Alert>
                     : null

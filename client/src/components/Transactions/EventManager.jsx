@@ -57,7 +57,6 @@ export default function EventManager(props) {
             type: "",
             data: null
         })
-        props.close()
     }
 
     /**
@@ -140,7 +139,8 @@ export default function EventManager(props) {
         <>
             {
                 show.status && (show.type === 'success') ?
-                    <Alert variant={show.type} onClose={handleOnClose} dismissible>
+                    <Alert variant={show.type} onClose={handleOnClose}
+                        dismissible style={{ fontSize: '0.8em' }}>
                         {getContent()}
                     </Alert>
                     : null

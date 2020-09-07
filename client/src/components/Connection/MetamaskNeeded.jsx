@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useContext } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useContext } from 'react';
 
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -38,7 +38,7 @@ export default function MetamaskNeeded() {
         setRequestMetamask(false);
     }
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         if (requestMetamask) {
             setShow(true);
         }
@@ -54,7 +54,8 @@ export default function MetamaskNeeded() {
             </Modal.Header>
             <Modal.Body>
                 In order to communicate with the blockchain you need a provider
-               such as Metamask.<br /><hr />
+               such as Metamask.
+               <br /><hr />
                Please allow Metamask for this site or install it.
             </Modal.Body>
             <Modal.Footer>
