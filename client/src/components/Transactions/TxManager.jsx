@@ -115,8 +115,8 @@ export default function TxManager(props) {
         <>
             {
                 show.status ?
-                    <Alert variant={show.type} onClose={handleOnClose}
-                        dismissible style={{ fontSize: '0.8em' }}>
+                    <Alert variant={show.type} onClose={handleOnClose} dismissible 
+                    style={{ fontSize: '0.8em', lineHeight: '2em', overflow: 'auto'}}>
                         {show.msg}
                     </Alert>
                     : null

@@ -28,7 +28,7 @@ export default function MainNavBar() {
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
-      <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
+      <Navbar.Collapse href="responsive-navbar-nav" className="justify-content-end">
         <Nav >
           <StyledNavLink link='Home' dropdown={false}></StyledNavLink>
           <StyledNavLink link='Catalogue' dropdown={false}></StyledNavLink>

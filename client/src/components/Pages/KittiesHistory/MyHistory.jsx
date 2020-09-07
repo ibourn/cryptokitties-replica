@@ -14,10 +14,13 @@ export default function MyHistrory() {
     const { connection, requestConnection } = useContext(Web3Context);
 
     useEffect(() => {
-        if (!kittiesList) {
+        if (!kittiesList && connection.instance && connection.isUnlocked) {
             fetchKittiesCreations();
+        } else {
+            requestConnection();
+
         }
-    })
+    }, [kittiesList])
 
     const fetchKittiesCreations = async () => {
         let tab = [];

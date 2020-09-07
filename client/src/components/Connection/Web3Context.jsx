@@ -212,11 +212,14 @@ export function Web3Provider(props) {
         let newConnection = { ...connection };
         newConnection.isEnabled = checkProvider();
 
+        console.log("TEST1");
         if (!newConnection.isEnabled) {
+            console.log("TEST2");
             /*triggers MetamaskNeeded component*/
             setRequestMetamask(true);
         }
         else if (!newConnection.isUnlocked) {
+            console.log("TEST3");
             /*pops up metamask to allow the user to unlock it*/
             setRequestUnlock(true);
             newConnection.user = await loadAccount();
@@ -232,6 +235,7 @@ export function Web3Provider(props) {
  
    
          } else {
+            console.log("TEST4");
            /**
             * manages other errors:
             * 

@@ -37,46 +37,46 @@ export default function CatalogueCard(props) {
                     <div className={divAttributesClass}>
                         <div className={divSummaryClass}>
                             <span>id :</span>
-                            <span>{props.data.id}</span>
+                            <span className="badge badge-dark">{props.data.id}</span>
                         </div>
                         <div className={divSummaryClass}>
                             <span>generation :</span>
-                            <span>{props.data.generation}</span>
+                            <span className="badge badge-dark">{props.data.generation}</span>
                         </div>
                         <hr className={divDetailClass} />
                         <div className={divDetailClass}>
                             <span>genes :</span>
-                            <span>{props.data.genes}</span>
+                            <span className="badge badge-dark">{props.data.genes}</span>
                         </div>
                         <div className={divDetailClass}>
                             <span>mum id :</span>
-                            <span>{props.data.mumId}</span>
+                            <span className="badge badge-dark">{props.data.mumId}</span>
                         </div>
                         <div className={divDetailClass}>
                             <span>dad id :</span>
-                            <span>{props.data.dadId}</span>
+                            <span className="badge badge-dark">{props.data.dadId}</span>
                         </div>
                         <div className={divDetailClass}>
                             <span>bday :</span>
-                            <span>{Time.fromTimestamp(props.data.birthTime)}</span>
+                            <span className="badge badge-dark">{Time.fromTimestamp(props.data.birthTime)}</span>
                         </div>
                         <hr />
                         <div className={divSummaryClass}>
                             <span>{scale ? `eyes shape :` : `eyes:`}</span>
-                            <span>
+                            <span className="badge badge-dark">
                                 {Genes.convertValue(
                                     'eyesShape', props.dna.eyesShape)}
                             </span>
                         </div>
                         <div className={divSummaryClass}>
                             <span>{scale ? `decoration :` : `deco.:`}</span>
-                            <span>
+                            <span className="badge badge-dark">
                                 {Genes.convertValue(
                                     'decorationPattern', props.dna.decorationPattern)}
                             </span>
                         </div>
                         <div className={divSummaryClass}>
-                            <span>{animationTxt}</span>
+                            <span className="badge badge-dark">{animationTxt}</span>
                         </div>
                     </div>
                 </div>
