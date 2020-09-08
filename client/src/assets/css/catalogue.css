@@ -51,6 +51,11 @@
 
     overflow: hidden;
     cursor: pointer;
+    border: 1px solid #ffc5c2;
+}
+.miniCatBox:hover {
+    border: 1px solid #ffffff;
+    box-shadow: 1px 16px 35px 0px rgba(0, 0, 2, 0.5);
 }
 
 /* attributes column */
