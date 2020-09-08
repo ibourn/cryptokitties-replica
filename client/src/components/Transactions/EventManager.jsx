@@ -70,8 +70,8 @@ export default function EventManager(props) {
         setData(props.data);
 
         switch (props.data.name) {
-            case 'birthEvent':
-                props.data.instance.events.birthEvent(handleEvent)
+            case 'Birth':
+                props.data.instance.events.Birth(handleEvent)
                 break;
             default:
                 break;
@@ -95,7 +95,7 @@ export default function EventManager(props) {
 
         if (show.type === 'success') {
             switch (props.data.name) {
-                case 'birthEvent':
+                case 'Birth':
                     content = <>
                         <p>
                             <b>Your new kitten from generation 0 is born!</b> <i>Its information :</i>

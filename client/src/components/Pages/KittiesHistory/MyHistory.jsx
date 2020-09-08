@@ -21,7 +21,7 @@ export default function MyHistrory() {
     const fetchKittiesCreations = useCallback(async () => {
         let tab = [];
 
-        connection.instance.getPastEvents('birthEvent', {
+        connection.instance.getPastEvents('Birth', {
             filter: { owner: connection.user },
             fromBlock: 0,
             toBlock: 'latest'
