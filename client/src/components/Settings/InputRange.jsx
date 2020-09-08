@@ -6,23 +6,8 @@ import FormGroup from 'react-bootstrap/FormGroup';
 import FormLabel from 'react-bootstrap/FormLabel';
 import FormControl from 'react-bootstrap/FormControl';
 
-import { allEyeVariations } from '../../assets/modules/eyevariations';
-import { allPatternVariations } from '../../assets/modules/patternvariations';
-import { allAnimations } from '../../assets/modules/animations';
-
 import { Genes } from '../../assets/modules/utils';
-/*
-set of available eyes variations
-*/
-const eyeVariations = Object.values(allEyeVariations());
-/*
-set of available pattern variations
-*/
-const patternVariations = Object.values(allPatternVariations());
-/*
-set of available animations
-*/
-const animations = Object.values(allAnimations());
+
 /************************************
  * 
  * Input range 

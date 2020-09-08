@@ -1,24 +1,25 @@
-import React, { useState, useContext, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useContext, useEffect, useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
+
 
 import Web3Context from '../../Connection/Web3Context';
 import BirthRow from '../../Rows/BirthRow';
 
 
-
+/**
+ * displays all kitten created
+ * 
+ * @todo style
+ */
 export default function RegisterOfBirths() {
     const [kittiesList, setKittiesList] = useState();
     const { connection, requestConnection } = useContext(Web3Context);
+    const history = useHistory();
 
-    useEffect(() => {
-        if (!kittiesList) {
-            fetchBirths();
-        }
-    })
-
-    const fetchBirths = async () => {
-
-        requestConnection();
-        if (connection.instance && connection.isUnlocked) {
+    /**
+     * fetches all births
+     */
+    const fetchBirths = useCallback(async () => {
 
             const totalOfKitties = await connection.instance.methods.totalSupply()
                 .call({}, logError);
@@ -36,8 +37,7 @@ export default function RegisterOfBirths() {
             const listOfKitties = await Promise.all(promises);
 
             setKittiesList(listOfKitties);
-        }
-    }
+    }, [connection.instance]);
 
     /**
      * Logs the errors
@@ -48,6 +48,20 @@ export default function RegisterOfBirths() {
             console.log(error);
         }
     }
+
+
+
+    useEffect(() => {
+        if (!kittiesList) {
+            requestConnection();
+            if (connection.instance && connection.isUnlocked) {
+                fetchBirths();
+            } else {
+                history.push('/Home');
+            }
+        }
+    }, [kittiesList, requestConnection, fetchBirths, connection.instance, connection.isUnlocked, history])
+
 
 
     return (

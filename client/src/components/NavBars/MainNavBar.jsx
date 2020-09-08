@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -11,13 +11,13 @@ import StyledNavLink from './StyledNavLink';
  * Main navbar
  * 
  * - custom links and dropdown items to hack the default css behavior
+ * 
+ * @todo: known issue: react-bootstrap collapse => Warning: findDOMNode is deprecated in StrictMode
+ * /add a ref or ?
  */
 export default function MainNavBar() {
-  const [dropdownLinkStyle, setDropdownLinkStyle] = useState({ backgroundColor: 'inherit' });
 
-  const handleClick = () => {
-    setDropdownLinkStyle({ backgroundColor: 'white' });
-  }
+const dropdownLinkStyle = { backgroundColor: 'inherit' };
 
   return (
     <Navbar collapseOnSelect expand="lg" className="px-md-5"
@@ -26,9 +26,9 @@ export default function MainNavBar() {
       <Navbar.Brand href="#home" className="navbar-brand">
         Academy-Kitties
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
 
-      <Navbar.Collapse href="responsive-navbar-nav" className="justify-content-end">
+      <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
         <Nav >
           <StyledNavLink link='Home' dropdown={false}></StyledNavLink>
           <StyledNavLink link='Catalogue' dropdown={false}></StyledNavLink>

@@ -56,7 +56,7 @@ export default function HomePage() {
                         <div className="container home__container" >
 
 
-                                <div className="middleBox" style={{ border: '2px solid blue' }}>
+                                <div className="middleBox">
                                         <div className="catGroup">
                                                 <div className="cat0">
                                                         <HomeCard key={0} dna={kittiesList[0]} size={catSize}></HomeCard>

@@ -1,4 +1,5 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import Web3Context from '../../Connection/Web3Context';
 import BirthRow from '../../Rows/BirthRow';
@@ -7,48 +8,38 @@ import BirthRow from '../../Rows/BirthRow';
 /**
  * tables of the actions of the user
  * 
- * @todo style
+ * @todo style and add user's events
  */
 export default function MyHistrory() {
     const [kittiesList, setKittiesList] = useState();
     const { connection, requestConnection } = useContext(Web3Context);
+    const history = useHistory();
 
-    useEffect(() => {
-        if (!kittiesList && connection.instance && connection.isUnlocked) {
-            fetchKittiesCreations();
-        } else {
-            requestConnection();
-
-        }
-    }, [kittiesList])
-
-    const fetchKittiesCreations = async () => {
+    /**
+     * fetches events from the BC
+     */
+    const fetchKittiesCreations = useCallback(async () => {
         let tab = [];
 
-        requestConnection();
-        if (connection.instance && connection.isUnlocked) {
-
-            connection.instance.getPastEvents('birthEvent', {
-                filter: { owner: connection.user },
-                fromBlock: 0,
-                toBlock: 'latest'
-            }, logError)
-                .then(function (events) {
-                    tab = events.map(event => {
-                        return ({
-                            id: event.returnValues.kittenId,
-                            genes: event.returnValues.genes,
-                            birthTime: event.returnValues.birthTime,
-                            mumId: event.returnValues.mumId,
-                            dadId: event.returnValues.dadId,
-                            generation: event.returnValues.generation
-                        })
-                    });
-                    setKittiesList(tab);
+        connection.instance.getPastEvents('birthEvent', {
+            filter: { owner: connection.user },
+            fromBlock: 0,
+            toBlock: 'latest'
+        }, logError)
+            .then(function (events) {
+                tab = events.map(event => {
+                    return ({
+                        id: event.returnValues.kittenId,
+                        genes: event.returnValues.genes,
+                        birthTime: event.returnValues.birthTime,
+                        mumId: event.returnValues.mumId,
+                        dadId: event.returnValues.dadId,
+                        generation: event.returnValues.generation
+                    })
                 });
-
-        }
-    }
+                setKittiesList(tab);
+            });
+    }, [connection.instance, connection.user]);
 
 
     /**
@@ -62,7 +53,18 @@ export default function MyHistrory() {
         }
     }
 
+    useEffect(() => {
+        if (!kittiesList) {
+            requestConnection();
+            if (connection.instance && connection.isUnlocked) {
+                fetchKittiesCreations();
+            } else {
+                history.push('/Home');
+            }
+        }
+    }, [kittiesList, requestConnection, fetchKittiesCreations, connection.instance, connection.isUnlocked, history])
 
+    
     return (
         <div style={{ minHeight: '75vh' }}>
             <table className="table table-primary table-bordered">

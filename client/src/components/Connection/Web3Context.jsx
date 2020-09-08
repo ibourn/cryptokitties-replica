@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+
 import Web3 from 'web3';
 
 import { contractAddress, abi } from '../../assets/modules/contract';
@@ -119,7 +120,6 @@ export function Web3Provider(props) {
 
         if (newConnection.isEnabled) {
             newConnection.web3 = new Web3(Web3.givenProvider);
-
             /*gets user's account if he unlocked it already, without pop up*/
             const account = await newConnection.web3.eth.getAccounts();
             newConnection.isUnlocked = account.length > 0;
@@ -130,7 +130,6 @@ export function Web3Provider(props) {
                 newConnection.instance = new newConnection.web3.eth.Contract(
                     abi, contractAddress, { from: newConnection.user });
             }
-
             newConnection.network = await loadNetwork();
 
             window.ethereum.on('accountsChanged', handleAccountsChanged);
@@ -212,14 +211,11 @@ export function Web3Provider(props) {
         let newConnection = { ...connection };
         newConnection.isEnabled = checkProvider();
 
-        console.log("TEST1");
         if (!newConnection.isEnabled) {
-            console.log("TEST2");
             /*triggers MetamaskNeeded component*/
             setRequestMetamask(true);
         }
         else if (!newConnection.isUnlocked) {
-            console.log("TEST3");
             /*pops up metamask to allow the user to unlock it*/
             setRequestUnlock(true);
             newConnection.user = await loadAccount();
@@ -232,10 +228,7 @@ export function Web3Provider(props) {
             newConnection.instance = new newConnection.web3.eth.Contract(
                 abi, contractAddress, { from: newConnection.user });
    
- 
-   
          } else {
-            console.log("TEST4");
            /**
             * manages other errors:
             * 

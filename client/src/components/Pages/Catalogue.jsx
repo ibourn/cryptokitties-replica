@@ -1,4 +1,5 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import CatalogueCard from '../Cards/CatalogueCard';
 import Web3Context from '../Connection/Web3Context';
@@ -16,13 +17,7 @@ import '../../assets/css/catalogue.css';
 export default function Catalogue() {
     const [kittiesOwnerList, setKittiesOwnerList] = useState();
     const { connection, requestConnection } = useContext(Web3Context);
-
-    useEffect(() => {
-        if (!kittiesOwnerList) {
-            fetchKittiesOfOwner();
-        }
-    }, [kittiesOwnerList])
-
+    const history = useHistory();
 
     /**
      * loads list of kitties of the user
@@ -31,26 +26,22 @@ export default function Catalogue() {
      * - gets the number of tokens of the user
      * - then fetches each kitty
      */
-    const fetchKittiesOfOwner = async () => {
-        console.log("TEST");
-        requestConnection();
+    const fetchKittiesOfOwner = useCallback(async () => {
 
-        if (connection.instance && connection.isUnlocked) {
-            /*gets the list of token Id*/
-            const tokenIdList = await connection.instance.methods.getKittiesOf(connection.user)
+        /*gets the list of token Id*/
+        const tokenIdList = await connection.instance.methods.getKittiesOf(connection.user)
+            .call({}, logOutPut);
+
+        /*maps the list of token Id to get each kitty*/
+        let promises = tokenIdList.map(async (id) => {
+            const kitty = await connection.instance.methods.getKitty(id)
                 .call({}, logOutPut);
-
-            /*maps the list of token Id to get each kitty*/
-            let promises = tokenIdList.map(async (id) => {
-                const kitty = await connection.instance.methods.getKitty(id)
-                    .call({}, logOutPut);
-                kitty.id = id;
-                return kitty;
-            })
-            const kittiesList = await Promise.all(promises)
-            setKittiesOwnerList(kittiesList)
-        }
-    }
+            kitty.id = id;
+            return kitty;
+        })
+        const kittiesList = await Promise.all(promises)
+        setKittiesOwnerList(kittiesList)
+    }, [connection.instance, connection.user]);
 
 
     /**
@@ -65,7 +56,18 @@ export default function Catalogue() {
     }
 
 
-    const temp = true;
+    useEffect(() => {
+        if (!kittiesOwnerList) {
+            requestConnection();
+            if (connection.instance && connection.isUnlocked) {
+                fetchKittiesOfOwner();
+            } else {
+                history.push('/Home');
+            }
+        }
+    }, [kittiesOwnerList, requestConnection, fetchKittiesOfOwner, connection.instance, connection.isUnlocked, history])
+
+
     return (<>
         {
             kittiesOwnerList ?
@@ -86,10 +88,10 @@ export default function Catalogue() {
                         </div>
                     </div>
                 </div>
-                : 
+                :
                 <div className="cat__container container-fluid">
-                <LoadingCat></LoadingCat>
-</div>
+                    <LoadingCat></LoadingCat>
+                </div>
         }
     </>);
 }
