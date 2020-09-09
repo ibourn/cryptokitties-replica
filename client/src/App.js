@@ -6,8 +6,6 @@ import './assets/css/colors.css';
 import './assets/css/frontend.css';
 import './assets/css/mystyle.css';
 
-// import MetamaskNeeded from './components/Connection/MetamaskNeeded';
-// import UnlockNeeded from './components/Connection/UnlockNeeded';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import HomePage from './components/Pages/HomePage';
@@ -33,9 +31,6 @@ function App() {
   return (
     <div className="main__container">
       <Web3Provider>
-        {/* <MetamaskNeeded ></MetamaskNeeded>
-        <UnlockNeeded ></UnlockNeeded> */}
-
         <TxProvider>
           <BrowserRouter>
 

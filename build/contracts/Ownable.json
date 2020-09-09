@@ -624,7 +624,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.0",
-  "updatedAt": "2020-09-09T19:20:42.759Z",
+  "updatedAt": "2020-09-09T20:12:19.597Z",
   "devdoc": {
     "details": "-Allows to give access to some functions only at the owner",
     "methods": {
