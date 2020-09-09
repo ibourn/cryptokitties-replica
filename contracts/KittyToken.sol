@@ -133,7 +133,11 @@ contract KittyToken is IERC721, KittyStorage {
     @notice IERC721 :  Change or reaffirm the approved address for an NFT
     */
     function approve(address to, uint256 tokenId) public {
-        require(_owns(msg.sender, tokenId));
+        require(
+            _owns(msg.sender, tokenId) ||
+            _approvedFor(to, tokenId) ||
+            _approvedByOwner(to, tokenId)
+        );
 
         _approve(tokenId, to);
         emit Approval(msg.sender, to, tokenId);
@@ -255,6 +259,17 @@ contract KittyToken is IERC721, KittyStorage {
         returns (bool)
     {
         return _kittyIndexToApproved[tokenId] == pretender;
+    }
+
+    /**
+    @dev checks if operator is an authorized operator of the current owner
+    */
+    function _approvedByOwner(address pretender, uint256 tokenId)
+        private
+        view
+        returns (bool)
+    {
+        return _operatorApprovals[_kittyIndexToOwner[tokenId]][pretender];
     }
 
     /**

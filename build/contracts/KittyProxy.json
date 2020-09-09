@@ -111,8 +111,8 @@
         ],
         "contractDependencies": [
           502,
-          1123,
-          1145
+          1151,
+          1173
         ],
         "contractKind": "contract",
         "documentation": "@dev -It's the persistent connexion between users and KittyContract => shouldn't be modified",
@@ -121,8 +121,8 @@
         "linearizedBaseContracts": [
           437,
           502,
-          1145,
-          1123
+          1173,
+          1151
         ],
         "name": "KittyProxy",
         "nodeType": "ContractDefinition",
@@ -421,10 +421,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1163,
-                        1164
+                        1191,
+                        1192
                       ],
-                      "referencedDeclaration": 1163,
+                      "referencedDeclaration": 1191,
                       "src": "1321:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -490,7 +490,7 @@
                       "name": "msg",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1160,
+                      "referencedDeclaration": 1188,
                       "src": "1402:3:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_magic_message",
@@ -644,7 +644,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1113,
+                  "referencedDeclaration": 1141,
                   "src": "2023:9:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -765,8 +765,8 @@
         ],
         "contractDependencies": [
           502,
-          1123,
-          1145
+          1151,
+          1173
         ],
         "contractKind": "contract",
         "documentation": "@dev -It's the persistent connexion between users and KittyContract => shouldn't be modified",
@@ -775,8 +775,8 @@
         "linearizedBaseContracts": [
           437,
           502,
-          1145,
-          1123
+          1173,
+          1151
         ],
         "name": "KittyProxy",
         "nodeType": "ContractDefinition",
@@ -1075,10 +1075,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1163,
-                        1164
+                        1191,
+                        1192
                       ],
-                      "referencedDeclaration": 1163,
+                      "referencedDeclaration": 1191,
                       "src": "1321:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1144,7 +1144,7 @@
                       "name": "msg",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1160,
+                      "referencedDeclaration": 1188,
                       "src": "1402:3:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_magic_message",
@@ -1298,7 +1298,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1113,
+                  "referencedDeclaration": 1141,
                   "src": "2023:9:3",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -1377,7 +1377,7 @@
     }
   },
   "schemaVersion": "3.2.0",
-  "updatedAt": "2020-09-09T20:12:19.585Z",
+  "updatedAt": "2020-09-09T20:51:29.816Z",
   "devdoc": {
     "details": "-It's the persistent connexion between users and KittyContract => shouldn't be modified",
     "methods": {
