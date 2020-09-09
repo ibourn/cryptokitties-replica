@@ -1,25 +1,26 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.5.12;
 
 import "./KittyStorage.sol";
 
 /**
-*  @dev -It's the persistent connexion between users and KittyContract => shouldn't be modified
+@dev -It's the persistent connexion between users and KittyContract => shouldn't be modified
 */
 contract KittyProxy is KittyStorage{
 
     /***************************************************
-     * Variables
+     Variables
      **************************************************/
     /**
-    * address of the main contract
+    address of the main contract
     */
     address _currentAddressOfKittyLogic;
 
     /***************************************************
-     * Constructor
+     Constructor
      **************************************************/
     /**
-    * @dev set the address of the main contract at deployment
+    @dev set the address of the main contract at deployment
     */
     constructor(address KittyContractAddress) public {
 
@@ -27,20 +28,12 @@ contract KittyProxy is KittyStorage{
     }
 
     /***************************************************
-     * Functions
+     Functions
      **************************************************/
     /**
-    * @dev updates the address of the main contract
-    */
-    function upgrade(address newKittyContractAddress) public onlyOwner {
-
-        _currentAddressOfKittyLogic = newKittyContractAddress;
-    }
-
-    /**
-    * @dev fallback function (=default function triggered when we call a function that is not there
-    *
-    * -forwards function calls to the main contract with the proxy context (KittyStorage : its parent)
+    @dev fallback function (=default function triggered when we call a function that is not there
+    
+    -forwards function calls to the main contract with the proxy context (KittyStorage : its parent)
     */
     function() payable external {
 
@@ -61,5 +54,13 @@ contract KittyProxy is KittyStorage{
             case 0 {revert(ptr, size)}
             default {return(ptr, size)}
         }
+    }
+
+    /**
+    @dev updates the address of the main contract
+    */
+    function upgrade(address newKittyContractAddress) public onlyOwner {
+
+        _currentAddressOfKittyLogic = newKittyContractAddress;
     }
 }

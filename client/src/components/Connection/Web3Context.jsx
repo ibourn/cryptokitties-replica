@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
 import Web3 from 'web3';
+import MetamaskNeeded from './MetamaskNeeded';
+import UnlockNeeded from './UnlockNeeded';
 
 import { contractAddress, abi } from '../../assets/modules/contract';
 
@@ -86,6 +88,7 @@ export function Web3Provider(props) {
      * - user locks/unlocks metamask
      * 
      * @param {string} chainId 
+     * @todo add home page redirection if account is now locked
      */
     const handleAccountsChanged = useCallback(async function (accounts) {
         let newConnection = { ...connection };
@@ -258,6 +261,9 @@ export function Web3Provider(props) {
     return (
         <Web3Context.Provider value={{ connection, requestMetamask, setRequestMetamask,
          requestUnlock, setRequestUnlock, requestConnection, setConnection }}>
+        <MetamaskNeeded ></MetamaskNeeded>
+        <UnlockNeeded ></UnlockNeeded>
+
             {props.children}
         </Web3Context.Provider>
     );

@@ -100,7 +100,7 @@ export default function KittiesFactory() {
 
             initTx(connection.instance, 'createKittyGen0', dnaToString(dna));
 
-            subscribeEvent(connection.instance, 'birthEvent');
+            subscribeEvent(connection.instance, 'Birth');
         }
     }
 
