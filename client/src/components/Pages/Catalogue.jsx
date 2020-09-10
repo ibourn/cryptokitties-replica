@@ -16,6 +16,7 @@ import '../../assets/css/catalogue.css';
  */
 export default function Catalogue() {
     const [kittiesOwnerList, setKittiesOwnerList] = useState();
+    const [showBreedingRoom,setShowBreedingRoom] = useState(false);
     const { connection, requestConnection } = useContext(Web3Context);
     const history = useHistory();
 
@@ -68,21 +69,61 @@ export default function Catalogue() {
     }, [kittiesOwnerList, requestConnection, fetchKittiesOfOwner, connection.instance, connection.isUnlocked, history])
 
 
+
+    const openBreddingRoom = () => {
+        setShowBreedingRoom(true);
+    }
+const onDragOver = (ev) => {
+    ev.preventDefault();
+}
+const onDragStart = (e) => {
+    console.log('dragstart', e, e.target.id);
+    e.dataTransfer.setData('txt',e.target.id);
+
+}
+const onDrop = (e, el) => {
+    console.log(e, el);
+    let id = e.dataTransfer.getData('txt');
+    console.log(id);
+}
+
     return (<>
         {
             kittiesOwnerList ?
                 <div className="catalogue__background container-fluid">
+
+                    { 
+                    showBreedingRoom ?
+                <div className="container-fluid sticky-top" style={{height: '35vh', background: 'grey'}}
+                onDragOver={(e) => onDragOver(e)}
+                onDrop={(e) => onDrop(e, 'complete')}>
+
+
+
+                </div>
+                
+                    : 
+                    <button onClick={openBreddingRoom}>Breeding room</button>
+                    }
+
                     <div className="catalogue__container container d-flex">
                         <div className="row justify-content-around">
                             {
                                 kittiesOwnerList.map((kitty) => {
                                     const genes = Genes.dnaStrToObj(kitty.genes);
-                                    return <CatalogueCard
+                                    return <div  key={kitty.id}
+                                    id={kitty.id}
+                                     onDragStart={onDragStart}
+                                    draggable="true"
+                                    style={{margin: '0', padding: '0'}}>
+                                        <CatalogueCard
+                                    
+                                   
                                         key={kitty.id}
                                         dna={genes}
                                         data={kitty}
                                         size={'3px'}>
-                                    </CatalogueCard>;
+                                    </CatalogueCard></div>;
                                 })
                             }
                         </div>

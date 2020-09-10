@@ -101,9 +101,11 @@ contract KittyContract is KittyToken {
     /**
     
     */
-    funciton breed(uint256 dadId, uint256 mumId) public returns(uint256) {
+    function breed(uint256 dadId, uint256 mumId) public returns(uint256) {
         //doit possedr les tokens
         //doit extraire chq portion
+        uint256 dadDna= dadId;
+        uint256 mumDna= mumId;
         _mixDna(dadDna, mumDna);
         //et transfer a msg.sender
     }
@@ -144,12 +146,14 @@ contract KittyContract is KittyToken {
         _transfer(address(0), kittyOwner, newKittenId);
 
         return newKittenId;
+    }
 
-        function _mixDna(uint256 dadDna, uint256 mumDna) private returns(uint256) {
+            function _mixDna(uint256 dadDna, uint256 mumDna) private returns(uint256) {
+
             uint256 firsthalf = dadDna / 100000000;
-            uint256 secondhalf = mum % 100000000;
+            uint256 secondhalf = mumDna % 100000000;
+
             return (firsthalf * 100000000) + secondhalf;
         }
-    }
 
 }

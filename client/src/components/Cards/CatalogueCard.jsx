@@ -26,7 +26,7 @@ export default function CatalogueCard(props) {
     const animationTxt = animation === 'none' ? 'no anmation' : animation;
 
     return (
-        <div className={cardClass} onClick={toggleClick} >
+        <div className={cardClass} onDoubleClick={toggleClick} >
             <div className="row">
 
                 <div className="CatCol col-4 p-0">
