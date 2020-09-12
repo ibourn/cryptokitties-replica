@@ -197,6 +197,17 @@ contract KittyToken is IERC721, KittyStorage {
     /***************************************************
     Internal Functions
      **************************************************/
+    /**
+    @dev helper : check if owner owns this token
+     */
+    function _owns(address pretender, uint256 tokenId)
+        internal
+        view
+        returns (bool isOwner)
+    {
+        return (_kittyIndexToOwner[tokenId] == pretender);
+    }
+    
     /** 
     @dev Transfer : main function 
     Emits a {Transfer} event.
@@ -221,17 +232,6 @@ contract KittyToken is IERC721, KittyStorage {
     /***************************************************
      Private Functions
      **************************************************/
-    /**
-    @dev helper : check if owner owns this token
-     */
-    function _owns(address pretender, uint256 tokenId)
-        private
-        view
-        returns (bool isOwner)
-    {
-        return (_kittyIndexToOwner[tokenId] == pretender);
-    }
-
     /** 
     @dev helper : checks if sender is owner or approved
     */

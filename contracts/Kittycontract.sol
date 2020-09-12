@@ -50,7 +50,7 @@ contract KittyContract is KittyToken {
         }
         return listOfKitties;
     }
-    
+
     /***************************************************
     Public Functions
      **************************************************/
@@ -80,7 +80,7 @@ contract KittyContract is KittyToken {
         dadId = _kitties[kittyId].dadId;
         generation = _kitties[kittyId].generation;
     }
-    
+
     /**
     @dev creates a kitty : generation 0 
     - uses private function : _createKitty
@@ -99,19 +99,101 @@ contract KittyContract is KittyToken {
     }
 
     /**
-    
+    @dev creates a kitty by breeding :
+    - sender must be the owner
+    - no breeding between direct parents and siblings
     */
-    function breed(uint256 dadId, uint256 mumId) public returns(uint256) {
-        //doit possedr les tokens
-        //doit extraire chq portion
-        uint256 dadDna= dadId;
-        uint256 mumDna= mumId;
-        _mixDna(dadDna, mumDna);
-        //et transfer a msg.sender
+    function breed(uint256 dadId, uint256 mumId) public returns (uint256) {
+        require(
+            dadId < _kitties.length && mumId < _kitties.length,
+            "one of the parents doesn't exist"
+        );
+        require(
+            _owns(msg.sender, dadId) || _owns(msg.sender, mumId),
+            "sender needs to be the owner"
+        );
+        require(dadId != mumId, "dad can't be mum!");
+        require(
+            _areNotParent(dadId, mumId) && _areNotSibling(dadId, mumId),
+            "no breeding between direct parents or siblings"
+        );
+
+        uint256 dadDna = _kitties[dadId].genes;
+        uint256 mumDna = _kitties[mumId].genes;
+        uint256 dadGeneration = _kitties[dadId].generation;
+        uint256 mumGeneration = _kitties[mumId].generation;
+
+        uint256 generation = 1 +
+            (dadGeneration > mumGeneration ? dadGeneration : mumGeneration);
+
+        uint256 kittenDna = _mixDna(dadDna, mumDna);
+
+        _createKitty(mumId, dadId, generation, kittenDna, msg.sender);
     }
+
     /***************************************************
     Private Functions
      **************************************************/
+     /** 
+     @dev mix dna from dad and mum
+     */
+    function _mixDna(uint256 dadDna, uint256 mumDna)
+        private
+        pure
+        returns (uint256)
+    {
+        uint256 firsthalf = dadDna / 100000000;
+        uint256 secondhalf = mumDna % 100000000;
+
+        return (firsthalf * 100000000) + secondhalf;
+    }
+
+     /** 
+     @dev checks that the kitties are not direct parents
+     */
+    function _areNotParent(uint256 firstId, uint256 secondId)
+        private
+        view
+        returns (bool)
+    {
+        uint256 genFirstId = _kitties[firstId].generation;
+        uint256 genSecondId = _kitties[secondId].generation;
+
+        if (genSecondId == genFirstId + 1) {
+
+            return (firstId != _kitties[secondId].dadId &&
+                firstId != _kitties[secondId].mumId);
+
+        } else if (genFirstId == genSecondId + 1) {
+            
+            return (secondId != _kitties[firstId].dadId &&
+                secondId != _kitties[firstId].mumId);
+        } else {
+            return true;
+        }
+    }
+
+     /** 
+     @dev checks that the kitties are not siblings
+     */
+    function _areNotSibling(uint256 firstId, uint256 secondId)
+        private
+        view
+        returns (bool)
+    {
+        uint256 dadFirstId = _kitties[firstId].dadId;
+        uint256 mumFirstId = _kitties[firstId].mumId;
+        uint256 dadSecondId = _kitties[secondId].dadId;
+        uint256 mumSecondId = _kitties[secondId].mumId;
+
+        return ((dadFirstId != dadSecondId &&
+            dadFirstId != mumSecondId &&
+            mumFirstId != dadSecondId &&
+            mumFirstId != mumSecondId) ||
+            (_kitties[firstId].generation + _kitties[secondId].generation ==
+                0));
+    }
+
     /**
     @dev general function for the creation of new kitten
      */
@@ -147,13 +229,4 @@ contract KittyContract is KittyToken {
 
         return newKittenId;
     }
-
-            function _mixDna(uint256 dadDna, uint256 mumDna) private returns(uint256) {
-
-            uint256 firsthalf = dadDna / 100000000;
-            uint256 secondhalf = mumDna % 100000000;
-
-            return (firsthalf * 100000000) + secondhalf;
-        }
-
 }

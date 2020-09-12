@@ -24,7 +24,7 @@ export default function TxManager(props) {
     /**
      * initializes a tx following the desired function call
      */
-    const initTansaction = useCallback(function () {
+    const initTansaction = useCallback(async function () {
         setData(props.data);
         const status = true;
         const type = "secondary";
@@ -36,6 +36,14 @@ export default function TxManager(props) {
                 props.data.instance.methods.createKittyGen0(props.data.params).send({}, handleTx)
                     .on('error', function (e) { console.log(e); });
                 break;
+                case 'breed':
+                    msg = "Transaction initialized : breeding";
+                    props.data.instance.methods.breed(props.data.params.dadId, props.data.params.mumId).send({}, handleTx)
+                        .on('error', function (e) { 
+                            console.log(e);
+                            props.setAlertInvalidTx("Invalid Tx: direct parents or siblings breeding attempt");
+                           });
+                    break;
             default:
                 break;
         }

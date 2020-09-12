@@ -26,6 +26,7 @@ export default function EventManager(props) {
      * handles result of the event 
      * 
      * - as they're no unsubcription, handles it by testing  type === ""
+     * - if the event result is needed callback exists
      */
     const handleEvent = useCallback(function (error, event) {
         let type = show.type;
@@ -38,6 +39,18 @@ export default function EventManager(props) {
             } else {
                 type = "success";
                 data = event.returnValues;
+                /*the event was initiated to forward its result*/
+                if(props.data.callback){
+                props.forwardCelebration({
+                    id: data.kittenId,
+                    mumId: data.mumId,
+                    dadId: data.dadId,
+                    genes: data.genes,
+                    birthTime: data.birthTime,
+                    generation: data.generation,
+                    owner: data.owner
+                });                 
+                }
             }
         }
 
@@ -98,7 +111,7 @@ export default function EventManager(props) {
                 case 'Birth':
                     content = <>
                         <p>
-                            <b>Your new kitten from generation 0 is born!</b> <i>Its information :</i>
+                            <b>{`Your new kitten from generation ${show.data.generation} is born!`}</b> <i>Its information :</i>
                         </p>
                         <hr />
                         <p>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import TxManager from './TxManager';
 import EventManager from './EventManager';
+import InvalidTx from './InvalidTx';
 
 
 const TxContext = React.createContext();
@@ -15,6 +16,8 @@ const TxContext = React.createContext();
  * - stores events binded to transacations and their status
  * - triggers TxEvent to initiate a new event listener 
  * 
+ * - forwards the result of an event if needed
+ * 
  * @param {any} props 
  */
 export function TxProvider(props) {
@@ -26,14 +29,17 @@ export function TxProvider(props) {
         type: "",
         params: null
     }]);
+    /*tx validation state*/
+    const [alertInvalidTx, setAlertInvalidTx] = useState("");
     /*events*/
     const [event, setEvent] = useState({
         status: "",
         instance: null,
         name: ""
     });
-
-
+    /*resutl of event to forward (only breeding at the moment)*/
+    const [celebrate, setCelebrate] = useState(null);
+   
     /**
      * stores and triggers new transactions
      * 
@@ -72,29 +78,50 @@ export function TxProvider(props) {
     /**
      * set an event listener 
      * 
+     * - callback is used when we need to exploit/forward the event result
+     * 
      * @param {web3} instance 
      * @param {string} name 
      */
-    const subscribeEvent = (instance, name) => {
+    const subscribeEvent = (instance, name, callback = null) => {
         setEvent({
             processing: true,
             instance: instance,
             name: name,
+            callback: callback
         })
+    }
+
+    /**
+     * manage the result of a birth by breeding (forward/close)
+     * 
+     * @param {*} newKitty 
+     */
+    const forwardCelebration = (newKitty) => {
+        setCelebrate(newKitty);
+    }
+
+    const closeCelebration = () => {
+        setCelebrate(null);
     }
 
 
     return (
         <>
-            <TxContext.Provider value={{ initTx, subscribeEvent }}>
+            <TxContext.Provider value={{
+                initTx, subscribeEvent,
+                celebrate, closeCelebration, alertInvalidTx, setAlertInvalidTx
+            }}>
+                <InvalidTx></InvalidTx>
                 {props.children}
                 <div className="row">
                     <div className="col-6">
                         {
                             txArray ? txArray.map((tx) => {
                                 if (tx.processing) {
-                                    return <TxManager key={tx.id} data={tx} 
-                                    close={closeTx} style={{ fontSize: '0.2em' }}></TxManager>
+                                    return <TxManager key={tx.id} data={tx}
+                                        setAlertInvalidTx={setAlertInvalidTx}
+                                        close={closeTx} style={{ fontSize: '0.2em' }}></TxManager>
                                 }
                                 else {
                                     return null;
@@ -105,8 +132,8 @@ export function TxProvider(props) {
                     <div className="col-6">
                         {
                             event.processing ?
-                                <EventManager data={event} 
-                                style={{ fontSize: '0.2em' }}></EventManager>
+                                <EventManager data={event} forwardCelebration={forwardCelebration}
+                                    style={{ fontSize: '0.2em' }}></EventManager>
                                 :
                                 null
                         }
