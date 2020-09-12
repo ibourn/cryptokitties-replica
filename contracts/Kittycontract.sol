@@ -165,7 +165,7 @@ contract KittyContract is KittyToken {
                 firstId != _kitties[secondId].mumId);
 
         } else if (genFirstId == genSecondId + 1) {
-            
+
             return (secondId != _kitties[firstId].dadId &&
                 secondId != _kitties[firstId].mumId);
         } else {
@@ -204,16 +204,29 @@ contract KittyContract is KittyToken {
         uint256 kittyGenes,
         address kittyOwner
     ) private returns (uint256) {
-        uint64 date = uint64(now);
+        // require(_kitties[kittyDadId].coolDownIndex < 10);
+        // require(_kitties[kittyDadId].coolDownEnding == 0 ||
+        // _kitties[kittyDadId].coolDownEnding <= block.number);
+        // require(_kitties[kittyMumId].coolDownIndex < 10);
+        // require(_kitties[kittyMumId].coolDownEnding == 0 ||
+        // _kitties[kittyMumId].coolDownEnding <= block.number);
+
         Kitty memory kitty = Kitty({
+            // coolDownEnding: 0,
             genes: kittyGenes,
-            birthTime: date,
+            birthTime: uint64(now);,
             mumId: uint32(kittyMumId),
             dadId: uint32(kittyDadId),
             generation: uint16(kittyGeneration)
+            // coolDownIndex: 0
         });
 
         uint256 newKittenId = _kitties.push(kitty) - 1;
+
+        // _kitties[kittyDadId].coolDownEnding = block.number + (_kitties[kittyDadId].generation * _coolDownPeriod[_kitties[kittyDadId].coolDownIndex]);
+        // _kitties[kittyDadId].coolDownIndex++;
+        // _kitties[kittyMumId].coolDownEnding = block.number + (_kitties[kittyMumId].generation * _coolDownPeriod[_kitties[kittyMumId].coolDownIndex]);
+        // _kitties[kittyMumId].coolDownIndex++;
 
         emit Birth(
             kittyOwner,

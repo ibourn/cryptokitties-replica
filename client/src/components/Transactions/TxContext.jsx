@@ -113,7 +113,9 @@ export function TxProvider(props) {
                 celebrate, closeCelebration, alertInvalidTx, setAlertInvalidTx
             }}>
                 <InvalidTx></InvalidTx>
+
                 {props.children}
+                
                 <div className="row">
                     <div className="col-6">
                         {

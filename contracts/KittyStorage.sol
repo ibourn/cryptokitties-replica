@@ -17,11 +17,13 @@ contract KittyStorage is Ownable, Pausable{
       Struct of a kitty
      */
     struct Kitty{
+        // uint256 coolDownEnding;
         uint256 genes;
         uint64 birthTime;
         uint32 mumId;
         uint32 dadId;
         uint16 generation;
+        // uint8 coolDownIndex;
     }
 
     /***************************************************
@@ -29,6 +31,7 @@ contract KittyStorage is Ownable, Pausable{
      **************************************************/
     uint256 internal constant _CREATION_LIMIT_GEN0 = 10;
     uint256 internal _gen0Counter;
+    // uint256 internal constant _coolDownPeriod = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
     string internal constant _TOKENNAME = "BootcampKitties";
     string internal constant _TOKENSYMBOL= "BKT";
 

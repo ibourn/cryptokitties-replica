@@ -19,7 +19,7 @@ export default function InvalidTx() {
     }
 
     useLayoutEffect(() => {
-        if (alertInvalidTx != "") {
+        if (alertInvalidTx !== "") {
             setShow(true);
         }
     }, [alertInvalidTx])

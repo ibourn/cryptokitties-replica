@@ -59,7 +59,7 @@ export default function EventManager(props) {
             type: type,
             data: data
         })
-    }, [show.type, show.data]);
+    }, [show.type, show.data, props]);
 
     /**
      * handles the closure of the alert

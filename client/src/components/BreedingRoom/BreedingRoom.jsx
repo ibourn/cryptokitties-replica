@@ -34,7 +34,7 @@ export default function BreddingRoom(props) {
     }
 
     const onDropDad = (e) => {
-        const id = e.dataTransfer.getData('txt');
+        const id = e.dataTransfer.getData('text');
         e.dataTransfer.clearData();
 
         setDad({
@@ -45,7 +45,7 @@ export default function BreddingRoom(props) {
     }
 
     const onDropMum = (e) => {
-        let id = e.dataTransfer.getData('txt');
+        const id = e.dataTransfer.getData('text');
         e.dataTransfer.clearData();
 
         setMum({
@@ -86,7 +86,7 @@ export default function BreddingRoom(props) {
 
     useLayoutEffect(() => {
 
-        if (celebrate != kitten) {
+        if (celebrate !== kitten) {
             setKitten(celebrate);
             if (celebrate) {
                 props.newBirth();
