@@ -52,7 +52,7 @@ export default function TxManager(props) {
             type: type,
             msg: msg
         })
-    }, [props.data]);
+    }, [props]);
 
     /**
      * handles result of the tx 

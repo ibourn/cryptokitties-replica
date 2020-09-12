@@ -4,8 +4,9 @@ import { useHistory } from 'react-router-dom';
 import CatalogueCard from '../Cards/CatalogueCard';
 import BreedingRoom from '../BreedingRoom/BreedingRoom';
 import Web3Context from '../Connection/Web3Context';
-import LoadingCat from '../Loader/LoadingCat';
+import TxContext from '../Transactions/TxContext';
 
+import LoadingCat from '../Loader/LoadingCat';
 
 import { Genes } from '../../assets/modules/utils';
 
@@ -21,6 +22,7 @@ export default function Catalogue() {
     const [showBreedingRoom, setShowBreedingRoom] = useState(false);
 
     const { connection, requestConnection } = useContext(Web3Context);
+    const { setCelebrate } = useContext(TxContext);
     const history = useHistory();
 
     /**
@@ -63,6 +65,7 @@ export default function Catalogue() {
      * to open and close the room
      */
     const openBreddingRoom = () => {
+        setCelebrate(null);
         setShowBreedingRoom(true);
     }
     const onCloseBreedingRoom = () => {
@@ -103,23 +106,12 @@ export default function Catalogue() {
         {
             kittiesOwnerList ?
                 <div className="catalogue__background container-fluid">
-
-
-                    {/* <div className={test}>
-                                        <BreedingRoom kittiesOwnerList={kittiesOwnerList} onCloseBreedingRoom={onCloseBreedingRoom} newBirth={newBirth}></BreedingRoom>
-
-                    </div> */}
-                    {/* <div></div> */}
                     {
                         showBreedingRoom ?
-                            //    null
                             <BreedingRoom kittiesOwnerList={kittiesOwnerList} onCloseBreedingRoom={onCloseBreedingRoom} newBirth={newBirth}></BreedingRoom>
                             :
-
                             <button className="btn btn-light room__btn white-btn" onClick={openBreddingRoom}>Breeding room</button>
-
                     }
-
                     <div className="catalogue__container container d-flex pt-0">
                         <div className="row justify-content-around">
                             {
@@ -129,20 +121,17 @@ export default function Catalogue() {
                                         id={kitty.id}
                                         onDragStart={onDragStart}
                                         draggable="true"
-
                                         dna={genes}
                                         data={kitty}
-                                        style={{ margin: '0', padding: '0' }}>
+                                        style={{ margin: '0', padding: '0' }} >
                                         <CatalogueCard
                                             id={kitty.id}
-                                            //     onDragStart={onDragStart}
-                                            //    draggable="true"
-
                                             key={kitty.id}
                                             dna={genes}
                                             data={kitty}
                                             size={'3px'}>
-                                        </CatalogueCard></div>;
+                                        </CatalogueCard>
+                                    </div>;
                                 })
                             }
                         </div>

@@ -88,7 +88,7 @@ export function TxProvider(props) {
             processing: true,
             instance: instance,
             name: name,
-            callback: callback
+            // callback: callback
         })
     }
 
@@ -110,12 +110,12 @@ export function TxProvider(props) {
         <>
             <TxContext.Provider value={{
                 initTx, subscribeEvent,
-                celebrate, closeCelebration, alertInvalidTx, setAlertInvalidTx
+                celebrate, setCelebrate, closeCelebration, alertInvalidTx, setAlertInvalidTx
             }}>
                 <InvalidTx></InvalidTx>
 
                 {props.children}
-                
+
                 <div className="row">
                     <div className="col-6">
                         {

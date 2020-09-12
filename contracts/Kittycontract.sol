@@ -113,15 +113,17 @@ contract KittyContract is KittyToken {
             "sender needs to be the owner"
         );
         require(dadId != mumId, "dad can't be mum!");
+        // require(
+        //     _areNotParent(dadId, mumId) && _areNotSibling(dadId, mumId),
+        //     "no breeding between direct parents or siblings"
+        // );
         require(
-            _areNotParent(dadId, mumId) && _areNotSibling(dadId, mumId),
+            _areNotParent(dadId, mumId),
             "no breeding between direct parents or siblings"
         );
 
-        uint256 dadDna = _kitties[dadId].genes;
-        uint256 mumDna = _kitties[mumId].genes;
-        uint256 dadGeneration = _kitties[dadId].generation;
-        uint256 mumGeneration = _kitties[mumId].generation;
+        (,uint256 dadDna,,,, uint256 dadGeneration) = getKitty(dadId);
+        (,uint256 mumDna,,,, uint256 mumGeneration) = getKitty(mumId);
 
         uint256 generation = 1 +
             (dadGeneration > mumGeneration ? dadGeneration : mumGeneration);
@@ -149,27 +151,34 @@ contract KittyContract is KittyToken {
     }
 
      /** 
-     @dev checks that the kitties are not direct parents
+     @dev checks that the kitties are not direct parents or siblings
      */
     function _areNotParent(uint256 firstId, uint256 secondId)
         private
         view
         returns (bool)
     {
-        uint256 genFirstId = _kitties[firstId].generation;
-        uint256 genSecondId = _kitties[secondId].generation;
+        (,,,uint256 mumFirstId, uint256 dadFirstId, uint256 genFirstId) = getKitty(firstId);
+        (,,,uint256 mumSecondId, uint256 dadSecondId, uint256 genSecondId) = getKitty(secondId);
+
+        // uint256 genFirstId = _kitties[firstId].generation;
+        // uint256 genSecondId = _kitties[secondId].generation;
 
         if (genSecondId == genFirstId + 1) {
 
-            return (firstId != _kitties[secondId].dadId &&
-                firstId != _kitties[secondId].mumId);
+            return (firstId != dadSecondId &&
+                firstId != mumSecondId);
 
         } else if (genFirstId == genSecondId + 1) {
 
-            return (secondId != _kitties[firstId].dadId &&
-                secondId != _kitties[firstId].mumId);
+            return (secondId != dadFirstId &&
+                secondId != mumFirstId);
         } else {
-            return true;
+            return ((dadFirstId != dadSecondId &&
+            dadFirstId != mumSecondId &&
+            mumFirstId != dadSecondId &&
+            mumFirstId != mumSecondId) ||
+            (genFirstId + genSecondId == 0));
         }
     }
 
@@ -211,10 +220,11 @@ contract KittyContract is KittyToken {
         // require(_kitties[kittyMumId].coolDownEnding == 0 ||
         // _kitties[kittyMumId].coolDownEnding <= block.number);
 
+        uint64 date = uint64(block.timestamp);// uint64(now);
         Kitty memory kitty = Kitty({
             // coolDownEnding: 0,
             genes: kittyGenes,
-            birthTime: uint64(now);,
+            birthTime: date,
             mumId: uint32(kittyMumId),
             dadId: uint32(kittyDadId),
             generation: uint16(kittyGeneration)

@@ -40,26 +40,26 @@ export default function EventManager(props) {
                 type = "success";
                 data = event.returnValues;
                 /*the event was initiated to forward its result*/
-                if(props.data.callback){
-                props.forwardCelebration({
-                    id: data.kittenId,
-                    mumId: data.mumId,
-                    dadId: data.dadId,
-                    genes: data.genes,
-                    birthTime: data.birthTime,
-                    generation: data.generation,
-                    owner: data.owner
-                });                 
-                }
+                // if (props.data.callback) {
+                    props.forwardCelebration({
+                        id: data.kittenId,
+                        mumId: data.mumId,
+                        dadId: data.dadId,
+                        genes: data.genes,
+                        birthTime: data.birthTime,
+                        generation: data.generation,
+                        owner: data.owner
+                    });
+                // }
             }
         }
-
         setShow({
             status: true,
             type: type,
             data: data
         })
     }, [show.type, show.data, props]);
+
 
     /**
      * handles the closure of the alert
@@ -94,7 +94,7 @@ export default function EventManager(props) {
             status: true,
             type: "",
             msg: "event initalized"
-        })
+        });
     }, [props.data, handleEvent]);
 
 

@@ -20,7 +20,7 @@ export default function BreddingRoom(props) {
     /*data of the kitten if dropped in the boxes*/
     const [dad, setDad] = useState(null);
     const [mum, setMum] = useState(null);
-    const [kitten, setKitten] = useState(false);
+    const [kitten, setKitten] = useState(null);
     /*state of the naimation of the curtain*/
     const [move, setMove] = useState(null);
 
@@ -72,14 +72,16 @@ export default function BreddingRoom(props) {
      * 
      */
     const breed = async () => {
-        requestConnection();
-        if (connection.instance && connection.isUnlocked) {
+        if (mum && dad) {
+            requestConnection();
+            if (connection.instance && connection.isUnlocked) {
 
-            initTx(connection.instance, 'breed', { dadId: dad.id, mumId: mum.id });
+                initTx(connection.instance, 'breed', { dadId: dad.id, mumId: mum.id });
 
-            setMove(true);
+                setMove(true);
 
-            subscribeEvent(connection.instance, 'Birth', true);
+                subscribeEvent(connection.instance, 'Birth', true);
+            }
         }
     }
 
@@ -87,18 +89,22 @@ export default function BreddingRoom(props) {
     useLayoutEffect(() => {
 
         if (celebrate !== kitten) {
-            setKitten(celebrate);
-            if (celebrate) {
-                props.newBirth();
-                setMove(false);
+            if (!mum || !dad) {
+                setKitten(null)
+            } else {
+                if (celebrate) {
+                    setKitten(celebrate);
+                    props.newBirth();
+                    setMove(false);
+                }
             }
         }
-    }, [celebrate, kitten]);
+    }, [celebrate, kitten, mum, dad, props]);
 
 
 
-    const curtainRight = "curtain-right" + (move == null && !celebrate ? " begin" : (move ? " close" : " open"));
-    const curtainLeft = "curtain-left" + (move == null && !celebrate ? " begin" : (move ? " close" : " open"));
+    const curtainRight = "curtain-right" + (move == null ? " begin" : (move ? " close" : " open"));
+    const curtainLeft = "curtain-left" + (move == null ? " begin" : (move ? " close" : " open"));
 
 
     return (
@@ -137,21 +143,21 @@ export default function BreddingRoom(props) {
                         }
                     </div>
                     <div className='col mr-1'>
-                    {
-                        !kitten ?
-                            <div className='btn__container m-0 p-0'>
-                                <button className="btn btn-light room__btn white-btn" onClick={breed}>breed</button>
-                                <button className="btn btn-light room__btn white-btn" onClick={onCancel}>cancel</button>
-                            </div>
-                            :
-                            <div className='cards__column'>
-                                <CatalogueCard
-                                    dna={Genes.dnaStrToObj(kitten.genes)}
-                                    data={kitten}
-                                    size={'2px'}>
-                                </CatalogueCard>
-                            </div>
-                    }
+                        {
+                            !kitten ?
+                                <div className='btn__container m-0 p-0'>
+                                    <button className="btn btn-light room__btn white-btn" onClick={breed}>breed</button>
+                                    <button className="btn btn-light room__btn white-btn" onClick={onCancel}>cancel</button>
+                                </div>
+                                :
+                                <div className='cards__column'>
+                                    <CatalogueCard
+                                        dna={Genes.dnaStrToObj(kitten.genes)}
+                                        data={kitten}
+                                        size={'2px'}>
+                                    </CatalogueCard>
+                                </div>
+                        }
                     </div>
                 </div>
                 <div className={curtainRight}></div>
