@@ -78,11 +78,11 @@ export default function KittiesFactory() {
             "mouthColor": Random.inRange(10, 100),
             "eyesColor": Random.inRange(10, 100),
             "earsColor": Random.inRange(10, 100),
-            "eyesShape": Random.inRange(1, 9),
-            "decorationPattern": Random.inRange(1, 9),
+            "eyesShape": Random.inRange(1, 10),
+            "decorationPattern": Random.inRange(1, 10),
             "decorationMidcolor": Random.inRange(10, 100),
             "decorationSidescolor": Random.inRange(10, 100),
-            "animation": Random.inRange(1, 9),
+            "animation": Random.inRange(1, 10),
             "lastNum": Random.inRange(1, 10)
         });
     }

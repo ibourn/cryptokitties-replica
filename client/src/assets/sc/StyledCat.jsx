@@ -715,6 +715,13 @@ eyes variations
     box-shadow: inset 0.2em 0.2em white, inset -0.2em -0.2em white;
 
   }
+  &.eyeVariation-cute{
+    width: 5.4em;
+    height: 5.4em;
+    border-radius: 50%;
+    top: 0.3em;
+    left: 0.2em;    
+  }
 }
 .glint-sup{
   &.eyeVariation-sleepy{

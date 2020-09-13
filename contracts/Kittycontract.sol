@@ -164,7 +164,7 @@ contract KittyContract is KittyToken {
      */
     function _mixDna(uint256 dadDna, uint256 mumDna)
         private
-        pure
+        view
         returns (uint256)
     {
         uint256[8] memory geneArray;
@@ -172,10 +172,20 @@ contract KittyContract is KittyToken {
         uint256 index = 7;
         uint256 i = 1;
         uint256 jokerIndex = now % 8;
-        uint8 joker = uint8(
-            ((now % 10) * 10) + (block.number % 10) + (block.difficulty % 100)
-        ) / 2;
         uint8 random = uint8(now % 255);
+        uint8 joker = uint8(
+            (((now % 10) * 10) +
+                (block.number % 10) +
+                (block.difficulty % 100)) / 2
+        );
+
+        /*sanity check : 2 digits 'effects' are 10-99, 1 digit 'effects' 1-9*/
+        if (joker < 10) {
+            joker += 10;
+        }
+        if ((joker % 10 == 0) && (jokerIndex == 4 || jokerIndex == 7)) {
+            joker += 1;
+        }
 
         for (i = 1; i < 128; i = i * 2) {
             if (index != jokerIndex) {
@@ -185,7 +195,7 @@ contract KittyContract is KittyToken {
                     geneArray[index] = uint8(dadDna % 100);
                 }
             } else {
-                geneArray[index] = joker;
+                if (index == 7 || index == 4) geneArray[index] = joker;
             }
             mumDna = mumDna / 100;
             dadDna = dadDna / 100;
@@ -194,9 +204,9 @@ contract KittyContract is KittyToken {
         }
 
         for (i = 0; i < 8; i++) {
-            newGene = newgene + geneArray[i];
+            newGene = newGene + geneArray[i];
             if (i != 7) {
-                newgene = newGene * 100;
+                newGene = newGene * 100;
             }
         }
         return newGene;
@@ -281,9 +291,8 @@ contract KittyContract is KittyToken {
         // _kitties[kittyMumId].coolDownEnding <= block.number);
 
         uint64 date = uint64(block.timestamp); // uint64(now);
-        Kitty memory kitty = Kitty({
-            genes: // coolDownEnding: 0,
-            kittyGenes,
+        Kitty memory kitty = Kitty({ // coolDownEnding: 0,
+            genes: kittyGenes,
             birthTime: date,
             mumId: uint32(kittyMumId),
             dadId: uint32(kittyDadId),

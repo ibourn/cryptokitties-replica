@@ -140,12 +140,12 @@ export var Color = {
  */
 export var Random = {
     /**
-     * generate random number betwwen min and max
+     * generate random number betwwen min and max (inclusives)
      * 
      * params: min, max : number
      */
     inRange: (min, max) => {
-        return (Math.floor(Math.random() * (max - min - 1)) + min);
+        return Math.floor((Math.random() * (max - min + 1)) + min);
     }
 
 }
