@@ -15,7 +15,7 @@ export default function CatAttributes(props) {
 
     return (
         <>
-            <InputRange text="Eyes shape" min="1" max="7" item='eyesShape'
+            <InputRange text="Eyes shape" min="1" max="9" item='eyesShape'
                 loadNewDna={props.loadNewDna} dna={props.dna} handleChange={props.handleChange}>
             </InputRange>
             <InputRange text="Decoration Pattern" min="1" max="9" item='decorationPattern'
@@ -42,7 +42,7 @@ export default function CatAttributes(props) {
             <InputRange text="Animation" min="1" max="9" item='animation'
                 loadNewDna={props.loadNewDna} dna={props.dna} handleChange={props.handleChange}>
             </InputRange>
-            <InputRange text=" ? " min="1" max="7" item='lastNum'
+            <InputRange text=" ? " min="1" max="9" item='lastNum'
                 loadNewDna={props.loadNewDna} dna={props.dna} handleChange={props.handleChange}>
             </InputRange>
         </>

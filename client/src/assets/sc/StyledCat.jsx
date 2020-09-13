@@ -664,6 +664,10 @@ eyes variations
       height: 5em;
       margin: 3em;
     }
+    &.eyeVariation-cute{
+      border-radius: 0 50% 0 50%;
+      transform: rotate(-45deg) scale(0.9, 0.9);
+    }
  }
 .pupils{
   &.eyeVariation-chilly{
@@ -726,6 +730,14 @@ eyes variations
     top: 2em;
     left: 1.9em;
   }
+  &.eyeVariation-excited{
+    width: 0.9em;
+    height: 4.6em;
+    top: 0.6em;
+    left: 2.4em;
+    // transform: rotate(40deg);
+    background-color: darkslategrey;
+  }
 }
 .glint-inf{
   &.eyeVariation-smart{
@@ -737,6 +749,13 @@ eyes variations
   &.eyeVariation-hunter{
     top: 3.5em;
    left: 1.8em;
+  }
+  &.eyeVariation-excited{
+    width: 0.5em;
+    height: 0.3em;
+    top: 2.5em;
+    left: 2.1em; 
+    background-color: #dddddd;   
   }
 }
 

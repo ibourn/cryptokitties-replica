@@ -6,7 +6,9 @@ var eyevariations = {
 4: "smart",
 5: "hunter",
 6: "player",
-7: "innocent"
+7: "innocent",
+8: "cute",
+9: "excited"
 }
 
 export const allEyeVariations = () => {
