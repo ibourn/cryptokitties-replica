@@ -122,8 +122,8 @@ contract KittyContract is KittyToken {
             "no breeding between direct parents or siblings"
         );
 
-        (,uint256 dadDna,,,, uint256 dadGeneration) = getKitty(dadId);
-        (,uint256 mumDna,,,, uint256 mumGeneration) = getKitty(mumId);
+        (, uint256 dadDna, , , , uint256 dadGeneration) = getKitty(dadId);
+        (, uint256 mumDna, , , , uint256 mumGeneration) = getKitty(mumId);
 
         uint256 generation = 1 +
             (dadGeneration > mumGeneration ? dadGeneration : mumGeneration);
@@ -136,21 +136,73 @@ contract KittyContract is KittyToken {
     /***************************************************
     Private Functions
      **************************************************/
-     /** 
-     @dev mix dna from dad and mum
+    /** 
+     @dev mix dna from dad and mum with pseudo randomness :
+
+    - 'gene' : 16 digits => 8 pairs (2 digits each) 
+    - as 'gene' represents 10 effects (11 22 33 44 5 5 66 77 8 8) some are expressed
+    with one digit others with 2
+    Not cutting the digits the same way the effects are represented is a first step of randomness.
+
+    NEXT STEPS :
+    - get a pseudo random number : now mod 255 => 0-255 = 8 bit digits (ex: 01010101)
+    - we take the value of the position of one bit = 1 in uint8 (0-255)
+    00000001 =1 // 00000010 =2 // 00000100 =4... 1000000 =128
+    these bits represent the position of one pair.
+    - we do & operation on the random number to know if we choose mum's or dad's pair
+    bit = 1 for mum's pair, 0 for the dad's pair, ex :
+    10111010 & 00000010 = 1 : the 7th pair will get the value 1 so it will be the mum's pair
+    - we fill the geneArray by the end so that we can do parentDna % 100 to get the last pair
+    then parentDna = parentDna / 100 to eliminate this step
+    -Finally we build the new 'gene' by moving each pair added by two digits to the left (*100)
+
+    EXTRA RANDOMNESS : one pair will be random (neither from the dad or from the mum)
+    - we take now mod 8 to get the position of this pair
+    - Finally to get the value of the pair pseudo randomly: 
+    D = now mod 10 , U = block.number mod 10, C = block.difficulty mod 100
+    joker pair = (((D*10) + U) + C) / 2
      */
     function _mixDna(uint256 dadDna, uint256 mumDna)
         private
         pure
         returns (uint256)
     {
-        uint256 firsthalf = dadDna / 100000000;
-        uint256 secondhalf = mumDna % 100000000;
+        uint256[8] memory geneArray;
+        uint256 newGene;
+        uint256 index = 7;
+        uint256 i = 1;
+        uint256 jokerIndex = now % 8;
+        uint8 joker = uint8(
+            ((now % 10) * 10) + (block.number % 10) + (block.difficulty % 100)
+        ) / 2;
+        uint8 random = uint8(now % 255);
 
-        return (firsthalf * 100000000) + secondhalf;
+        for (i = 1; i < 128; i = i * 2) {
+            if (index != jokerIndex) {
+                if (random & i != 0) {
+                    geneArray[index] = uint8(mumDna % 100);
+                } else {
+                    geneArray[index] = uint8(dadDna % 100);
+                }
+            } else {
+                geneArray[index] = joker;
+            }
+            mumDna = mumDna / 100;
+            dadDna = dadDna / 100;
+
+            index--;
+        }
+
+        for (i = 0; i < 8; i++) {
+            newGene = newgene + geneArray[i];
+            if (i != 7) {
+                newgene = newGene * 100;
+            }
+        }
+        return newGene;
     }
 
-     /** 
+    /** 
      @dev checks that the kitties are not direct parents or siblings
      */
     function _areNotParent(uint256 firstId, uint256 secondId)
@@ -158,31 +210,39 @@ contract KittyContract is KittyToken {
         view
         returns (bool)
     {
-        (,,,uint256 mumFirstId, uint256 dadFirstId, uint256 genFirstId) = getKitty(firstId);
-        (,,,uint256 mumSecondId, uint256 dadSecondId, uint256 genSecondId) = getKitty(secondId);
+        (
+            ,
+            ,
+            ,
+            uint256 mumFirstId,
+            uint256 dadFirstId,
+            uint256 genFirstId
+        ) = getKitty(firstId);
+        (
+            ,
+            ,
+            ,
+            uint256 mumSecondId,
+            uint256 dadSecondId,
+            uint256 genSecondId
+        ) = getKitty(secondId);
 
         // uint256 genFirstId = _kitties[firstId].generation;
         // uint256 genSecondId = _kitties[secondId].generation;
 
         if (genSecondId == genFirstId + 1) {
-
-            return (firstId != dadSecondId &&
-                firstId != mumSecondId);
-
+            return (firstId != dadSecondId && firstId != mumSecondId);
         } else if (genFirstId == genSecondId + 1) {
-
-            return (secondId != dadFirstId &&
-                secondId != mumFirstId);
+            return (secondId != dadFirstId && secondId != mumFirstId);
         } else {
             return ((dadFirstId != dadSecondId &&
-            dadFirstId != mumSecondId &&
-            mumFirstId != dadSecondId &&
-            mumFirstId != mumSecondId) ||
-            (genFirstId + genSecondId == 0));
+                dadFirstId != mumSecondId &&
+                mumFirstId != dadSecondId &&
+                mumFirstId != mumSecondId) || (genFirstId + genSecondId == 0));
         }
     }
 
-     /** 
+    /** 
      @dev checks that the kitties are not siblings
      */
     function _areNotSibling(uint256 firstId, uint256 secondId)
@@ -220,10 +280,10 @@ contract KittyContract is KittyToken {
         // require(_kitties[kittyMumId].coolDownEnding == 0 ||
         // _kitties[kittyMumId].coolDownEnding <= block.number);
 
-        uint64 date = uint64(block.timestamp);// uint64(now);
+        uint64 date = uint64(block.timestamp); // uint64(now);
         Kitty memory kitty = Kitty({
-            // coolDownEnding: 0,
-            genes: kittyGenes,
+            genes: // coolDownEnding: 0,
+            kittyGenes,
             birthTime: date,
             mumId: uint32(kittyMumId),
             dadId: uint32(kittyDadId),

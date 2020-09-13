@@ -39,7 +39,9 @@ export default function MyHistrory() {
                         dadId: event.returnValues.dadId,
                         generation: event.returnValues.generation
                     })
-                } 
+                } else {
+                    return null;
+                }
                 });
                 setCreationList(tab);
             });
@@ -68,7 +70,9 @@ export default function MyHistrory() {
                         dadId: event.returnValues.dadId,
                         generation: event.returnValues.generation
                     })
-                } 
+                } else {
+                    return null;
+                }
                 });
                 setBreedingList(tab);
             });
