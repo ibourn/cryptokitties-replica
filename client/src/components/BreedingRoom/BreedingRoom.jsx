@@ -86,7 +86,6 @@ export default function BreddingRoom(props) {
     }
 
 
-
     useLayoutEffect(() => {
 
         if (celebrate !== kitten) {

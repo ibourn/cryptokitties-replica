@@ -160,6 +160,7 @@ contract KittyContract is KittyToken {
      */
     function _mixDna(uint256 dadDna, uint256 mumDna)
         private
+        view
         returns (uint256)
     {
         uint256[8] memory geneArray;
