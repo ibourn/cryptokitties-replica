@@ -18469,12 +18469,12 @@
         }
       },
       "links": {},
-      "address": "0x45f2767D37b8c92299cbD95001C57d65805324D7",
-      "transactionHash": "0x79b8388f3f6a2c56720c01748aefaf1e0ea5799d5b227c1e8be1ba50b11cb87e"
+      "address": "0x40F56210B8494E4384017857061176b3b8a80952",
+      "transactionHash": "0x5669cf721f068182492fc04942f97551476a3e9035d4df61305169011641e0cd"
     }
   },
   "schemaVersion": "3.2.0",
-  "updatedAt": "2020-09-14T01:38:47.018Z",
+  "updatedAt": "2020-09-14T12:34:12.011Z",
   "networkType": "ethereum",
   "devdoc": {
     "details": "main logic contract ",

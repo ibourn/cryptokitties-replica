@@ -1372,12 +1372,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x6FfB24685630524312Da93e6c3643f7aA27029bF",
-      "transactionHash": "0x9e0982978a73810de3c65ea95a589910825f179cae387814e9a26bd8bc010078"
+      "address": "0xcb5543Bb878d28e38B41A0Ec2856eeAA2470Eb7a",
+      "transactionHash": "0x0d262dd611ff8e1ae1e33aed3d7ab557457350f5c025ac012923a9555a1a3fff"
     }
   },
   "schemaVersion": "3.2.0",
-  "updatedAt": "2020-09-14T01:38:47.024Z",
+  "updatedAt": "2020-09-14T12:34:12.017Z",
   "networkType": "ethereum",
   "devdoc": {
     "details": "-It's the persistent connexion between users and KittyContract => shouldn't be modified",

@@ -29,16 +29,16 @@ export default function HomePage() {
                 let kittiesList = [];
                 for (let i = 0; i <= n; i++) {
                         kittiesList.push({
-                                "headColor": Random.inRange(10, 100),
-                                "mouthColor": Random.inRange(10, 100),
-                                "eyesColor": Random.inRange(10, 100),
-                                "earsColor": Random.inRange(10, 100),
-                                "eyesShape": Random.inRange(1, 7),
+                                "headColor": Random.inRange(10, 99),
+                                "mouthColor": Random.inRange(10, 99),
+                                "eyesColor": Random.inRange(10, 99),
+                                "earsColor": Random.inRange(10, 99),
+                                "eyesShape": Random.inRange(1, 9),
                                 "decorationPattern": Random.inRange(1, 9),
-                                "decorationMidcolor": Random.inRange(10, 100),
-                                "decorationSidescolor": Random.inRange(10, 100),
-                                "animation": Random.inRange(1, 7),
-                                "lastNum": Random.inRange(1, 10)
+                                "decorationMidcolor": Random.inRange(10, 99),
+                                "decorationSidescolor": Random.inRange(10, 99),
+                                "animation": Random.inRange(1, 9),
+                                "lastNum": Random.inRange(1, 9)
                         });
                 }
                 return kittiesList;

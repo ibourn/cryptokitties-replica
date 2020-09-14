@@ -512,7 +512,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.0",
-  "updatedAt": "2020-09-14T01:38:44.699Z",
+  "updatedAt": "2020-09-14T12:34:09.556Z",
   "devdoc": {
     "details": "-Allows to pause functions of the contract",
     "methods": {}
