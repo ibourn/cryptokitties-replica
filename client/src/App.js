@@ -13,6 +13,7 @@ import KittiesFactory from './components/Pages/KittiesFactory';
 import Catalogue from './components/Pages/Catalogue';
 import MyHistory from './components/Pages/KittiesHistory/MyHistory';
 import RegisterOfBirths from './components/Pages/KittiesHistory/RegisterOfBirths';
+import MarketPage from './components/Pages/MarketPage';
 
 import { Web3Provider } from './components/Connection/Web3Context';
 import { TxProvider } from './components/Transactions/TxContext';
@@ -44,6 +45,7 @@ function App() {
               <Route exact strict path="/RegisterOfBirths" component={RegisterOfBirths} />
               <Route exact strict path="/MyHistory" component={MyHistory} />
 
+              <Route exact strict path="/Market" component={MarketPage} />
             </Switch>
 
           </BrowserRouter>

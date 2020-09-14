@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -15,11 +16,15 @@ import StyledNavLink from './StyledNavLink';
  * @todo: known issue: react-bootstrap collapse => Warning: findDOMNode is deprecated in StrictMode
  * /add a ref or ?
  */
-export default function MainNavBar() {
+  const MainNavBar = (props) => {
 
 const dropdownLinkStyle = { backgroundColor: 'inherit' };
 
-  return (
+const styleHome = props.location.pathname.search("/Market") < 0 ? {display: 'none'} : {display: 'block'};
+const styleMarket = props.location.pathname.search("/Market") >= 0 ? {display: 'none'} : {display: 'block'};
+
+
+return (
     <Navbar collapseOnSelect expand="lg" className="px-md-5"
       style={{ background: 'linear-gradient(180deg, rgba(248,248,248,1) 0%,  rgba(238,238,238,1) 100%)' }}>
 
@@ -47,10 +52,17 @@ const dropdownLinkStyle = { backgroundColor: 'inherit' };
         </Nav>
       </Navbar.Collapse>
 
-      <Button size="sm" className="red-btn">
-        Start
+      <Button size="sm" className="red-btn" style={styleMarket}>
+        <Nav.Link href="/Market" style={{color: 'white', margin: '0', padding: '0'}}>Market Place</Nav.Link>
+        </Button>
+        
+        <Button size="sm" className="red-btn" style={styleHome}>
+        <Nav.Link href="/Home" style={{color: 'white', margin: '0', padding: '0'}} >Home</Nav.Link>
       </Button>
     </Navbar>
   );
 
 }
+
+
+export default withRouter(MainNavBar);
