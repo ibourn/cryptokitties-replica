@@ -113,8 +113,8 @@ export default function BreddingRoom(props) {
 
                 <div className={curtainLeft}></div>
 
-                <div className="row cards__container" >
-                    <div className='col mr-1 cards__column'
+                <div className="row container-fluid d-flex justify-content-around" >
+                    <div className='col-4  cards__column'
                         onDragOver={(e) => onDragOver(e)}
                         onDrop={(e) => onDropDad(e)}>
                         {
@@ -128,7 +128,7 @@ export default function BreddingRoom(props) {
                                 <p className="instruction">{"drag&drop dad"}</p>
                         }
                     </div>
-                    <div className='col mr-1 cards__column'
+                    <div className='col-4  cards__column'
                         onDragOver={(e) => onDragOver(e)}
                         onDrop={(e) => onDropMum(e)}>
                         {
@@ -142,7 +142,7 @@ export default function BreddingRoom(props) {
                                 <p className="instruction">{"drag&drop mum"}</p>
                         }
                     </div>
-                    <div className='col mr-1'>
+                    <div className='col-4 cards__column'>
                         {
                             !kitten ?
                                 <div className='btn__container m-0 p-0'>
@@ -150,13 +150,11 @@ export default function BreddingRoom(props) {
                                     <button className="btn btn-light room__btn white-btn" onClick={onCancel}>cancel</button>
                                 </div>
                                 :
-                                <div className='cards__column'>
                                     <CatalogueCard
                                         dna={Genes.dnaStrToObj(kitten.genes)}
                                         data={kitten}
                                         size={'2px'}>
                                     </CatalogueCard>
-                                </div>
                         }
                     </div>
                 </div>

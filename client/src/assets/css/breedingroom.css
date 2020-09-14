@@ -112,13 +112,9 @@
 }
 
 /*others elements*/
-.cards__container{
-  position: relative;
-}
-
 .cards__column{
-  height: 30vh;
-  width: 40vh;
+  /* min-height: 30vh; */
+  min-width: 40vh;
 }
 
 .instruction{
@@ -132,20 +128,14 @@
 }
 
 .btn__container{
-  width: 200%;
+  width: 50%;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-@media (max-width: 464px), (min-width: 630px) and (max-width: 904px) {
+@media (max-width: 964px) {
   .btn__container{
     flex-direction: row;
-    width: 50%
-  }
-}
-@media (min-width: 464px) and (max-width: 630px) {
-  .btn__container{
-    width: 80%
   }
 }
