@@ -30,7 +30,7 @@ export default function MyHistrory() {
         }, logError)
             .then(function (events) {
                 tab = events.map(event => {
-                    if(event.returnValues.generation === 0){
+                    if(parseInt(event.returnValues.generation) === 0){
                     return ({
                         id: event.returnValues.kittenId,
                         genes: event.returnValues.genes,
@@ -61,7 +61,7 @@ export default function MyHistrory() {
         }, logError)
             .then(function (events) {
                 tab = events.map(event => {
-                    if(event.returnValues.generation !== 0){
+                    if(parseInt(event.returnValues.generation) !== 0){
                     return ({
                         id: event.returnValues.kittenId,
                         genes: event.returnValues.genes,
