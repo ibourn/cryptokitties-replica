@@ -45,7 +45,8 @@ function App() {
               <Route exact strict path="/RegisterOfBirths" component={RegisterOfBirths} />
               <Route exact strict path="/MyHistory" component={MyHistory} />
 
-              <Route exact strict path="/Market" component={MarketPage} />
+              {/* <Route exact strict path="/Market" component={MarketPage} /> */}
+              <Route   path="/(Market||Market/:type)" component={MarketPage} />
             </Switch>
 
           </BrowserRouter>
