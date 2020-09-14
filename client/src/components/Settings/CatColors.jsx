@@ -13,16 +13,16 @@ export default function CatColors(props) {
 
     return (
         <>
-            <InputRange text="Head and body" min="10" max="98" item='headColor'
+            <InputRange text="Head and body" min="10" max="99" item='headColor'
                 loadNewDna={props.loadNewDna} dna={props.dna} handleChange={props.handleChange}>
             </InputRange>
-            <InputRange text="Mouth | Belly | Tail" min="10" max="98" item='mouthColor'
+            <InputRange text="Mouth | Belly | Tail" min="10" max="99" item='mouthColor'
                 loadNewDna={props.loadNewDna} dna={props.dna} handleChange={props.handleChange}>
             </InputRange>
-            <InputRange text="Eyes" min="10" max="98" item='eyesColor'
+            <InputRange text="Eyes" min="10" max="99" item='eyesColor'
                 loadNewDna={props.loadNewDna} dna={props.dna} handleChange={props.handleChange}>
             </InputRange>
-            <InputRange text="Ears | Pawns " min="10" max="98" item='earsColor'
+            <InputRange text="Ears | Pawns " min="10" max="99" item='earsColor'
                 loadNewDna={props.loadNewDna} dna={props.dna} handleChange={props.handleChange}>
             </InputRange>
         </>

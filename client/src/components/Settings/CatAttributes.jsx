@@ -27,13 +27,13 @@ export default function CatAttributes(props) {
              </span>
             <Row noGutters style={{ marginTop: '0.7em' }}>
                 <Col lg={5}>
-                    <InputRange text="Main color" min="10" max="98" item='decorationMidcolor'
+                    <InputRange text="Main color" min="10" max="99" item='decorationMidcolor'
                         loadNewDna={props.loadNewDna} dna={props.dna} handleChange={props.handleChange}>
                     </InputRange>
                 </Col>
                 <Col lg={2}></Col>
                 <Col lg={5}>
-                    <InputRange text="Sides color" min="10" max="98" item='decorationSidescolor'
+                    <InputRange text="Sides color" min="10" max="99" item='decorationSidescolor'
                         loadNewDna={props.loadNewDna} dna={props.dna} handleChange={props.handleChange}>
                     </InputRange>
                 </Col>

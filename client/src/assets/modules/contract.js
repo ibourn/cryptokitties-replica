@@ -1,5 +1,5 @@
 /*address of the proxy contract*/
-export const contractAddress = '0xB4de7CB0f4591C9F58C8Bc803BfEEBf256557085';
+export const contractAddress = '0xA4b5b2c15b44fc1eC42a9ECFa6604Ae8Cf0f6a55';
 
 /*abi of the 'logic' contract to be able to call its functions*/
 export const abi = [
@@ -125,6 +125,32 @@ export const abi = [
       }
     ],
     "name": "Transfer",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "geneArrayElem",
+        "type": "uint256"
+      }
+    ],
+    "name": "data",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "newGene",
+        "type": "uint256"
+      }
+    ],
+    "name": "gene",
     "type": "event"
   },
   {

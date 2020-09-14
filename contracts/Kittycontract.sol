@@ -113,10 +113,6 @@ contract KittyContract is KittyToken {
             "sender needs to be the owner"
         );
         require(dadId != mumId, "dad can't be mum!");
-        // require(
-        //     _areNotParent(dadId, mumId) && _areNotSibling(dadId, mumId),
-        //     "no breeding between direct parents or siblings"
-        // );
         require(
             _areNotParent(dadId, mumId),
             "no breeding between direct parents or siblings"
@@ -144,7 +140,7 @@ contract KittyContract is KittyToken {
     with one digit others with 2
     Not cutting the digits the same way the effects are represented is a first step of randomness.
 
-    NEXT STEPS :
+    STEPS :
     - get a pseudo random number : now mod 255 => 0-255 = 8 bit digits (ex: 01010101)
     - we take the value of the position of one bit = 1 in uint8 (0-255)
     00000001 =1 // 00000010 =2 // 00000100 =4... 1000000 =128
@@ -164,7 +160,6 @@ contract KittyContract is KittyToken {
      */
     function _mixDna(uint256 dadDna, uint256 mumDna)
         private
-        view
         returns (uint256)
     {
         uint256[8] memory geneArray;
@@ -179,7 +174,7 @@ contract KittyContract is KittyToken {
                 (block.difficulty % 100)) / 2
         );
 
-        /*sanity check : 2 digits 'effects' are 10-99, 1 digit 'effects' 1-9*/
+        /*sanity check : 2 digits 'effects' are [10-100[, 1 digit 'effects' : [1-10[*/
         if (joker < 10) {
             joker += 10;
         }
@@ -187,7 +182,7 @@ contract KittyContract is KittyToken {
             joker += 1;
         }
 
-        for (i = 1; i < 128; i = i * 2) {
+        for (i = 1; i <= 128; i = i * 2) {
             if (index != jokerIndex) {
                 if (random & i != 0) {
                     geneArray[index] = uint8(mumDna % 100);
@@ -195,7 +190,7 @@ contract KittyContract is KittyToken {
                     geneArray[index] = uint8(dadDna % 100);
                 }
             } else {
-                if (index == 7 || index == 4) geneArray[index] = joker;
+                geneArray[index] = joker;
             }
             mumDna = mumDna / 100;
             dadDna = dadDna / 100;
@@ -237,8 +232,6 @@ contract KittyContract is KittyToken {
             uint256 genSecondId
         ) = getKitty(secondId);
 
-        // uint256 genFirstId = _kitties[firstId].generation;
-        // uint256 genSecondId = _kitties[secondId].generation;
 
         if (genSecondId == genFirstId + 1) {
             return (firstId != dadSecondId && firstId != mumSecondId);
@@ -250,27 +243,6 @@ contract KittyContract is KittyToken {
                 mumFirstId != dadSecondId &&
                 mumFirstId != mumSecondId) || (genFirstId + genSecondId == 0));
         }
-    }
-
-    /** 
-     @dev checks that the kitties are not siblings
-     */
-    function _areNotSibling(uint256 firstId, uint256 secondId)
-        private
-        view
-        returns (bool)
-    {
-        uint256 dadFirstId = _kitties[firstId].dadId;
-        uint256 mumFirstId = _kitties[firstId].mumId;
-        uint256 dadSecondId = _kitties[secondId].dadId;
-        uint256 mumSecondId = _kitties[secondId].mumId;
-
-        return ((dadFirstId != dadSecondId &&
-            dadFirstId != mumSecondId &&
-            mumFirstId != dadSecondId &&
-            mumFirstId != mumSecondId) ||
-            (_kitties[firstId].generation + _kitties[secondId].generation ==
-                0));
     }
 
     /**
