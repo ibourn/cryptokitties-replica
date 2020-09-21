@@ -4,6 +4,7 @@ pragma solidity ^0.5.12;
 import "./IERC721.sol";
 import "./IERC721Receiver.sol";
 import "./KittyStorage.sol";
+import "./IKittyRental.sol";
 
 /**
 @dev Implementation of the 'erc721 token' functions
@@ -135,8 +136,8 @@ contract KittyToken is IERC721, KittyStorage {
     function approve(address to, uint256 tokenId) public {
         require(
             _owns(msg.sender, tokenId) ||
-            _approvedFor(to, tokenId) ||
-            _approvedByOwner(to, tokenId)
+            _approvedFor(msg.sender, tokenId) ||
+            _approvedByOwner(msg.sender, tokenId)
         );
 
         _approve(tokenId, to);
@@ -234,6 +235,9 @@ contract KittyToken is IERC721, KittyStorage {
      **************************************************/
     /** 
     @dev helper : checks if sender is owner or approved
+    * - as this check is called by transfer functions, it also checks
+    * that 'sender' is not the borrower of the token to prevent the use
+    * of approval to sell the token
     */
     function _isApprovedOrOwner(
         address sender,
@@ -246,8 +250,8 @@ contract KittyToken is IERC721, KittyStorage {
         require(_owns(from, tokenId));
 
         return (sender == from ||
-            _approvedFor(msg.sender, tokenId) ||
-            isApprovedForAll(from, msg.sender));
+            isApprovedForAll(from, sender) ||
+            _approvedFor(sender, tokenId));
     }
 
     /**
@@ -316,7 +320,7 @@ contract KittyToken is IERC721, KittyStorage {
     }
 
     /**
-    @dev checks if receiver is ERC721 compliant
+    @dev checks if receiver supports ERC721 
     */
     function _checkERC721Support(
         address from,
@@ -336,4 +340,5 @@ contract KittyToken is IERC721, KittyStorage {
         );
         return returnData == _MAGIC_ERC721_RECEIVED;
     }
+    
 }

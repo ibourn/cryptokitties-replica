@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, useHistory } from 'react-router-dom';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -23,6 +23,12 @@ const dropdownLinkStyle = { backgroundColor: 'inherit' };
 const styleHome = props.location.pathname.search("/Market") < 0 ? {display: 'none'} : {display: 'block'};
 const styleMarket = props.location.pathname.search("/Market") >= 0 ? {display: 'none'} : {display: 'block'};
 
+const history = useHistory();
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        history.push(e.target.pathname);
+    }
 
 return (
     <Navbar collapseOnSelect expand="lg" className="px-md-5"
@@ -53,11 +59,11 @@ return (
       </Navbar.Collapse>
 
       <Button size="sm" className="red-btn" style={styleMarket}>
-        <Nav.Link href="/Market" style={{color: 'white', margin: '0', padding: '0'}}>Market Place</Nav.Link>
+        <Nav.Link href="/Market" eventKey="/Market" onClick={handleClick} style={{color: 'white', margin: '0', padding: '0'}}>Market Place</Nav.Link>
         </Button>
         
         <Button size="sm" className="red-btn" style={styleHome}>
-        <Nav.Link href="/Home" style={{color: 'white', margin: '0', padding: '0'}} >Home</Nav.Link>
+        <Nav.Link href="/Home" eventKey="/Home" onClick={handleClick} style={{color: 'white', margin: '0', padding: '0'}} >Home</Nav.Link>
       </Button>
     </Navbar>
   );

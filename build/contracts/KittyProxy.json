@@ -49,25 +49,25 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"KittyContractAddress\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"constant\":true,\"inputs\":[],\"name\":\"_owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"newKittyContractAddress\",\"type\":\"address\"}],\"name\":\"upgrade\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"-It's the persistent connexion between users and KittyContract => shouldn't be modified\",\"methods\":{\"constructor\":{\"details\":\"set the address of the main contract at deployment\"},\"upgrade(address)\":{\"details\":\"updates the address of the main contract\"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/KittyProxy.sol\":\"KittyProxy\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/KittyProxy.sol\":{\"keccak256\":\"0xe5cdf5354d77ab0a3d5df083014fb7cc2fca51076bee6208ed5aa781b2388cd0\",\"urls\":[\"bzz-raw://7dde44f68e691ba7647d53a5650acb323c46a856d4145af53b1ab3ef0b0366f7\",\"dweb:/ipfs/QmPepNLxBr36ScQJ3eWvirGtkpwoXNPYNL2W8vPRyyrnZf\"]},\"/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/KittyStorage.sol\":{\"keccak256\":\"0x16e89236d9cc0576d1af1289a56b9488b96fdb2951b21dcbca75bc0fa7b4dfdd\",\"urls\":[\"bzz-raw://c324af62feb6b840c60c9601c3aab2c9e310789ea9b6ad84451ded9af1a99f6e\",\"dweb:/ipfs/QmSMKVhbare9mCof2gmcGcAUeQo3vCvCiN9DjXKG1p3A8s\"]},\"/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/Ownable.sol\":{\"keccak256\":\"0x9e7a84b453ad67f6fc8640067ebaf03f9a19d10254b3b741ce5747ddba0cd507\",\"urls\":[\"bzz-raw://f4afaf9cd9b2c0093a2e2f25114d29b4d37c70666e2321f1e047d909183f819b\",\"dweb:/ipfs/QmRjYZ6tqMpyCcFv6sFwK4ULm7bWKcDmxJy7hnD5YZRFJ7\"]},\"/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/Pausable.sol\":{\"keccak256\":\"0x5d62db5769ef4eb7212d2722660eee6d96478e3500754ad449cf54fd8d8efbaf\",\"urls\":[\"bzz-raw://93a458b077277ac8ff7d2c5abe7a92782702504fa672471a223207c77f578014\",\"dweb:/ipfs/Qma9uomrXm99JNp6Z3zpkJAZQvd2Q25B4ptnzWufNQhatD\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b506040516103903803806103908339818101604052602081101561003357600080fd5b8101908080519060200190929190505050336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555080600760006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550506102bb806100d56000396000f3fe6080604052600436106100295760003560e01c80630900f0101461011c578063b2bdfa7b1461016d575b6000600760009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050600073ffffffffffffffffffffffffffffffffffffffff16600760009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1614156100ac57600080fd5b60606000368080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509050600080825160208401855af43d604051816000823e8260008114610118578282f35b8282fd5b34801561012857600080fd5b5061016b6004803603602081101561013f57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506101c4565b005b34801561017957600080fd5b50610182610261565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161461021d57600080fd5b80600760006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a723158203c9e2cc80c80b7acde1e0aa1bef3f1776f1d23b7d6a8f5fecb9c39e66156632764736f6c634300050c0032",
-  "deployedBytecode": "0x6080604052600436106100295760003560e01c80630900f0101461011c578063b2bdfa7b1461016d575b6000600760009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050600073ffffffffffffffffffffffffffffffffffffffff16600760009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1614156100ac57600080fd5b60606000368080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509050600080825160208401855af43d604051816000823e8260008114610118578282f35b8282fd5b34801561012857600080fd5b5061016b6004803603602081101561013f57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506101c4565b005b34801561017957600080fd5b50610182610261565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161461021d57600080fd5b80600760006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a723158203c9e2cc80c80b7acde1e0aa1bef3f1776f1d23b7d6a8f5fecb9c39e66156632764736f6c634300050c0032",
-  "sourceMap": "196:1914:3:-;;;679:120;8:9:-1;5:2;;;30:1;27;20:12;5:2;679:120:3;;;;;;;;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;679:120:3;;;;;;;;;;;;;;;;539:10:7;530:6;;:19;;;;;;;;;;;;;;;;;;771:20:3;741:27;;:50;;;;;;;;;;;;;;;;;;679:120;196:1914;;;;;;",
-  "deployedSourceMap": "196:1914:3:-;;;;;;;;;;;;;;;;;;;;;;;1258:22;1283:27;;;;;;;;;;;1258:52;;1368:1;1329:41;;:27;;;;;;;;;;;:41;;;;1321:50;;;;;;1382:17;1402:8;;1382:28;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;93:3;85:6;81:16;74:27;137:4;133:9;126:4;121:3;117:14;113:30;106:37;;169:3;161:6;157:16;147:26;;1382:28:3;;;;;;;;1640:1;1637;1630:4;1624:11;1617:4;1611;1607:15;1591:14;1586:3;1573:69;1670:14;1717:4;1711:11;1759:4;1756:1;1751:3;1736:28;1785:6;1810:1;1805:26;;;;1866:4;1861:3;1854:17;1805:26;1825:4;1820:3;1813:17;1966:141;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1966:141:3;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1966:141:3;;;;;;;;;;;;;;;;;;;:::i;:::-;;214:21:7;;8:9:-1;5:2;;;30:1;27;20:12;5:2;214:21:7;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;1966:141:3;372:6:7;;;;;;;;;;;358:20;;:10;:20;;;350:29;;;;;;2076:23:3;2046:27;;:53;;;;;;;;;;;;;;;;;;1966:141;:::o;214:21:7:-;;;;;;;;;;;;;:::o",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"KittyContractAddress\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"constant\":true,\"inputs\":[],\"name\":\"_owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"newKittyContractAddress\",\"type\":\"address\"}],\"name\":\"upgrade\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"-It's the persistent connexion between users and KittyContract => shouldn't be modified\",\"methods\":{\"constructor\":{\"details\":\"set the address of the main contract at deployment\"},\"upgrade(address)\":{\"details\":\"updates the address of the main contract\"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/KittyProxy.sol\":\"KittyProxy\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/KittyProxy.sol\":{\"keccak256\":\"0xe5cdf5354d77ab0a3d5df083014fb7cc2fca51076bee6208ed5aa781b2388cd0\",\"urls\":[\"bzz-raw://7dde44f68e691ba7647d53a5650acb323c46a856d4145af53b1ab3ef0b0366f7\",\"dweb:/ipfs/QmPepNLxBr36ScQJ3eWvirGtkpwoXNPYNL2W8vPRyyrnZf\"]},\"/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/KittyStorage.sol\":{\"keccak256\":\"0x4eda32b3883f5392d79639a75f7b4cfcf3c78741c775aefcb9e859702f076079\",\"urls\":[\"bzz-raw://4220e8e8584482dc09d19e0535e03beb9a1322f21226707c7afeb458d4a4bc6a\",\"dweb:/ipfs/QmYTSBjZTAmV5qrf3CKvvAsMgUmTWxLxBCLjBPNxWfEHZm\"]},\"/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/Ownable.sol\":{\"keccak256\":\"0x9e7a84b453ad67f6fc8640067ebaf03f9a19d10254b3b741ce5747ddba0cd507\",\"urls\":[\"bzz-raw://f4afaf9cd9b2c0093a2e2f25114d29b4d37c70666e2321f1e047d909183f819b\",\"dweb:/ipfs/QmRjYZ6tqMpyCcFv6sFwK4ULm7bWKcDmxJy7hnD5YZRFJ7\"]},\"/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/Pausable.sol\":{\"keccak256\":\"0x5d62db5769ef4eb7212d2722660eee6d96478e3500754ad449cf54fd8d8efbaf\",\"urls\":[\"bzz-raw://93a458b077277ac8ff7d2c5abe7a92782702504fa672471a223207c77f578014\",\"dweb:/ipfs/Qma9uomrXm99JNp6Z3zpkJAZQvd2Q25B4ptnzWufNQhatD\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506040516103903803806103908339818101604052602081101561003357600080fd5b8101908080519060200190929190505050336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555080600760006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550506102bb806100d56000396000f3fe6080604052600436106100295760003560e01c80630900f0101461011c578063b2bdfa7b1461016d575b6000600760009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050600073ffffffffffffffffffffffffffffffffffffffff16600760009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1614156100ac57600080fd5b60606000368080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509050600080825160208401855af43d604051816000823e8260008114610118578282f35b8282fd5b34801561012857600080fd5b5061016b6004803603602081101561013f57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506101c4565b005b34801561017957600080fd5b50610182610261565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161461021d57600080fd5b80600760006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a7231582092c24fcaee6472a5e3e57805c3f267830eb6b9a907af253c332b918914ec56a264736f6c634300050c0032",
+  "deployedBytecode": "0x6080604052600436106100295760003560e01c80630900f0101461011c578063b2bdfa7b1461016d575b6000600760009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050600073ffffffffffffffffffffffffffffffffffffffff16600760009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1614156100ac57600080fd5b60606000368080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509050600080825160208401855af43d604051816000823e8260008114610118578282f35b8282fd5b34801561012857600080fd5b5061016b6004803603602081101561013f57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506101c4565b005b34801561017957600080fd5b50610182610261565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161461021d57600080fd5b80600760006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a7231582092c24fcaee6472a5e3e57805c3f267830eb6b9a907af253c332b918914ec56a264736f6c634300050c0032",
+  "sourceMap": "196:1914:9:-;;;679:120;8:9:-1;5:2;;;30:1;27;20:12;5:2;679:120:9;;;;;;;;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;679:120:9;;;;;;;;;;;;;;;;539:10:15;530:6;;:19;;;;;;;;;;;;;;;;;;771:20:9;741:27;;:50;;;;;;;;;;;;;;;;;;679:120;196:1914;;;;;;",
+  "deployedSourceMap": "196:1914:9:-;;;;;;;;;;;;;;;;;;;;;;;1258:22;1283:27;;;;;;;;;;;1258:52;;1368:1;1329:41;;:27;;;;;;;;;;;:41;;;;1321:50;;;;;;1382:17;1402:8;;1382:28;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;93:3;85:6;81:16;74:27;137:4;133:9;126:4;121:3;117:14;113:30;106:37;;169:3;161:6;157:16;147:26;;1382:28:9;;;;;;;;1640:1;1637;1630:4;1624:11;1617:4;1611;1607:15;1591:14;1586:3;1573:69;1670:14;1717:4;1711:11;1759:4;1756:1;1751:3;1736:28;1785:6;1810:1;1805:26;;;;1866:4;1861:3;1854:17;1805:26;1825:4;1820:3;1813:17;1966:141;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1966:141:9;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1966:141:9;;;;;;;;;;;;;;;;;;;:::i;:::-;;214:21:15;;8:9:-1;5:2;;;30:1;27;20:12;5:2;214:21:15;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;1966:141:9;372:6:15;;;;;;;;;;;358:20;;:10;:20;;;350:29;;;;;;2076:23:9;2046:27;;:53;;;;;;;;;;;;;;;;;;1966:141;:::o;214:21:15:-;;;;;;;;;;;;;:::o",
   "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.5.12;\r\n\r\nimport \"./KittyStorage.sol\";\r\n\r\n/**\r\n@dev -It's the persistent connexion between users and KittyContract => shouldn't be modified\r\n*/\r\ncontract KittyProxy is KittyStorage{\r\n\r\n    /***************************************************\r\n     Variables\r\n     **************************************************/\r\n    /**\r\n    address of the main contract\r\n    */\r\n    address _currentAddressOfKittyLogic;\r\n\r\n    /***************************************************\r\n     Constructor\r\n     **************************************************/\r\n    /**\r\n    @dev set the address of the main contract at deployment\r\n    */\r\n    constructor(address KittyContractAddress) public {\r\n\r\n        _currentAddressOfKittyLogic = KittyContractAddress;\r\n    }\r\n\r\n    /***************************************************\r\n     Functions\r\n     **************************************************/\r\n    /**\r\n    @dev fallback function (=default function triggered when we call a function that is not there\r\n    \r\n    -forwards function calls to the main contract with the proxy context (KittyStorage : its parent)\r\n    */\r\n    function() payable external {\r\n\r\n        //redirection to _currentAddressOfKittyLogic\r\n        address implementation = _currentAddressOfKittyLogic;\r\n        require(_currentAddressOfKittyLogic != address(0));\r\n        bytes memory data = msg.data;\r\n\r\n        //assembly code : gives a pointer to the contract function, if operation failed (result = 0) => revert\r\n        assembly {\r\n            let result := delegatecall(gas, implementation, add(data, 0x20), mload(data), 0 ,0)\r\n\r\n            let size := returndatasize\r\n\r\n            let ptr := mload(0x40)\r\n            returndatacopy(ptr, 0, size)\r\n            switch result\r\n            case 0 {revert(ptr, size)}\r\n            default {return(ptr, size)}\r\n        }\r\n    }\r\n\r\n    /**\r\n    @dev updates the address of the main contract\r\n    */\r\n    function upgrade(address newKittyContractAddress) public onlyOwner {\r\n\r\n        _currentAddressOfKittyLogic = newKittyContractAddress;\r\n    }\r\n}",
   "sourcePath": "C:\\Xdev\\bootcamp_Iot\\W69_cloneCryptoKitties\\cryptokitties-replica\\contracts\\KittyProxy.sol",
   "ast": {
     "absolutePath": "/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/KittyProxy.sol",
     "exportedSymbols": {
       "KittyProxy": [
-        824
+        1799
       ]
     },
-    "id": 825,
+    "id": 1800,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 774,
+        "id": 1749,
         "literals": [
           "solidity",
           "^",
@@ -75,16 +75,16 @@
           ".12"
         ],
         "nodeType": "PragmaDirective",
-        "src": "33:24:3"
+        "src": "33:24:9"
       },
       {
         "absolutePath": "/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/KittyStorage.sol",
         "file": "./KittyStorage.sol",
-        "id": 775,
+        "id": 1750,
         "nodeType": "ImportDirective",
-        "scope": 825,
-        "sourceUnit": 890,
-        "src": "61:28:3",
+        "scope": 1800,
+        "sourceUnit": 2987,
+        "src": "61:28:9",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -94,46 +94,46 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 776,
+              "id": 1751,
               "name": "KittyStorage",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 889,
-              "src": "219:12:3",
+              "referencedDeclaration": 2986,
+              "src": "219:12:9",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_KittyStorage_$889",
+                "typeIdentifier": "t_contract$_KittyStorage_$2986",
                 "typeString": "contract KittyStorage"
               }
             },
-            "id": 777,
+            "id": 1752,
             "nodeType": "InheritanceSpecifier",
-            "src": "219:12:3"
+            "src": "219:12:9"
           }
         ],
         "contractDependencies": [
-          889,
-          1538,
-          1560
+          2986,
+          3636,
+          3658
         ],
         "contractKind": "contract",
         "documentation": "@dev -It's the persistent connexion between users and KittyContract => shouldn't be modified",
         "fullyImplemented": true,
-        "id": 824,
+        "id": 1799,
         "linearizedBaseContracts": [
-          824,
-          889,
-          1560,
-          1538
+          1799,
+          2986,
+          3658,
+          3636
         ],
         "name": "KittyProxy",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 779,
+            "id": 1754,
             "name": "_currentAddressOfKittyLogic",
             "nodeType": "VariableDeclaration",
-            "scope": 824,
-            "src": "423:35:3",
+            "scope": 1799,
+            "src": "423:35:9",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -141,10 +141,10 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 778,
+              "id": 1753,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "423:7:3",
+              "src": "423:7:9",
               "stateMutability": "nonpayable",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
@@ -156,26 +156,26 @@
           },
           {
             "body": {
-              "id": 788,
+              "id": 1763,
               "nodeType": "Block",
-              "src": "728:71:3",
+              "src": "728:71:9",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 786,
+                    "id": 1761,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 784,
+                      "id": 1759,
                       "name": "_currentAddressOfKittyLogic",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 779,
-                      "src": "741:27:3",
+                      "referencedDeclaration": 1754,
+                      "src": "741:27:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -185,47 +185,47 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 785,
+                      "id": 1760,
                       "name": "KittyContractAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 781,
-                      "src": "771:20:3",
+                      "referencedDeclaration": 1756,
+                      "src": "771:20:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "741:50:3",
+                    "src": "741:50:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 787,
+                  "id": 1762,
                   "nodeType": "ExpressionStatement",
-                  "src": "741:50:3"
+                  "src": "741:50:9"
                 }
               ]
             },
             "documentation": "@dev set the address of the main contract at deployment",
-            "id": 789,
+            "id": 1764,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 782,
+              "id": 1757,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 781,
+                  "id": 1756,
                   "name": "KittyContractAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 789,
-                  "src": "691:28:3",
+                  "scope": 1764,
+                  "src": "691:28:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -233,10 +233,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 780,
+                    "id": 1755,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "691:7:3",
+                    "src": "691:7:9",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -247,38 +247,38 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "690:30:3"
+              "src": "690:30:9"
             },
             "returnParameters": {
-              "id": 783,
+              "id": 1758,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "728:0:3"
+              "src": "728:0:9"
             },
-            "scope": 824,
-            "src": "679:120:3",
+            "scope": 1799,
+            "src": "679:120:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 810,
+              "id": 1785,
               "nodeType": "Block",
-              "src": "1191:699:3",
+              "src": "1191:699:9",
               "statements": [
                 {
                   "assignments": [
-                    793
+                    1768
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 793,
+                      "id": 1768,
                       "name": "implementation",
                       "nodeType": "VariableDeclaration",
-                      "scope": 810,
-                      "src": "1258:22:3",
+                      "scope": 1785,
+                      "src": "1258:22:9",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -286,10 +286,10 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 792,
+                        "id": 1767,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
-                        "src": "1258:7:3",
+                        "src": "1258:7:9",
                         "stateMutability": "nonpayable",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -300,22 +300,22 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 795,
+                  "id": 1770,
                   "initialValue": {
                     "argumentTypes": null,
-                    "id": 794,
+                    "id": 1769,
                     "name": "_currentAddressOfKittyLogic",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 779,
-                    "src": "1283:27:3",
+                    "referencedDeclaration": 1754,
+                    "src": "1283:27:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "1258:52:3"
+                  "src": "1258:52:9"
                 },
                 {
                   "expression": {
@@ -327,19 +327,19 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 801,
+                        "id": 1776,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 797,
+                          "id": 1772,
                           "name": "_currentAddressOfKittyLogic",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 779,
-                          "src": "1329:27:3",
+                          "referencedDeclaration": 1754,
+                          "src": "1329:27:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -353,14 +353,14 @@
                             {
                               "argumentTypes": null,
                               "hexValue": "30",
-                              "id": 799,
+                              "id": 1774,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
                               "kind": "number",
                               "lValueRequested": false,
                               "nodeType": "Literal",
-                              "src": "1368:1:3",
+                              "src": "1368:1:9",
                               "subdenomination": null,
                               "typeDescriptions": {
                                 "typeIdentifier": "t_rational_0_by_1",
@@ -376,20 +376,20 @@
                                 "typeString": "int_const 0"
                               }
                             ],
-                            "id": 798,
+                            "id": 1773,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
                             "lValueRequested": false,
                             "nodeType": "ElementaryTypeNameExpression",
-                            "src": "1360:7:3",
+                            "src": "1360:7:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_type$_t_address_$",
                               "typeString": "type(address)"
                             },
                             "typeName": "address"
                           },
-                          "id": 800,
+                          "id": 1775,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -397,13 +397,13 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "1360:10:3",
+                          "src": "1360:10:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address_payable",
                             "typeString": "address payable"
                           }
                         },
-                        "src": "1329:41:3",
+                        "src": "1329:41:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -417,21 +417,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 796,
+                      "id": 1771,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1578,
-                        1579
+                        3676,
+                        3677
                       ],
-                      "referencedDeclaration": 1578,
-                      "src": "1321:7:3",
+                      "referencedDeclaration": 3676,
+                      "src": "1321:7:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 802,
+                    "id": 1777,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -439,28 +439,28 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1321:50:3",
+                    "src": "1321:50:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 803,
+                  "id": 1778,
                   "nodeType": "ExpressionStatement",
-                  "src": "1321:50:3"
+                  "src": "1321:50:9"
                 },
                 {
                   "assignments": [
-                    805
+                    1780
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 805,
+                      "id": 1780,
                       "name": "data",
                       "nodeType": "VariableDeclaration",
-                      "scope": 810,
-                      "src": "1382:17:3",
+                      "scope": 1785,
+                      "src": "1382:17:9",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
@@ -468,10 +468,10 @@
                         "typeString": "bytes"
                       },
                       "typeName": {
-                        "id": 804,
+                        "id": 1779,
                         "name": "bytes",
                         "nodeType": "ElementaryTypeName",
-                        "src": "1382:5:3",
+                        "src": "1382:5:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes_storage_ptr",
                           "typeString": "bytes"
@@ -481,23 +481,23 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 808,
+                  "id": 1783,
                   "initialValue": {
                     "argumentTypes": null,
                     "expression": {
                       "argumentTypes": null,
-                      "id": 806,
+                      "id": 1781,
                       "name": "msg",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1575,
-                      "src": "1402:3:3",
+                      "referencedDeclaration": 3673,
+                      "src": "1402:3:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_magic_message",
                         "typeString": "msg"
                       }
                     },
-                    "id": 807,
+                    "id": 1782,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -505,99 +505,99 @@
                     "memberName": "data",
                     "nodeType": "MemberAccess",
                     "referencedDeclaration": null,
-                    "src": "1402:8:3",
+                    "src": "1402:8:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_calldata_ptr",
                       "typeString": "bytes calldata"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "1382:28:3"
+                  "src": "1382:28:9"
                 },
                 {
                   "externalReferences": [
                     {
                       "data": {
-                        "declaration": 805,
+                        "declaration": 1780,
                         "isOffset": false,
                         "isSlot": false,
-                        "src": "1630:4:3",
+                        "src": "1630:4:9",
                         "valueSize": 1
                       }
                     },
                     {
                       "data": {
-                        "declaration": 805,
+                        "declaration": 1780,
                         "isOffset": false,
                         "isSlot": false,
-                        "src": "1611:4:3",
+                        "src": "1611:4:9",
                         "valueSize": 1
                       }
                     },
                     {
                       "implementation": {
-                        "declaration": 793,
+                        "declaration": 1768,
                         "isOffset": false,
                         "isSlot": false,
-                        "src": "1591:14:3",
+                        "src": "1591:14:9",
                         "valueSize": 1
                       }
                     }
                   ],
-                  "id": 809,
+                  "id": 1784,
                   "nodeType": "InlineAssembly",
                   "operations": "{\n    let result := delegatecall(gas(), implementation, add(data, 0x20), mload(data), 0, 0)\n    let size := returndatasize()\n    let ptr := mload(0x40)\n    returndatacopy(ptr, 0, size)\n    switch result\n    case 0 { revert(ptr, size) }\n    default { return(ptr, size) }\n}",
-                  "src": "1535:348:3"
+                  "src": "1535:348:9"
                 }
               ]
             },
             "documentation": "@dev fallback function (=default function triggered when we call a function that is not there\n-forwards function calls to the main contract with the proxy context (KittyStorage : its parent)",
-            "id": 811,
+            "id": 1786,
             "implemented": true,
             "kind": "fallback",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 790,
+              "id": 1765,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1171:2:3"
+              "src": "1171:2:9"
             },
             "returnParameters": {
-              "id": 791,
+              "id": 1766,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1191:0:3"
+              "src": "1191:0:9"
             },
-            "scope": 824,
-            "src": "1163:727:3",
+            "scope": 1799,
+            "src": "1163:727:9",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "external"
           },
           {
             "body": {
-              "id": 822,
+              "id": 1797,
               "nodeType": "Block",
-              "src": "2033:74:3",
+              "src": "2033:74:9",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 820,
+                    "id": 1795,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 818,
+                      "id": 1793,
                       "name": "_currentAddressOfKittyLogic",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 779,
-                      "src": "2046:27:3",
+                      "referencedDeclaration": 1754,
+                      "src": "2046:27:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -607,67 +607,67 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 819,
+                      "id": 1794,
                       "name": "newKittyContractAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 813,
-                      "src": "2076:23:3",
+                      "referencedDeclaration": 1788,
+                      "src": "2076:23:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "2046:53:3",
+                    "src": "2046:53:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 821,
+                  "id": 1796,
                   "nodeType": "ExpressionStatement",
-                  "src": "2046:53:3"
+                  "src": "2046:53:9"
                 }
               ]
             },
             "documentation": "@dev updates the address of the main contract",
-            "id": 823,
+            "id": 1798,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
-                "id": 816,
+                "id": 1791,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 815,
+                  "id": 1790,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1528,
-                  "src": "2023:9:3",
+                  "referencedDeclaration": 3626,
+                  "src": "2023:9:9",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
                     "typeString": "modifier ()"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "2023:9:3"
+                "src": "2023:9:9"
               }
             ],
             "name": "upgrade",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 814,
+              "id": 1789,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 813,
+                  "id": 1788,
                   "name": "newKittyContractAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 823,
-                  "src": "1983:31:3",
+                  "scope": 1798,
+                  "src": "1983:31:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -675,10 +675,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 812,
+                    "id": 1787,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1983:7:3",
+                    "src": "1983:7:9",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -689,39 +689,39 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1982:33:3"
+              "src": "1982:33:9"
             },
             "returnParameters": {
-              "id": 817,
+              "id": 1792,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2033:0:3"
+              "src": "2033:0:9"
             },
-            "scope": 824,
-            "src": "1966:141:3",
+            "scope": 1799,
+            "src": "1966:141:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 825,
-        "src": "196:1914:3"
+        "scope": 1800,
+        "src": "196:1914:9"
       }
     ],
-    "src": "33:2077:3"
+    "src": "33:2077:9"
   },
   "legacyAST": {
     "absolutePath": "/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/KittyProxy.sol",
     "exportedSymbols": {
       "KittyProxy": [
-        824
+        1799
       ]
     },
-    "id": 825,
+    "id": 1800,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 774,
+        "id": 1749,
         "literals": [
           "solidity",
           "^",
@@ -729,16 +729,16 @@
           ".12"
         ],
         "nodeType": "PragmaDirective",
-        "src": "33:24:3"
+        "src": "33:24:9"
       },
       {
         "absolutePath": "/C/Xdev/bootcamp_Iot/W69_cloneCryptoKitties/cryptokitties-replica/contracts/KittyStorage.sol",
         "file": "./KittyStorage.sol",
-        "id": 775,
+        "id": 1750,
         "nodeType": "ImportDirective",
-        "scope": 825,
-        "sourceUnit": 890,
-        "src": "61:28:3",
+        "scope": 1800,
+        "sourceUnit": 2987,
+        "src": "61:28:9",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -748,46 +748,46 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 776,
+              "id": 1751,
               "name": "KittyStorage",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 889,
-              "src": "219:12:3",
+              "referencedDeclaration": 2986,
+              "src": "219:12:9",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_KittyStorage_$889",
+                "typeIdentifier": "t_contract$_KittyStorage_$2986",
                 "typeString": "contract KittyStorage"
               }
             },
-            "id": 777,
+            "id": 1752,
             "nodeType": "InheritanceSpecifier",
-            "src": "219:12:3"
+            "src": "219:12:9"
           }
         ],
         "contractDependencies": [
-          889,
-          1538,
-          1560
+          2986,
+          3636,
+          3658
         ],
         "contractKind": "contract",
         "documentation": "@dev -It's the persistent connexion between users and KittyContract => shouldn't be modified",
         "fullyImplemented": true,
-        "id": 824,
+        "id": 1799,
         "linearizedBaseContracts": [
-          824,
-          889,
-          1560,
-          1538
+          1799,
+          2986,
+          3658,
+          3636
         ],
         "name": "KittyProxy",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 779,
+            "id": 1754,
             "name": "_currentAddressOfKittyLogic",
             "nodeType": "VariableDeclaration",
-            "scope": 824,
-            "src": "423:35:3",
+            "scope": 1799,
+            "src": "423:35:9",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -795,10 +795,10 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 778,
+              "id": 1753,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "423:7:3",
+              "src": "423:7:9",
               "stateMutability": "nonpayable",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
@@ -810,26 +810,26 @@
           },
           {
             "body": {
-              "id": 788,
+              "id": 1763,
               "nodeType": "Block",
-              "src": "728:71:3",
+              "src": "728:71:9",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 786,
+                    "id": 1761,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 784,
+                      "id": 1759,
                       "name": "_currentAddressOfKittyLogic",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 779,
-                      "src": "741:27:3",
+                      "referencedDeclaration": 1754,
+                      "src": "741:27:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -839,47 +839,47 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 785,
+                      "id": 1760,
                       "name": "KittyContractAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 781,
-                      "src": "771:20:3",
+                      "referencedDeclaration": 1756,
+                      "src": "771:20:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "741:50:3",
+                    "src": "741:50:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 787,
+                  "id": 1762,
                   "nodeType": "ExpressionStatement",
-                  "src": "741:50:3"
+                  "src": "741:50:9"
                 }
               ]
             },
             "documentation": "@dev set the address of the main contract at deployment",
-            "id": 789,
+            "id": 1764,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 782,
+              "id": 1757,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 781,
+                  "id": 1756,
                   "name": "KittyContractAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 789,
-                  "src": "691:28:3",
+                  "scope": 1764,
+                  "src": "691:28:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -887,10 +887,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 780,
+                    "id": 1755,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "691:7:3",
+                    "src": "691:7:9",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -901,38 +901,38 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "690:30:3"
+              "src": "690:30:9"
             },
             "returnParameters": {
-              "id": 783,
+              "id": 1758,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "728:0:3"
+              "src": "728:0:9"
             },
-            "scope": 824,
-            "src": "679:120:3",
+            "scope": 1799,
+            "src": "679:120:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 810,
+              "id": 1785,
               "nodeType": "Block",
-              "src": "1191:699:3",
+              "src": "1191:699:9",
               "statements": [
                 {
                   "assignments": [
-                    793
+                    1768
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 793,
+                      "id": 1768,
                       "name": "implementation",
                       "nodeType": "VariableDeclaration",
-                      "scope": 810,
-                      "src": "1258:22:3",
+                      "scope": 1785,
+                      "src": "1258:22:9",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -940,10 +940,10 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 792,
+                        "id": 1767,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
-                        "src": "1258:7:3",
+                        "src": "1258:7:9",
                         "stateMutability": "nonpayable",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -954,22 +954,22 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 795,
+                  "id": 1770,
                   "initialValue": {
                     "argumentTypes": null,
-                    "id": 794,
+                    "id": 1769,
                     "name": "_currentAddressOfKittyLogic",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 779,
-                    "src": "1283:27:3",
+                    "referencedDeclaration": 1754,
+                    "src": "1283:27:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "1258:52:3"
+                  "src": "1258:52:9"
                 },
                 {
                   "expression": {
@@ -981,19 +981,19 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 801,
+                        "id": 1776,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "argumentTypes": null,
-                          "id": 797,
+                          "id": 1772,
                           "name": "_currentAddressOfKittyLogic",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 779,
-                          "src": "1329:27:3",
+                          "referencedDeclaration": 1754,
+                          "src": "1329:27:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -1007,14 +1007,14 @@
                             {
                               "argumentTypes": null,
                               "hexValue": "30",
-                              "id": 799,
+                              "id": 1774,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
                               "kind": "number",
                               "lValueRequested": false,
                               "nodeType": "Literal",
-                              "src": "1368:1:3",
+                              "src": "1368:1:9",
                               "subdenomination": null,
                               "typeDescriptions": {
                                 "typeIdentifier": "t_rational_0_by_1",
@@ -1030,20 +1030,20 @@
                                 "typeString": "int_const 0"
                               }
                             ],
-                            "id": 798,
+                            "id": 1773,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
                             "lValueRequested": false,
                             "nodeType": "ElementaryTypeNameExpression",
-                            "src": "1360:7:3",
+                            "src": "1360:7:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_type$_t_address_$",
                               "typeString": "type(address)"
                             },
                             "typeName": "address"
                           },
-                          "id": 800,
+                          "id": 1775,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1051,13 +1051,13 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "1360:10:3",
+                          "src": "1360:10:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address_payable",
                             "typeString": "address payable"
                           }
                         },
-                        "src": "1329:41:3",
+                        "src": "1329:41:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -1071,21 +1071,21 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 796,
+                      "id": 1771,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1578,
-                        1579
+                        3676,
+                        3677
                       ],
-                      "referencedDeclaration": 1578,
-                      "src": "1321:7:3",
+                      "referencedDeclaration": 3676,
+                      "src": "1321:7:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 802,
+                    "id": 1777,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1093,28 +1093,28 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1321:50:3",
+                    "src": "1321:50:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 803,
+                  "id": 1778,
                   "nodeType": "ExpressionStatement",
-                  "src": "1321:50:3"
+                  "src": "1321:50:9"
                 },
                 {
                   "assignments": [
-                    805
+                    1780
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 805,
+                      "id": 1780,
                       "name": "data",
                       "nodeType": "VariableDeclaration",
-                      "scope": 810,
-                      "src": "1382:17:3",
+                      "scope": 1785,
+                      "src": "1382:17:9",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
@@ -1122,10 +1122,10 @@
                         "typeString": "bytes"
                       },
                       "typeName": {
-                        "id": 804,
+                        "id": 1779,
                         "name": "bytes",
                         "nodeType": "ElementaryTypeName",
-                        "src": "1382:5:3",
+                        "src": "1382:5:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes_storage_ptr",
                           "typeString": "bytes"
@@ -1135,23 +1135,23 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 808,
+                  "id": 1783,
                   "initialValue": {
                     "argumentTypes": null,
                     "expression": {
                       "argumentTypes": null,
-                      "id": 806,
+                      "id": 1781,
                       "name": "msg",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1575,
-                      "src": "1402:3:3",
+                      "referencedDeclaration": 3673,
+                      "src": "1402:3:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_magic_message",
                         "typeString": "msg"
                       }
                     },
-                    "id": 807,
+                    "id": 1782,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1159,99 +1159,99 @@
                     "memberName": "data",
                     "nodeType": "MemberAccess",
                     "referencedDeclaration": null,
-                    "src": "1402:8:3",
+                    "src": "1402:8:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_calldata_ptr",
                       "typeString": "bytes calldata"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "1382:28:3"
+                  "src": "1382:28:9"
                 },
                 {
                   "externalReferences": [
                     {
                       "data": {
-                        "declaration": 805,
+                        "declaration": 1780,
                         "isOffset": false,
                         "isSlot": false,
-                        "src": "1630:4:3",
+                        "src": "1630:4:9",
                         "valueSize": 1
                       }
                     },
                     {
                       "data": {
-                        "declaration": 805,
+                        "declaration": 1780,
                         "isOffset": false,
                         "isSlot": false,
-                        "src": "1611:4:3",
+                        "src": "1611:4:9",
                         "valueSize": 1
                       }
                     },
                     {
                       "implementation": {
-                        "declaration": 793,
+                        "declaration": 1768,
                         "isOffset": false,
                         "isSlot": false,
-                        "src": "1591:14:3",
+                        "src": "1591:14:9",
                         "valueSize": 1
                       }
                     }
                   ],
-                  "id": 809,
+                  "id": 1784,
                   "nodeType": "InlineAssembly",
                   "operations": "{\n    let result := delegatecall(gas(), implementation, add(data, 0x20), mload(data), 0, 0)\n    let size := returndatasize()\n    let ptr := mload(0x40)\n    returndatacopy(ptr, 0, size)\n    switch result\n    case 0 { revert(ptr, size) }\n    default { return(ptr, size) }\n}",
-                  "src": "1535:348:3"
+                  "src": "1535:348:9"
                 }
               ]
             },
             "documentation": "@dev fallback function (=default function triggered when we call a function that is not there\n-forwards function calls to the main contract with the proxy context (KittyStorage : its parent)",
-            "id": 811,
+            "id": 1786,
             "implemented": true,
             "kind": "fallback",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 790,
+              "id": 1765,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1171:2:3"
+              "src": "1171:2:9"
             },
             "returnParameters": {
-              "id": 791,
+              "id": 1766,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1191:0:3"
+              "src": "1191:0:9"
             },
-            "scope": 824,
-            "src": "1163:727:3",
+            "scope": 1799,
+            "src": "1163:727:9",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "external"
           },
           {
             "body": {
-              "id": 822,
+              "id": 1797,
               "nodeType": "Block",
-              "src": "2033:74:3",
+              "src": "2033:74:9",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 820,
+                    "id": 1795,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 818,
+                      "id": 1793,
                       "name": "_currentAddressOfKittyLogic",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 779,
-                      "src": "2046:27:3",
+                      "referencedDeclaration": 1754,
+                      "src": "2046:27:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -1261,67 +1261,67 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 819,
+                      "id": 1794,
                       "name": "newKittyContractAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 813,
-                      "src": "2076:23:3",
+                      "referencedDeclaration": 1788,
+                      "src": "2076:23:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "2046:53:3",
+                    "src": "2046:53:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 821,
+                  "id": 1796,
                   "nodeType": "ExpressionStatement",
-                  "src": "2046:53:3"
+                  "src": "2046:53:9"
                 }
               ]
             },
             "documentation": "@dev updates the address of the main contract",
-            "id": 823,
+            "id": 1798,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
-                "id": 816,
+                "id": 1791,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 815,
+                  "id": 1790,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1528,
-                  "src": "2023:9:3",
+                  "referencedDeclaration": 3626,
+                  "src": "2023:9:9",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
                     "typeString": "modifier ()"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "2023:9:3"
+                "src": "2023:9:9"
               }
             ],
             "name": "upgrade",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 814,
+              "id": 1789,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 813,
+                  "id": 1788,
                   "name": "newKittyContractAddress",
                   "nodeType": "VariableDeclaration",
-                  "scope": 823,
-                  "src": "1983:31:3",
+                  "scope": 1798,
+                  "src": "1983:31:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1329,10 +1329,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 812,
+                    "id": 1787,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1983:7:3",
+                    "src": "1983:7:9",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1343,26 +1343,26 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1982:33:3"
+              "src": "1982:33:9"
             },
             "returnParameters": {
-              "id": 817,
+              "id": 1792,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2033:0:3"
+              "src": "2033:0:9"
             },
-            "scope": 824,
-            "src": "1966:141:3",
+            "scope": 1799,
+            "src": "1966:141:9",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 825,
-        "src": "196:1914:3"
+        "scope": 1800,
+        "src": "196:1914:9"
       }
     ],
-    "src": "33:2077:3"
+    "src": "33:2077:9"
   },
   "compiler": {
     "name": "solc",
@@ -1372,12 +1372,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xcb5543Bb878d28e38B41A0Ec2856eeAA2470Eb7a",
-      "transactionHash": "0x0d262dd611ff8e1ae1e33aed3d7ab557457350f5c025ac012923a9555a1a3fff"
+      "address": "0x56d4947A1F5Ba6c5bBC65959355E679993b35F4e",
+      "transactionHash": "0x24e49f08978fe3262d2bc9589597dc446e852b1a77573253c497e891dce3df93"
     }
   },
   "schemaVersion": "3.2.0",
-  "updatedAt": "2020-09-14T12:34:12.017Z",
+  "updatedAt": "2020-09-21T22:31:36.408Z",
   "networkType": "ethereum",
   "devdoc": {
     "details": "-It's the persistent connexion between users and KittyContract => shouldn't be modified",

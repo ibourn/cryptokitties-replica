@@ -1,5 +1,5 @@
 /*address of the proxy contract*/
-export const contractAddress = '0xcb5543Bb878d28e38B41A0Ec2856eeAA2470Eb7a';
+export const contractAddress = '0x41eea5c57e9249e6587A75180B14f312560895b6';
 
 /*abi of the 'logic' contract to be able to call its functions*/
 export const abi = [

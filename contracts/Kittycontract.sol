@@ -23,9 +23,26 @@ contract KittyContract is KittyToken {
         uint256 generation
     );
 
+    /**
+    *@dev Initializes kittenID 0 : not available
+    */
+    constructor() public{
+        // _createKitty(0, 0, 0, 1111111111111111, address(0));
+        createKittyGen0(1111111111111111);
+    }
+
     /***************************************************
     External Functions
      **************************************************/
+    /**
+    *@dev Initializes kittenId 0 : not availabe
+    * - due to the use of proxy, we need to call this function through proxy at migration to set the good storage contract
+    */
+    function initialize() external {
+createKittyGen0(1111111111111111);
+// _rentalInstance = KittyRental(KittyRentalAddress);//
+    }
+
     /**
     @dev Returns the list of tokenId of the owner
      */
@@ -102,15 +119,22 @@ contract KittyContract is KittyToken {
     @dev creates a kitty by breeding :
     - sender must be the owner
     - no breeding between direct parents and siblings
+    -
+    - lending : assume only lending allows one add to be approved without approveforall
+    - only one usage allowed so if lender breed => breed function reste the approval
+    -
     */
     function breed(uint256 dadId, uint256 mumId) public returns (uint256) {
         require(
             dadId < _kitties.length && mumId < _kitties.length,
             "one of the parents doesn't exist"
         );
+        require(_owns(msg.sender, mumId) || getApproved(dadId) == msg.sender,
+          "sender needs to be the owner of mumId or approved"
+          );
         require(
-            _owns(msg.sender, dadId) || _owns(msg.sender, mumId),
-            "sender needs to be the owner"
+            _owns(msg.sender, dadId) || getApproved(dadId) == msg.sender,
+            "sender needs to be the owner of dadId or approved"
         );
         require(dadId != mumId, "dad can't be mum!");
         require(
