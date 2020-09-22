@@ -6,7 +6,6 @@ import "./KittyRentalFactory.sol";
 import "./Ownable.sol";
 import "./Pausable.sol";
 
-
 /**
 -Allows persistent storage => shouldn't be modified
 
@@ -14,7 +13,6 @@ import "./Pausable.sol";
 will be the proxy context which means the real persistent storage is inside the parent of KittyMarketProxy
  */
 contract KittyMarketStorage is Ownable, Pausable {
-
     KittyContract internal _kittyContract;
     KittyRentalFactory internal _kittyRentalFactory;
 
@@ -24,6 +22,15 @@ contract KittyMarketStorage is Ownable, Pausable {
         uint256 index;
         uint256 tokenId;
         bool active;
+    }
+
+    struct RentalOffer {
+        uint256 tokenId;
+        uint256 actionsRemaining;
+        uint256 price;
+        uint256 endTime;
+        uint256 index;
+        address borrower;
     }
 
     Offer[] internal _offers;

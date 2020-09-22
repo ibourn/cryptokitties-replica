@@ -4,7 +4,9 @@ pragma solidity ^0.5.12;
 import "./KittyToken.sol";
 
 /** 
-@dev main logic contract 
+*@dev main logic contract 
+*@notice requirements of breed function modified to allow location
+*msg.sender needs to be the owner or an approved address for the tokenId
 */
 contract KittyContract is KittyToken {
     /***************************************************
@@ -107,7 +109,7 @@ createKittyGen0(1111111111111111);
         onlyOwner
         returns (uint256 newKittenId)
     {
-        require(_gen0Counter < _CREATION_LIMIT_GEN0);
+        require(_gen0Counter < _CREATION_LIMIT_GEN0, "limit of gen0 reached");
 
         _gen0Counter++;
 
@@ -194,9 +196,7 @@ createKittyGen0(1111111111111111);
         uint256 jokerIndex = now % 8;
         uint8 random = uint8(now % 255);
         uint8 joker = uint8(
-            (((now % 10) * 10) +
-                (block.number % 10) +
-                (block.difficulty % 100)) / 2
+            ((now % 100) + (block.difficulty % 100)) / 2
         );
 
         /*sanity check : 2 digits 'effects' are [10-100[, 1 digit 'effects' : [1-10[*/

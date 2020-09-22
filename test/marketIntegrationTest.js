@@ -1,7 +1,5 @@
 //const BigNumber = require('bignumber.js');
 
-//DUE TO VARIABLES VISIBILITY SET TO PRIVATE NO MORE TESTABLE
-
 const KittyToken = artifacts.require("KittyContract"); //build json name
 const KittyProxy = artifacts.require("KittyProxy"); 
 const KittyMarket = artifacts.require("KittyMarketContract");
@@ -10,10 +8,6 @@ const KittyMarketProxy = artifacts.require("KittyMarketProxy");
 const Float_MIN = 1e-10;
 //mocha mise en commentaire runner.js l846
 
-//compile => solidity / migrate =>js / develop-ganache/console test
-//Attention pour test : fichier deploy partie test
-//et mettre fonction public pour tester
-//contract('CoinflipMain', async function(accounts) {
 contract('KittyProxy', async function(accounts) {
 
   let cKitty, pKitty, iKitty, cMarket, pMarket, iMarket;

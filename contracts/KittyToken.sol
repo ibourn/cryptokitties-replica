@@ -114,7 +114,7 @@ contract KittyToken is IERC721, KittyStorage {
     @notice IERC721 : Get the approved address for a single NFT
     */
     function getApproved(uint256 tokenId) public view returns (address) {
-        require(tokenId < _kitties.length);
+        require(tokenId < _kitties.length, "tokenId doesn't exist");
 
         return _kittyIndexToApproved[tokenId];
     }
@@ -137,7 +137,7 @@ contract KittyToken is IERC721, KittyStorage {
         require(
             _owns(msg.sender, tokenId) ||
             _approvedFor(msg.sender, tokenId) ||
-            _approvedByOwner(msg.sender, tokenId)
+            _approvedByOwner(msg.sender, tokenId), "sender should be owner of token or approved for it"
         );
 
         _approve(tokenId, to);
@@ -149,7 +149,7 @@ contract KittyToken is IERC721, KittyStorage {
       all of `msg.sender`'s assets
 *    */
     function setApprovalForAll(address operator, bool approved) public {
-        require(operator != msg.sender);
+        require(operator != msg.sender, "sender can't be the operator");
 
         _setApprovalForAll(msg.sender, operator, approved);
         emit ApprovalForAll(msg.sender, operator, approved);
@@ -164,7 +164,7 @@ contract KittyToken is IERC721, KittyStorage {
         uint256 tokenId,
         bytes memory data
     ) public {
-        require(_isApprovedOrOwner(msg.sender, from, to, tokenId));
+        require(_isApprovedOrOwner(msg.sender, from, to, tokenId), "sender should be owner or approved");
 
         _safeTransfer(from, to, tokenId, data);
     }
@@ -190,7 +190,7 @@ contract KittyToken is IERC721, KittyStorage {
         address to,
         uint256 tokenId
     ) public {
-        require(_isApprovedOrOwner(msg.sender, from, to, tokenId));
+        require(_isApprovedOrOwner(msg.sender, from, to, tokenId), "sender should be owner or approved");
 
         _transfer(from, to, tokenId);
     }
@@ -245,9 +245,9 @@ contract KittyToken is IERC721, KittyStorage {
         address to,
         uint256 tokenId
     ) private view returns (bool) {
-        require(tokenId < _kitties.length);
-        require(to != address(0));
-        require(_owns(from, tokenId));
+        require(tokenId < _kitties.length, "tokenId doesn't exist");
+        require(to != address(0), "to can't be address 0");
+        require(_owns(from, tokenId), "from should be owner of tokenId");
 
         return (sender == from ||
             isApprovedForAll(from, sender) ||
@@ -315,7 +315,7 @@ contract KittyToken is IERC721, KittyStorage {
         uint256 tokenId,
         bytes memory data
     ) private {
-        require(_checkERC721Support(from, to, tokenId, data));
+        require(_checkERC721Support(from, to, tokenId, data), "checkERC721Support failed");
         _transfer(from, to, tokenId);
     }
 
