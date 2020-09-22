@@ -599,7 +599,7 @@
         "id": 307,
         "nodeType": "ImportDirective",
         "scope": 965,
-        "sourceUnit": 3750,
+        "sourceUnit": 3760,
         "src": "61:26:5",
         "symbolAliases": [],
         "unitAlias": ""
@@ -613,10 +613,10 @@
               "id": 308,
               "name": "KittyToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 3749,
+              "referencedDeclaration": 3759,
               "src": "297:10:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_KittyToken_$3749",
+                "typeIdentifier": "t_contract$_KittyToken_$3759",
                 "typeString": "contract KittyToken"
               }
             },
@@ -627,10 +627,10 @@
         ],
         "contractDependencies": [
           156,
-          3152,
-          3749,
-          3811,
-          3833
+          3162,
+          3759,
+          3821,
+          3843
         ],
         "contractKind": "contract",
         "documentation": "dev main logic contract \nnotice requirements of breed function modified to allow location\nsg.sender needs to be the owner or an approved address for the tokenId",
@@ -638,10 +638,10 @@
         "id": 964,
         "linearizedBaseContracts": [
           964,
-          3749,
-          3152,
-          3833,
-          3811,
+          3759,
+          3162,
+          3843,
+          3821,
           156
         ],
         "name": "KittyContract",
@@ -1083,7 +1083,7 @@
                       "name": "_ownershipTokenCount",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3141,
+                      "referencedDeclaration": 3151,
                       "src": "1624:20:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
@@ -1314,7 +1314,7 @@
                               "name": "_kittyIndexToOwner",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3137,
+                              "referencedDeclaration": 3147,
                               "src": "1906:18:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
@@ -1533,10 +1533,10 @@
                           "name": "_kitties",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3133,
+                          "referencedDeclaration": 3143,
                           "src": "1816:8:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3106_storage_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3116_storage_$dyn_storage",
                             "typeString": "struct KittyStorage.Kitty storage ref[] storage ref"
                           }
                         },
@@ -1845,10 +1845,10 @@
                             "name": "_kitties",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3133,
+                            "referencedDeclaration": 3143,
                             "src": "2629:8:5",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_array$_t_struct$_Kitty_$3106_storage_$dyn_storage",
+                              "typeIdentifier": "t_array$_t_struct$_Kitty_$3116_storage_$dyn_storage",
                               "typeString": "struct KittyStorage.Kitty storage ref[] storage ref"
                             }
                           },
@@ -1921,10 +1921,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        3851,
-                        3852
+                        3861,
+                        3862
                       ],
-                      "referencedDeclaration": 3852,
+                      "referencedDeclaration": 3862,
                       "src": "2621:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -1980,7 +1980,7 @@
                         "name": "_kittyIndexToOwner",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3137,
+                        "referencedDeclaration": 3147,
                         "src": "2709:18:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
@@ -2055,10 +2055,10 @@
                           "name": "_kitties",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3133,
+                          "referencedDeclaration": 3143,
                           "src": "2763:8:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3106_storage_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3116_storage_$dyn_storage",
                             "typeString": "struct KittyStorage.Kitty storage ref[] storage ref"
                           }
                         },
@@ -2083,7 +2083,7 @@
                         "nodeType": "IndexAccess",
                         "src": "2763:17:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Kitty_$3106_storage",
+                          "typeIdentifier": "t_struct$_Kitty_$3116_storage",
                           "typeString": "struct KittyStorage.Kitty storage ref"
                         }
                       },
@@ -2094,7 +2094,7 @@
                       "lValueRequested": false,
                       "memberName": "genes",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 3097,
+                      "referencedDeclaration": 3107,
                       "src": "2763:23:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2144,10 +2144,10 @@
                           "name": "_kitties",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3133,
+                          "referencedDeclaration": 3143,
                           "src": "2809:8:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3106_storage_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3116_storage_$dyn_storage",
                             "typeString": "struct KittyStorage.Kitty storage ref[] storage ref"
                           }
                         },
@@ -2172,7 +2172,7 @@
                         "nodeType": "IndexAccess",
                         "src": "2809:17:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Kitty_$3106_storage",
+                          "typeIdentifier": "t_struct$_Kitty_$3116_storage",
                           "typeString": "struct KittyStorage.Kitty storage ref"
                         }
                       },
@@ -2183,7 +2183,7 @@
                       "lValueRequested": false,
                       "memberName": "birthTime",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 3099,
+                      "referencedDeclaration": 3109,
                       "src": "2809:27:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint64",
@@ -2233,10 +2233,10 @@
                           "name": "_kitties",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3133,
+                          "referencedDeclaration": 3143,
                           "src": "2855:8:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3106_storage_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3116_storage_$dyn_storage",
                             "typeString": "struct KittyStorage.Kitty storage ref[] storage ref"
                           }
                         },
@@ -2261,7 +2261,7 @@
                         "nodeType": "IndexAccess",
                         "src": "2855:17:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Kitty_$3106_storage",
+                          "typeIdentifier": "t_struct$_Kitty_$3116_storage",
                           "typeString": "struct KittyStorage.Kitty storage ref"
                         }
                       },
@@ -2272,7 +2272,7 @@
                       "lValueRequested": false,
                       "memberName": "mumId",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 3101,
+                      "referencedDeclaration": 3111,
                       "src": "2855:23:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint32",
@@ -2322,10 +2322,10 @@
                           "name": "_kitties",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3133,
+                          "referencedDeclaration": 3143,
                           "src": "2897:8:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3106_storage_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3116_storage_$dyn_storage",
                             "typeString": "struct KittyStorage.Kitty storage ref[] storage ref"
                           }
                         },
@@ -2350,7 +2350,7 @@
                         "nodeType": "IndexAccess",
                         "src": "2897:17:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Kitty_$3106_storage",
+                          "typeIdentifier": "t_struct$_Kitty_$3116_storage",
                           "typeString": "struct KittyStorage.Kitty storage ref"
                         }
                       },
@@ -2361,7 +2361,7 @@
                       "lValueRequested": false,
                       "memberName": "dadId",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 3103,
+                      "referencedDeclaration": 3113,
                       "src": "2897:23:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint32",
@@ -2411,10 +2411,10 @@
                           "name": "_kitties",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3133,
+                          "referencedDeclaration": 3143,
                           "src": "2944:8:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3106_storage_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3116_storage_$dyn_storage",
                             "typeString": "struct KittyStorage.Kitty storage ref[] storage ref"
                           }
                         },
@@ -2439,7 +2439,7 @@
                         "nodeType": "IndexAccess",
                         "src": "2944:17:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Kitty_$3106_storage",
+                          "typeIdentifier": "t_struct$_Kitty_$3116_storage",
                           "typeString": "struct KittyStorage.Kitty storage ref"
                         }
                       },
@@ -2450,7 +2450,7 @@
                       "lValueRequested": false,
                       "memberName": "generation",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 3105,
+                      "referencedDeclaration": 3115,
                       "src": "2944:28:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint16",
@@ -2706,7 +2706,7 @@
                           "name": "_gen0Counter",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3111,
+                          "referencedDeclaration": 3121,
                           "src": "3230:12:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -2721,7 +2721,7 @@
                           "name": "_CREATION_LIMIT_GEN0",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3109,
+                          "referencedDeclaration": 3119,
                           "src": "3245:20:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -2768,10 +2768,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        3851,
-                        3852
+                        3861,
+                        3862
                       ],
-                      "referencedDeclaration": 3852,
+                      "referencedDeclaration": 3862,
                       "src": "3222:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -2814,7 +2814,7 @@
                       "name": "_gen0Counter",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3111,
+                      "referencedDeclaration": 3121,
                       "src": "3304:12:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2909,7 +2909,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3848,
+                          "referencedDeclaration": 3858,
                           "src": "3441:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -3000,7 +3000,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 3801,
+                  "referencedDeclaration": 3811,
                   "src": "3157:9:5",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -3140,10 +3140,10 @@
                               "name": "_kitties",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3133,
+                              "referencedDeclaration": 3143,
                               "src": "3912:8:5",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_struct$_Kitty_$3106_storage_$dyn_storage",
+                                "typeIdentifier": "t_array$_t_struct$_Kitty_$3116_storage_$dyn_storage",
                                 "typeString": "struct KittyStorage.Kitty storage ref[] storage ref"
                               }
                             },
@@ -3203,10 +3203,10 @@
                               "name": "_kitties",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3133,
+                              "referencedDeclaration": 3143,
                               "src": "3939:8:5",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_struct$_Kitty_$3106_storage_$dyn_storage",
+                                "typeIdentifier": "t_array$_t_struct$_Kitty_$3116_storage_$dyn_storage",
                                 "typeString": "struct KittyStorage.Kitty storage ref[] storage ref"
                               }
                             },
@@ -3270,10 +3270,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        3851,
-                        3852
+                        3861,
+                        3862
                       ],
-                      "referencedDeclaration": 3852,
+                      "referencedDeclaration": 3862,
                       "src": "3882:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -3324,7 +3324,7 @@
                                 "name": "msg",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 3848,
+                                "referencedDeclaration": 3858,
                                 "src": "4039:3:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_message",
@@ -3374,7 +3374,7 @@
                             "name": "_owns",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3500,
+                            "referencedDeclaration": 3510,
                             "src": "4033:5:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_internal_view$_t_address_$_t_uint256_$returns$_t_bool_$",
@@ -3436,7 +3436,7 @@
                               "name": "getApproved",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3322,
+                              "referencedDeclaration": 3332,
                               "src": "4061:11:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_internal_view$_t_uint256_$returns$_t_address_$",
@@ -3467,7 +3467,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3848,
+                              "referencedDeclaration": 3858,
                               "src": "4083:3:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -3534,10 +3534,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        3851,
-                        3852
+                        3861,
+                        3862
                       ],
-                      "referencedDeclaration": 3852,
+                      "referencedDeclaration": 3862,
                       "src": "4025:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -3588,7 +3588,7 @@
                                 "name": "msg",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 3848,
+                                "referencedDeclaration": 3858,
                                 "src": "4209:3:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_message",
@@ -3638,7 +3638,7 @@
                             "name": "_owns",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3500,
+                            "referencedDeclaration": 3510,
                             "src": "4203:5:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_internal_view$_t_address_$_t_uint256_$returns$_t_bool_$",
@@ -3700,7 +3700,7 @@
                               "name": "getApproved",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3322,
+                              "referencedDeclaration": 3332,
                               "src": "4231:11:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_internal_view$_t_uint256_$returns$_t_address_$",
@@ -3731,7 +3731,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3848,
+                              "referencedDeclaration": 3858,
                               "src": "4253:3:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -3798,10 +3798,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        3851,
-                        3852
+                        3861,
+                        3862
                       ],
-                      "referencedDeclaration": 3852,
+                      "referencedDeclaration": 3862,
                       "src": "4181:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -3909,10 +3909,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        3851,
-                        3852
+                        3861,
+                        3862
                       ],
-                      "referencedDeclaration": 3852,
+                      "referencedDeclaration": 3862,
                       "src": "4351:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -4041,10 +4041,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        3851,
-                        3852
+                        3861,
+                        3862
                       ],
-                      "referencedDeclaration": 3852,
+                      "referencedDeclaration": 3862,
                       "src": "4406:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -4650,7 +4650,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3848,
+                          "referencedDeclaration": 3858,
                           "src": "4916:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -5096,7 +5096,7 @@
                       "name": "now",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3850,
+                      "referencedDeclaration": 3860,
                       "src": "6804:3:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -5185,7 +5185,7 @@
                           "name": "now",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3850,
+                          "referencedDeclaration": 3860,
                           "src": "6843:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -5337,7 +5337,7 @@
                                       "name": "now",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 3850,
+                                      "referencedDeclaration": 3860,
                                       "src": "6900:3:5",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_uint256",
@@ -5408,7 +5408,7 @@
                                         "name": "block",
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
-                                        "referencedDeclaration": 3838,
+                                        "referencedDeclaration": 3848,
                                         "src": "6914:5:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_magic_block",
@@ -8751,7 +8751,7 @@
                           "name": "block",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3838,
+                          "referencedDeclaration": 3848,
                           "src": "9715:5:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_block",
@@ -8825,7 +8825,7 @@
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Kitty_$3106_memory_ptr",
+                        "typeIdentifier": "t_struct$_Kitty_$3116_memory_ptr",
                         "typeString": "struct KittyStorage.Kitty"
                       },
                       "typeName": {
@@ -8833,10 +8833,10 @@
                         "id": 917,
                         "name": "Kitty",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 3106,
+                        "referencedDeclaration": 3116,
                         "src": "9758:5:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Kitty_$3106_storage_ptr",
+                          "typeIdentifier": "t_struct$_Kitty_$3116_storage_ptr",
                           "typeString": "struct KittyStorage.Kitty"
                         }
                       },
@@ -9055,10 +9055,10 @@
                       "name": "Kitty",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3106,
+                      "referencedDeclaration": 3116,
                       "src": "9779:5:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_Kitty_$3106_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_Kitty_$3116_storage_ptr_$",
                         "typeString": "type(struct KittyStorage.Kitty storage pointer)"
                       }
                     },
@@ -9078,7 +9078,7 @@
                     "nodeType": "FunctionCall",
                     "src": "9779:265:5",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Kitty_$3106_memory",
+                      "typeIdentifier": "t_struct$_Kitty_$3116_memory",
                       "typeString": "struct KittyStorage.Kitty memory"
                     }
                   },
@@ -9141,7 +9141,7 @@
                           "referencedDeclaration": 918,
                           "src": "10093:5:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Kitty_$3106_memory_ptr",
+                            "typeIdentifier": "t_struct$_Kitty_$3116_memory_ptr",
                             "typeString": "struct KittyStorage.Kitty memory"
                           }
                         }
@@ -9149,7 +9149,7 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_struct$_Kitty_$3106_memory_ptr",
+                            "typeIdentifier": "t_struct$_Kitty_$3116_memory_ptr",
                             "typeString": "struct KittyStorage.Kitty memory"
                           }
                         ],
@@ -9159,10 +9159,10 @@
                           "name": "_kitties",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3133,
+                          "referencedDeclaration": 3143,
                           "src": "10079:8:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3106_storage_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3116_storage_$dyn_storage",
                             "typeString": "struct KittyStorage.Kitty storage ref[] storage ref"
                           }
                         },
@@ -9176,7 +9176,7 @@
                         "referencedDeclaration": null,
                         "src": "10079:13:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Kitty_$3106_storage_$returns$_t_uint256_$",
+                          "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Kitty_$3116_storage_$returns$_t_uint256_$",
                           "typeString": "function (struct KittyStorage.Kitty storage ref) returns (uint256)"
                         }
                       },
@@ -9485,7 +9485,7 @@
                       "name": "_transfer",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3545,
+                      "referencedDeclaration": 3555,
                       "src": "10735:9:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -9749,7 +9749,7 @@
         "id": 307,
         "nodeType": "ImportDirective",
         "scope": 965,
-        "sourceUnit": 3750,
+        "sourceUnit": 3760,
         "src": "61:26:5",
         "symbolAliases": [],
         "unitAlias": ""
@@ -9763,10 +9763,10 @@
               "id": 308,
               "name": "KittyToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 3749,
+              "referencedDeclaration": 3759,
               "src": "297:10:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_KittyToken_$3749",
+                "typeIdentifier": "t_contract$_KittyToken_$3759",
                 "typeString": "contract KittyToken"
               }
             },
@@ -9777,10 +9777,10 @@
         ],
         "contractDependencies": [
           156,
-          3152,
-          3749,
-          3811,
-          3833
+          3162,
+          3759,
+          3821,
+          3843
         ],
         "contractKind": "contract",
         "documentation": "dev main logic contract \nnotice requirements of breed function modified to allow location\nsg.sender needs to be the owner or an approved address for the tokenId",
@@ -9788,10 +9788,10 @@
         "id": 964,
         "linearizedBaseContracts": [
           964,
-          3749,
-          3152,
-          3833,
-          3811,
+          3759,
+          3162,
+          3843,
+          3821,
           156
         ],
         "name": "KittyContract",
@@ -10233,7 +10233,7 @@
                       "name": "_ownershipTokenCount",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3141,
+                      "referencedDeclaration": 3151,
                       "src": "1624:20:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
@@ -10464,7 +10464,7 @@
                               "name": "_kittyIndexToOwner",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3137,
+                              "referencedDeclaration": 3147,
                               "src": "1906:18:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
@@ -10683,10 +10683,10 @@
                           "name": "_kitties",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3133,
+                          "referencedDeclaration": 3143,
                           "src": "1816:8:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3106_storage_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3116_storage_$dyn_storage",
                             "typeString": "struct KittyStorage.Kitty storage ref[] storage ref"
                           }
                         },
@@ -10995,10 +10995,10 @@
                             "name": "_kitties",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3133,
+                            "referencedDeclaration": 3143,
                             "src": "2629:8:5",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_array$_t_struct$_Kitty_$3106_storage_$dyn_storage",
+                              "typeIdentifier": "t_array$_t_struct$_Kitty_$3116_storage_$dyn_storage",
                               "typeString": "struct KittyStorage.Kitty storage ref[] storage ref"
                             }
                           },
@@ -11071,10 +11071,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        3851,
-                        3852
+                        3861,
+                        3862
                       ],
-                      "referencedDeclaration": 3852,
+                      "referencedDeclaration": 3862,
                       "src": "2621:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -11130,7 +11130,7 @@
                         "name": "_kittyIndexToOwner",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3137,
+                        "referencedDeclaration": 3147,
                         "src": "2709:18:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_uint256_$_t_address_$",
@@ -11205,10 +11205,10 @@
                           "name": "_kitties",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3133,
+                          "referencedDeclaration": 3143,
                           "src": "2763:8:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3106_storage_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3116_storage_$dyn_storage",
                             "typeString": "struct KittyStorage.Kitty storage ref[] storage ref"
                           }
                         },
@@ -11233,7 +11233,7 @@
                         "nodeType": "IndexAccess",
                         "src": "2763:17:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Kitty_$3106_storage",
+                          "typeIdentifier": "t_struct$_Kitty_$3116_storage",
                           "typeString": "struct KittyStorage.Kitty storage ref"
                         }
                       },
@@ -11244,7 +11244,7 @@
                       "lValueRequested": false,
                       "memberName": "genes",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 3097,
+                      "referencedDeclaration": 3107,
                       "src": "2763:23:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -11294,10 +11294,10 @@
                           "name": "_kitties",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3133,
+                          "referencedDeclaration": 3143,
                           "src": "2809:8:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3106_storage_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3116_storage_$dyn_storage",
                             "typeString": "struct KittyStorage.Kitty storage ref[] storage ref"
                           }
                         },
@@ -11322,7 +11322,7 @@
                         "nodeType": "IndexAccess",
                         "src": "2809:17:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Kitty_$3106_storage",
+                          "typeIdentifier": "t_struct$_Kitty_$3116_storage",
                           "typeString": "struct KittyStorage.Kitty storage ref"
                         }
                       },
@@ -11333,7 +11333,7 @@
                       "lValueRequested": false,
                       "memberName": "birthTime",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 3099,
+                      "referencedDeclaration": 3109,
                       "src": "2809:27:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint64",
@@ -11383,10 +11383,10 @@
                           "name": "_kitties",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3133,
+                          "referencedDeclaration": 3143,
                           "src": "2855:8:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3106_storage_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3116_storage_$dyn_storage",
                             "typeString": "struct KittyStorage.Kitty storage ref[] storage ref"
                           }
                         },
@@ -11411,7 +11411,7 @@
                         "nodeType": "IndexAccess",
                         "src": "2855:17:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Kitty_$3106_storage",
+                          "typeIdentifier": "t_struct$_Kitty_$3116_storage",
                           "typeString": "struct KittyStorage.Kitty storage ref"
                         }
                       },
@@ -11422,7 +11422,7 @@
                       "lValueRequested": false,
                       "memberName": "mumId",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 3101,
+                      "referencedDeclaration": 3111,
                       "src": "2855:23:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint32",
@@ -11472,10 +11472,10 @@
                           "name": "_kitties",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3133,
+                          "referencedDeclaration": 3143,
                           "src": "2897:8:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3106_storage_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3116_storage_$dyn_storage",
                             "typeString": "struct KittyStorage.Kitty storage ref[] storage ref"
                           }
                         },
@@ -11500,7 +11500,7 @@
                         "nodeType": "IndexAccess",
                         "src": "2897:17:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Kitty_$3106_storage",
+                          "typeIdentifier": "t_struct$_Kitty_$3116_storage",
                           "typeString": "struct KittyStorage.Kitty storage ref"
                         }
                       },
@@ -11511,7 +11511,7 @@
                       "lValueRequested": false,
                       "memberName": "dadId",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 3103,
+                      "referencedDeclaration": 3113,
                       "src": "2897:23:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint32",
@@ -11561,10 +11561,10 @@
                           "name": "_kitties",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3133,
+                          "referencedDeclaration": 3143,
                           "src": "2944:8:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3106_storage_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3116_storage_$dyn_storage",
                             "typeString": "struct KittyStorage.Kitty storage ref[] storage ref"
                           }
                         },
@@ -11589,7 +11589,7 @@
                         "nodeType": "IndexAccess",
                         "src": "2944:17:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Kitty_$3106_storage",
+                          "typeIdentifier": "t_struct$_Kitty_$3116_storage",
                           "typeString": "struct KittyStorage.Kitty storage ref"
                         }
                       },
@@ -11600,7 +11600,7 @@
                       "lValueRequested": false,
                       "memberName": "generation",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 3105,
+                      "referencedDeclaration": 3115,
                       "src": "2944:28:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint16",
@@ -11856,7 +11856,7 @@
                           "name": "_gen0Counter",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3111,
+                          "referencedDeclaration": 3121,
                           "src": "3230:12:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -11871,7 +11871,7 @@
                           "name": "_CREATION_LIMIT_GEN0",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3109,
+                          "referencedDeclaration": 3119,
                           "src": "3245:20:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -11918,10 +11918,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        3851,
-                        3852
+                        3861,
+                        3862
                       ],
-                      "referencedDeclaration": 3852,
+                      "referencedDeclaration": 3862,
                       "src": "3222:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -11964,7 +11964,7 @@
                       "name": "_gen0Counter",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3111,
+                      "referencedDeclaration": 3121,
                       "src": "3304:12:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -12059,7 +12059,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3848,
+                          "referencedDeclaration": 3858,
                           "src": "3441:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -12150,7 +12150,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 3801,
+                  "referencedDeclaration": 3811,
                   "src": "3157:9:5",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -12290,10 +12290,10 @@
                               "name": "_kitties",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3133,
+                              "referencedDeclaration": 3143,
                               "src": "3912:8:5",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_struct$_Kitty_$3106_storage_$dyn_storage",
+                                "typeIdentifier": "t_array$_t_struct$_Kitty_$3116_storage_$dyn_storage",
                                 "typeString": "struct KittyStorage.Kitty storage ref[] storage ref"
                               }
                             },
@@ -12353,10 +12353,10 @@
                               "name": "_kitties",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3133,
+                              "referencedDeclaration": 3143,
                               "src": "3939:8:5",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_struct$_Kitty_$3106_storage_$dyn_storage",
+                                "typeIdentifier": "t_array$_t_struct$_Kitty_$3116_storage_$dyn_storage",
                                 "typeString": "struct KittyStorage.Kitty storage ref[] storage ref"
                               }
                             },
@@ -12420,10 +12420,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        3851,
-                        3852
+                        3861,
+                        3862
                       ],
-                      "referencedDeclaration": 3852,
+                      "referencedDeclaration": 3862,
                       "src": "3882:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -12474,7 +12474,7 @@
                                 "name": "msg",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 3848,
+                                "referencedDeclaration": 3858,
                                 "src": "4039:3:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_message",
@@ -12524,7 +12524,7 @@
                             "name": "_owns",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3500,
+                            "referencedDeclaration": 3510,
                             "src": "4033:5:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_internal_view$_t_address_$_t_uint256_$returns$_t_bool_$",
@@ -12586,7 +12586,7 @@
                               "name": "getApproved",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3322,
+                              "referencedDeclaration": 3332,
                               "src": "4061:11:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_internal_view$_t_uint256_$returns$_t_address_$",
@@ -12617,7 +12617,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3848,
+                              "referencedDeclaration": 3858,
                               "src": "4083:3:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -12684,10 +12684,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        3851,
-                        3852
+                        3861,
+                        3862
                       ],
-                      "referencedDeclaration": 3852,
+                      "referencedDeclaration": 3862,
                       "src": "4025:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -12738,7 +12738,7 @@
                                 "name": "msg",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 3848,
+                                "referencedDeclaration": 3858,
                                 "src": "4209:3:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_message",
@@ -12788,7 +12788,7 @@
                             "name": "_owns",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 3500,
+                            "referencedDeclaration": 3510,
                             "src": "4203:5:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_internal_view$_t_address_$_t_uint256_$returns$_t_bool_$",
@@ -12850,7 +12850,7 @@
                               "name": "getApproved",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3322,
+                              "referencedDeclaration": 3332,
                               "src": "4231:11:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_internal_view$_t_uint256_$returns$_t_address_$",
@@ -12881,7 +12881,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 3848,
+                              "referencedDeclaration": 3858,
                               "src": "4253:3:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -12948,10 +12948,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        3851,
-                        3852
+                        3861,
+                        3862
                       ],
-                      "referencedDeclaration": 3852,
+                      "referencedDeclaration": 3862,
                       "src": "4181:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -13059,10 +13059,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        3851,
-                        3852
+                        3861,
+                        3862
                       ],
-                      "referencedDeclaration": 3852,
+                      "referencedDeclaration": 3862,
                       "src": "4351:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -13191,10 +13191,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        3851,
-                        3852
+                        3861,
+                        3862
                       ],
-                      "referencedDeclaration": 3852,
+                      "referencedDeclaration": 3862,
                       "src": "4406:7:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -13800,7 +13800,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3848,
+                          "referencedDeclaration": 3858,
                           "src": "4916:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -14246,7 +14246,7 @@
                       "name": "now",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3850,
+                      "referencedDeclaration": 3860,
                       "src": "6804:3:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -14335,7 +14335,7 @@
                           "name": "now",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3850,
+                          "referencedDeclaration": 3860,
                           "src": "6843:3:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -14487,7 +14487,7 @@
                                       "name": "now",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 3850,
+                                      "referencedDeclaration": 3860,
                                       "src": "6900:3:5",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_uint256",
@@ -14558,7 +14558,7 @@
                                         "name": "block",
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
-                                        "referencedDeclaration": 3838,
+                                        "referencedDeclaration": 3848,
                                         "src": "6914:5:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_magic_block",
@@ -17901,7 +17901,7 @@
                           "name": "block",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3838,
+                          "referencedDeclaration": 3848,
                           "src": "9715:5:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_block",
@@ -17975,7 +17975,7 @@
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Kitty_$3106_memory_ptr",
+                        "typeIdentifier": "t_struct$_Kitty_$3116_memory_ptr",
                         "typeString": "struct KittyStorage.Kitty"
                       },
                       "typeName": {
@@ -17983,10 +17983,10 @@
                         "id": 917,
                         "name": "Kitty",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 3106,
+                        "referencedDeclaration": 3116,
                         "src": "9758:5:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Kitty_$3106_storage_ptr",
+                          "typeIdentifier": "t_struct$_Kitty_$3116_storage_ptr",
                           "typeString": "struct KittyStorage.Kitty"
                         }
                       },
@@ -18205,10 +18205,10 @@
                       "name": "Kitty",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3106,
+                      "referencedDeclaration": 3116,
                       "src": "9779:5:5",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_Kitty_$3106_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_Kitty_$3116_storage_ptr_$",
                         "typeString": "type(struct KittyStorage.Kitty storage pointer)"
                       }
                     },
@@ -18228,7 +18228,7 @@
                     "nodeType": "FunctionCall",
                     "src": "9779:265:5",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Kitty_$3106_memory",
+                      "typeIdentifier": "t_struct$_Kitty_$3116_memory",
                       "typeString": "struct KittyStorage.Kitty memory"
                     }
                   },
@@ -18291,7 +18291,7 @@
                           "referencedDeclaration": 918,
                           "src": "10093:5:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Kitty_$3106_memory_ptr",
+                            "typeIdentifier": "t_struct$_Kitty_$3116_memory_ptr",
                             "typeString": "struct KittyStorage.Kitty memory"
                           }
                         }
@@ -18299,7 +18299,7 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_struct$_Kitty_$3106_memory_ptr",
+                            "typeIdentifier": "t_struct$_Kitty_$3116_memory_ptr",
                             "typeString": "struct KittyStorage.Kitty memory"
                           }
                         ],
@@ -18309,10 +18309,10 @@
                           "name": "_kitties",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 3133,
+                          "referencedDeclaration": 3143,
                           "src": "10079:8:5",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3106_storage_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_struct$_Kitty_$3116_storage_$dyn_storage",
                             "typeString": "struct KittyStorage.Kitty storage ref[] storage ref"
                           }
                         },
@@ -18326,7 +18326,7 @@
                         "referencedDeclaration": null,
                         "src": "10079:13:5",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Kitty_$3106_storage_$returns$_t_uint256_$",
+                          "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Kitty_$3116_storage_$returns$_t_uint256_$",
                           "typeString": "function (struct KittyStorage.Kitty storage ref) returns (uint256)"
                         }
                       },
@@ -18635,7 +18635,7 @@
                       "name": "_transfer",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3545,
+                      "referencedDeclaration": 3555,
                       "src": "10735:9:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -19142,12 +19142,12 @@
         }
       },
       "links": {},
-      "address": "0xF2392f9b823A80f0ba460d8aE0180b0be42672D2",
-      "transactionHash": "0x99a8ac00a1db70f799664f3b83cb95714bafac35358b317d350e8474d9958b74"
+      "address": "0x938F810792aA0D32f5F88A80a6A0E9bE9D27b186",
+      "transactionHash": "0x42892b264fb86006c2e7c8043c197e97fe6eeae10d524904a6ec355097d0ba36"
     }
   },
   "schemaVersion": "3.2.0",
-  "updatedAt": "2020-09-22T21:20:23.926Z",
+  "updatedAt": "2020-09-22T23:22:45.621Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {

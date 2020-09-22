@@ -266,7 +266,7 @@ contract KittyMarketContract is KittyMarketStorage, IKittyMarketPlace {
             "only the seller can cancel the order"
         );
 
-        deleteOffer(tokenId);
+        _deleteOffer(tokenId);
 
         emit MarketTransaction("Remove offer", msg.sender, tokenId);
     }
@@ -285,7 +285,7 @@ contract KittyMarketContract is KittyMarketStorage, IKittyMarketPlace {
         address payable seller = _tokenIdToOffer[tokenId].seller;
         uint256 price = _tokenIdToOffer[tokenId].price;
 
-        deleteOffer(tokenId);
+        _deleteOffer(tokenId);
         _deposit(seller, price);
         _kittyContract.transferFrom(seller, msg.sender, tokenId);
 
@@ -325,12 +325,13 @@ contract KittyMarketContract is KittyMarketStorage, IKittyMarketPlace {
     /**
      *@dev Deletes an offer
      */
-    function deleteOffer(uint256 tokenId) private {
+    function _deleteOffer(uint256 tokenId) private {
         uint256 lastIndex = _offers.length - 1;
         uint256 removedIndex = _tokenIdToOffer[tokenId].index;
         if (lastIndex > removedIndex) {
             _offers[lastIndex].index = removedIndex;
             _offers[removedIndex] = _offers[lastIndex];
+            _tokenIdToOffer[_offers[removedIndex].tokenId].index = removedIndex;
         }
         _offers.length--;
 
