@@ -126,7 +126,7 @@ createKittyGen0(1111111111111111);
     - only one usage allowed so if lender breed => breed function reste the approval
     -
     */
-    function breed(uint256 dadId, uint256 mumId) public returns (uint256) {
+    function breed(uint256 dadId, uint256 mumId) public returns (uint256 kittenId) {
         require(
             dadId < _kitties.length && mumId < _kitties.length,
             "one of the parents doesn't exist"
@@ -152,7 +152,7 @@ createKittyGen0(1111111111111111);
 
         uint256 kittenDna = _mixDna(dadDna, mumDna);
 
-        _createKitty(mumId, dadId, generation, kittenDna, msg.sender);
+        kittenId = _createKitty(mumId, dadId, generation, kittenDna, msg.sender);
     }
 
     /***************************************************

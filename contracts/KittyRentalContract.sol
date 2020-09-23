@@ -249,7 +249,7 @@ contract KittyRentalContract is IKittyRental {
     function isStillValid(uint256 tokenId) public view returns (bool) {
         return
             _tokenIdToRentalOffer[tokenId].borrower != address(0) &&
-            (_tokenIdToRentalOffer[tokenId].actionsRemaining > 0 ||
+            (_tokenIdToRentalOffer[tokenId].actionsRemaining > 0 &&
                 _tokenIdToRentalOffer[tokenId].endTime > block.timestamp);
     }
 

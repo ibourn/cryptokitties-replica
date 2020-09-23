@@ -248,6 +248,7 @@ contract KittyToken is IERC721, KittyStorage {
         require(tokenId < _kitties.length, "tokenId doesn't exist");
         require(to != address(0), "to can't be address 0");
         require(_owns(from, tokenId), "from should be owner of tokenId");
+        //DEBUG require(_owns(from, tokenId), "KittyToken line250/ from should be owner of tokenId");
 
         return (sender == from ||
             isApprovedForAll(from, sender) ||
